@@ -12,7 +12,9 @@ exports.seed = function (knex, Promise) {
       // Inserts seed entries
       return Promise.all([
         knex('emoji').insert(data.slice(0, 400)),
-        knex('emoji').insert(data.slice(400, 800))
+        knex('emoji').insert(data.slice(400, 800)),
+        knex('emoji').insert(data.slice(800, 1200)),
+        knex('emoji').insert(data.slice(1200))
       ])
     })
 }
