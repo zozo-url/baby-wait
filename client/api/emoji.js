@@ -2,7 +2,9 @@ import request from 'superagent'
 
 export function getEmoji() {
   // Call the Emoji API
-  return request.get('/api/emoji')
+  return request
+    .get('/api/emoji')
+    .set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwibWVzc2FnZSI6IkhpIHRoZXJlIiwiaWF0IjoxNTU2NjY0MjI0LCJleHAiOjE1NTY3NTA2MjR9.Rnu0ZN_vBfdmpPxPlJYnWYyfinbMHGNRRvVcjQ9y9HM')
     // Process the response, and extract the data
     .then(res => res.body)
     // Handle an API error
