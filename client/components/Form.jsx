@@ -15,7 +15,7 @@ class Form extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit(event) {
+  handleSubmit (event) {
     event.preventDefault()
 
     this.props.dispatch(selectImage(this.props.filteredEmoji[0].image_url))
