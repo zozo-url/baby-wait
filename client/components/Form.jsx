@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { filterEmoji, saveEmoji } from '../actions/emoji'
+import { filterEmoji, saveEmoji, selectImage } from '../actions/emoji'
 
 class Form extends React.Component {
   constructor (props) {
@@ -12,6 +12,13 @@ class Form extends React.Component {
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(event) {
+    event.preventDefault()
+
+    this.props.dispatch(selectImage(this.props.filteredEmoji[0].image_url))
   }
 
   handleChange (event) {
@@ -29,8 +36,8 @@ class Form extends React.Component {
   }
   render () {
     return (
-      <form>
-        <input type="text" name="query" onChange={this.handleChange} />
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" name="query" autoComplete="off" onChange={this.handleChange} />
       </form>
     )
   }
@@ -38,7 +45,8 @@ class Form extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    emoji: state.emoji
+    emoji: state.emoji,
+    filteredEmoji: state.filteredEmoji
   }
 }
 

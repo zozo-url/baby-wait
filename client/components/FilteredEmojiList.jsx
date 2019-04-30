@@ -5,7 +5,7 @@ class FilteredEmojiList extends React.Component {
   render () {
     return (
       <div>
-        <ul>
+        <ul style={{ listStyle: 'none' }}>
           {this.props.filteredEmoji.map(emoji => {
             return (
               <li key={emoji.id}>
