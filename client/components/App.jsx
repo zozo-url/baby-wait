@@ -2,12 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import Form from './Form'
-import { fetchEmoji } from '../actions/emoji'
+import { fetchEmoji, saveEmoji } from '../actions/emoji'
 import Image from './Image'
 import FilteredEmojiList from './FilteredEmojiList'
 
 class App extends React.Component {
   componentDidMount () {
+    console.log('fetch Emoji is a', typeof fetchEmoji())
+    console.log('save Emoji is a', typeof saveEmoji())
     this.props.dispatch(fetchEmoji())
   }
 

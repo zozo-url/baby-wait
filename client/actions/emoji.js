@@ -12,6 +12,7 @@ export function filterEmoji (query) {
 }
 
 export function saveEmoji (emoji) {
+  console.log('6 Dispatching the emoji to redux')
   return {
     type: SAVE_EMOJI,
     emoji
@@ -19,9 +20,18 @@ export function saveEmoji (emoji) {
 }
 
 export function fetchEmoji () {
-  return dispatch => {
+  // Console log anything BEFORE calling the API
+  console.log('1 Dispatching the action')
+
+  return function (dispatch) {
+    // Console log anything BEFORE calling the API
+    console.log('2 Thunk is running the action')
+
     getEmoji()
       .then(emoji => {
+        // Console log anything AFTER calling the API
+        console.log('5 Got the Emoji!: ', emoji)
+
         dispatch(saveEmoji(emoji))
       })
   }
