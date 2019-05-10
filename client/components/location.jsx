@@ -9,9 +9,7 @@ class location extends React.Component{
 }render(){
   return(
     <div>
-      <div id="region-list"><ul>
-<!--  <li class="region-home"><a href="/know-your-region"><span class="regionName">Know Your Region Home</span></a></li> -->
-  <li><a href="https://www.educationcounts.govt.nz/know-your-region/region/region-summary?region=1" class=""><span class="regionName">Northland Region</span><span class="regionKML"></span></a></li>
+      <div id="region-list"><ul>  <li class="region-home"><a href="/know-your-region"><span class="regionName">Know Your Region Home</span></a></li>  <li><a href="https://www.educationcounts.govt.nz/know-your-region/region/region-summary?region=1" class=""><span class="regionName">Northland Region</span><span class="regionKML"></span></a></li>
 <li><a href="https://www.educationcounts.govt.nz/know-your-region/region/region-summary?region=2" class=""><span class="regionName">Auckland Region</span><span class="regionKML"></span></a></li>
 <li><a href="https://www.educationcounts.govt.nz/know-your-region/region/region-summary?region=3" class=""><span class="regionName">Waikato Region</span><span class="regionKML"></span></a></li>
 <li><a href="https://www.educationcounts.govt.nz/know-your-region/region/region-summary?region=4"><span class="regionName">Bay of Plenty Region</span><span class="regionKML"></span></a></li>
