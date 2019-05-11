@@ -22,6 +22,17 @@ router.post('/createchild', (req, res) => {
         res.status(500).send(err.message)
     })
 })
+
+router.post('/addchildtowaitlist', (req, res) => {
+    db.addChildToWaitList(req.body)
+    .then(waitlist => {
+        res.json(waitlist)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
+})
+
 router.delete('/deletechildfromwaitlist', (req, res) => {
     db.deleteChildFromWaitlist(req.body.id)
     .then(child => {
@@ -42,6 +53,7 @@ router.get('/childwaitlist/:id', (req, res) => {
         res.status(500).send(err.message)
     })
 })
+
 
 
 module.exports = router
