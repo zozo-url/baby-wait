@@ -13,4 +13,10 @@ router.get('/ecc', (req, res) => {
     })
 })
 
+router.post('/createchild', (req, res) => {
+    console.log('req.body: ', req.body)
+    db.createChild(req.body)
+    .then()
+})
+
 module.exports = router
