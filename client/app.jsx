@@ -1,14 +1,39 @@
-import React, { Component } from 'react';
-import Footer from './components/Footer'
+import React from 'react';
+import { connect } from 'react-redux'
+// import currentPage from '../reducers/current-page'
 
-class app extends Component {
-  render() {
+import Footer from './components/Footer';
+// import ParentRegister from './components/ParentRegister';
+// import childRegister from './components/childRegister'
+
+
+
+
+
+
+class app extends React.Component{
+  render (){
     return (
       <div>
-        <Footer />
+        {/* <childRegister />, */}
+        {/* <ParentRegister />, */}
+        <Footer />,
       </div>
     );
   }
+      
 }
 
-export default app;
+
+export default app
+
+// const mapStateToProps = (state) =>{
+//   return {
+//     currentPage: state.currentPage
+//   }
+
+
+
+
+// export default connect(
+//   mapStateToProps)(app)
