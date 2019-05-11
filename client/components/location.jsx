@@ -4,7 +4,7 @@ import React from 'react'
 class location extends React.Component{
   constructor(props){
     super(props)
-    this.state{}
+    this.state={}
   }
 }render(){
   return(
