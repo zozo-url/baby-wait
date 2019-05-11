@@ -132,6 +132,8 @@ Tot Spot is a waitlist application that connects parents with Early Childhood Ce
 
 
  #### ECC's
+  | Type | Description |
+  | --- | --- |
   | POST | register info to ECC table |
   | GET | log in with ECC username + password |
   | UPDATE | ecc info |
