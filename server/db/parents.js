@@ -10,9 +10,10 @@ function createChild (newChildInfo, db = connection) {
         .insert(newChildInfo)
 }
 
-function deleteChild (id, db = connection) {
+function deleteChildFromWaitlist (id, db = connection) {
     return db('waitlist')
     .where('child_id', id)
+    //.where ecc_id is ecc_id
     .del()
 }
 // rank_parent is easily changed, need to make unique
@@ -27,6 +28,6 @@ function getChildWaitlists (id, db = connection) {
 module.exports = {
     getEccList,
     createChild,
-    deleteChild,
+    deleteChildFromWaitlist,
     getChildWaitlists
 }
