@@ -13,6 +13,15 @@ router.get('/ecc', (req, res) => {
     })
 })
 
+<<<<<<< HEAD
+router.post('/createchild', (req, res) => {
+    console.log('req.body: ', req.body)
+    db.createChild(req.body)
+    .then()
+})
+
+||||||| merged common ancestors
+=======
 router.delete('/child', (req, res) => {
     console.log(req.body)
     db.deleteChild(req.body.id)
@@ -36,4 +45,5 @@ router.get('/childwaitlist/:id', (req, res) => {
 })
 
 
+>>>>>>> 3cd5511aab91d20590dd386d8b36e1e14dd0b609
 module.exports = router

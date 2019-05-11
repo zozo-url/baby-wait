@@ -4,6 +4,12 @@ function getEccList (db = connection) {
     return db('ecc').select()
 }
 
+function createChild (newChildInfo, db = connection) {
+    console.log('newChildInfo: ', newChildInfo) 
+    return db('child')
+        .insert(newChildInfo)
+}
+
 function deleteChild (id, db = connection) {
     return db('waitlist')
     .where('child_id', id)
@@ -11,10 +17,6 @@ function deleteChild (id, db = connection) {
 }
 
 function getChildWaitlists (id, db = connection) {
-    // return db.select('*').from('parent').join('child', function() {
-    //     this.on(id, '=', 'child.parent_id')
-    //     .andOn( 'child.id', '=', 'waitlist.child_id').andOn('ecc_id', '=', 'id')
-    // })
     return db('parent').where('parent.id', id)
     .join('child', 'parent.id', '=', 'parent_id')
     .join('waitlist', 'child_id', '=', 'waitlist.child_id')
@@ -24,6 +26,7 @@ function getChildWaitlists (id, db = connection) {
 }
 module.exports = {
     getEccList,
+    createChild,
     deleteChild,
     getChildWaitlists
 }
