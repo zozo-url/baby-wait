@@ -15,7 +15,7 @@ function deleteChild (id, db = connection) {
     .where('child_id', id)
     .del()
 }
-
+// rank_parent is easily changed, need to make unique
 function getChildWaitlists (id, db = connection) {
     return db('parent').where('parent.id', id)
     .join('child', 'parent.id', '=', 'parent_id')
