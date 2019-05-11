@@ -24,4 +24,16 @@ router.delete('/child', (req, res) => {
     })
 })
 
+router.get('/childwaitlist/:id', (req, res) => {
+    console.log(req.params.id)
+    db.getChildWaitlists(req.params.id)
+    .then(waitlist => {
+        res.json(waitlist)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
+})
+
+
 module.exports = router
