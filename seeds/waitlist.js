@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('waitlist').insert([
-        {id: 1, child_id: 1, ecc_id: 1, status: 'unconfirmed', rank_ecc: 1, rank_parent: 1}
+        {id: 1, child_id: 1, ecc_id: 1, status: 'pending', rank_ecc: 1, rank_parent: 1}
       ]);
     });
 };
