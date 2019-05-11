@@ -13,4 +13,27 @@ router.get('/ecc', (req, res) => {
     })
 })
 
+router.delete('/child', (req, res) => {
+    console.log(req.body)
+    db.deleteChild(req.body.id)
+    .then(child => {
+        res.json(child)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
+})
+
+router.get('/childwaitlist/:id', (req, res) => {
+    console.log(req.params.id)
+    db.getChildWaitlists(req.params.id)
+    .then(waitlist => {
+        res.json(waitlist)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
+})
+
+
 module.exports = router
