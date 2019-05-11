@@ -32,7 +32,7 @@ class header extends Component {
     <div className="font_righteous header_logo_daycare">Daycare2.0</div>
     <div className="header_logo_title">The Waitlist</div>
 </div>
-
+import currentPage from '../reducers/curimport currentPage from '../reducers/current-page'rent-page'
 <IconButton
                         aria-label="Menu"
                         color="inherit"
