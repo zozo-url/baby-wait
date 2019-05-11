@@ -14,14 +14,17 @@ router.get('/ecc', (req, res) => {
 })
 
 router.post('/createchild', (req, res) => {
-    console.log('req.body: ', req.body)
     db.createChild(req.body)
-    .then()
+    .then(child => {
+        res.json(child)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
 })
 
-router.delete('/deletechild', (req, res) => {
-    console.log(req.body)
-    db.deleteChild(req.body.id)
+router.delete('/deletechildfromwaitlist', (req, res) => {
+    db.deleteChildFromWaitlist(req.body.id)
     .then(child => {
         res.json(child)
     })
@@ -31,7 +34,7 @@ router.delete('/deletechild', (req, res) => {
 })
 
 router.get('/childwaitlist/:id', (req, res) => {
-    console.log(req.params.id)
+    //checkout this feature futher into the future
     db.getChildWaitlists(req.params.id)
     .then(waitlist => {
         res.json(waitlist)
