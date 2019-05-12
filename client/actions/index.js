@@ -1,6 +1,5 @@
 export function EccList(){
 
-
     return{
         type:'ECC_List',
         payload: [
