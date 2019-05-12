@@ -16,10 +16,21 @@ export function append(data) {
 
 
 const DatabaseUrl = 'http://localhost:3000/v1/parents'
-
 export function getEccList (callback) {
-  request.get(DatabaseUrl)
+  return request
+      .get(DatabaseUrl)
       .end((err,res) => {
           callback(err, res.body)
+      })
+}
+
+
+export function postParentUser (user, callback) {
+  return request
+      .post(DatabaseUrl + '/createparentuser')
+      .send(user)
+      .end((err,res) => {
+          console.log(err)
+          console.log(res.body)
       })
 }

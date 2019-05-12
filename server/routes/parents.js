@@ -33,6 +33,16 @@ router.post('/addchildtowaitlist', (req, res) => {
     })
 })
 
+router.post('/createparentuser', (req, res) => {
+    db.createParentUser(req.body)
+    .then(waitlist => {
+        res.json(waitlist)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
+})
+
 router.delete('/deletechildfromwaitlist', (req, res) => {
     db.deleteChildFromWaitlist(req.body)
     .then(child => {

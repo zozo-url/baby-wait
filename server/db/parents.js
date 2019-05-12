@@ -11,11 +11,17 @@ function createChild (newChildInfo, db = connection) {
         .insert(newChildInfo)
 }
 
+function createParentUser (newParentUser, db = connection) {
+    return db('parent')
+        .insert(newParentUser)
+}
 
 function addChildToWaitList (newChildWaitlistInfo, db = connection) {
     return db('waitlist')
         .insert(newChildWaitlistInfo)
 }
+
+
 
 
 function deleteChildFromWaitlist (childAndEccId, db = connection) {
@@ -39,6 +45,7 @@ function getChildWaitlists (id, db = connection) {
 
 module.exports = {
     getEccList,
+    createParentUser,
     createChild,
     addChildToWaitList,
     deleteChildFromWaitlist,

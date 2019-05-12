@@ -1,5 +1,8 @@
 import React from 'react'
-
+import {postParentUser} from '../apis/api'
+// import {connect} from 'react-redux'
+// import {registeraction} from '../Actions/Register'
+// import {loginerroraction} from '../Actions/Login'
 
 
 class  ParentRegister extends React.Component{
@@ -9,7 +12,7 @@ class  ParentRegister extends React.Component{
         first_name: '',
         last_name: '',
         username: '',
-        password: '',
+        hash_password: '',
         email: '',
     }
     this.updateState = this.updateState.bind(this)
@@ -21,7 +24,8 @@ class  ParentRegister extends React.Component{
 
   submit(e) {
     e.preventDefault()
-    console.log(this.state)
+    var user = this.state
+    postParentUser(user)
   }
   render (){
   return(
@@ -46,4 +50,12 @@ class  ParentRegister extends React.Component{
 }
 
 }
+
+// const mapStateToProps = ({auth}) => {
+//   return {
+//     auth
+//   }
+// }
+
+// export default connect(mapStateToProps)(ParentRegister)
 export default ParentRegister
