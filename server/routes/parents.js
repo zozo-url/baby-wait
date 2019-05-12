@@ -13,18 +13,28 @@ router.get('/ecc', (req, res) => {
     })
 })
 
-<<<<<<< HEAD
 router.post('/createchild', (req, res) => {
-    console.log('req.body: ', req.body)
     db.createChild(req.body)
-    .then()
+    .then(child => {
+        res.json(child)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
 })
 
-||||||| merged common ancestors
-=======
-router.delete('/child', (req, res) => {
-    console.log(req.body)
-    db.deleteChild(req.body.id)
+router.post('/addchildtowaitlist', (req, res) => {
+    db.addChildToWaitList(req.body)
+    .then(waitlist => {
+        res.json(waitlist)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
+})
+
+router.delete('/deletechildfromwaitlist', (req, res) => {
+    db.deleteChildFromWaitlist(req.body)
     .then(child => {
         res.json(child)
     })
@@ -34,7 +44,7 @@ router.delete('/child', (req, res) => {
 })
 
 router.get('/childwaitlist/:id', (req, res) => {
-    console.log(req.params.id)
+    //checkout this feature futher into the future
     db.getChildWaitlists(req.params.id)
     .then(waitlist => {
         res.json(waitlist)
@@ -45,5 +55,5 @@ router.get('/childwaitlist/:id', (req, res) => {
 })
 
 
->>>>>>> 3cd5511aab91d20590dd386d8b36e1e14dd0b609
+
 module.exports = router
