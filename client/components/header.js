@@ -9,29 +9,35 @@ class header extends Component {
   render() {
     return (
       <AppBar
-        position="fixed"
-        style={{
-          backgroundColor: "#2f2f2f",
-          boxShadow: "none",
-          padding: "10px 0px"
-        }}
-      >
-        <Toolbar>
-          <div className="header_logo">
-            <div className="font_righteous header_logo_daycare">Daycare2.0</div>
-            <div className="header_logo_title">The Waitlist</div>
-          </div>
-          import currentPage from '../reducers/curimport currentPage from
-          '../reducers/current-page'rent-page'
-          <IconButton
-            aria-label="Menu"
-            color="inherit"
-            onClick={() => console.log("clicked")}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+      position="fixed"
+      style={{
+        backgroundColor:  '#2f2f2f' , 
+          boxShadow: 'none',
+          padding: '10px 0px'
+      }}
+  >
+  <Toolbar>
+
+<div className="header_logo">
+    <div className="font_righteous header_logo_daycare">Daycare2.0</div>
+    <div className="header_logo_title">The Waitlist</div>
+</div>
+
+<IconButton
+                   aria-label="Menu"
+                        color="inherit"
+                        onClick={()=> console.log('clicked')}
+                    >
+                        <MenuIcon/>
+
+                    </IconButton> 
+
+
+</Toolbar>
+
+
+
+  </AppBar>
     );
   }
 }
