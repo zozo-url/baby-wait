@@ -13,6 +13,7 @@ router.get('/ecc', (req, res) => {
     })
 })
 
+// auth
 router.get('/getparentbyusername', (req, res) => {
     db.getParentByUsername(req.body.username)
     .then(parent => {
@@ -22,6 +23,28 @@ router.get('/getparentbyusername', (req, res) => {
         res.status(500).send(err.message)
     })
 })
+
+router.post('/createparentuser', (req, res, next) => {
+    const parent = req.body
+    db.parentUserExists(parent)
+        .then(exists => {
+            if (exists) return res.status(400).send({
+                message: "User Name Taken"
+            })
+        db.createParentUser(parent)
+            .then(newParent => {
+                res.json(newParent)
+            })
+            .catch(err => {
+                res.status(500).send(err.message)
+            })        
+        })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })        
+
+})
+//
 
 router.post('/createchild', (req, res) => {
     db.createChild(req.body)
@@ -42,17 +65,6 @@ router.post('/addchildtowaitlist', (req, res) => {
         res.status(500).send(err.message)
     })
 })
-
-router.post('/createparentuser', (req, res) => {
-    db.createParentUser(req.body)
-    .then(waitlist => {
-        res.json(waitlist)
-    })
-    .catch(err => {
-        res.status(500).send(err.message)
-    })
-})
-
 
 router.delete('/deletechildfromwaitlist', (req, res) => {
     db.deleteChildFromWaitlist(req.body)

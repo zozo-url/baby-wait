@@ -24,7 +24,6 @@ export function getEccList (callback) {
       })
 }
 
-
 export function postParentUser (user, callback) {
   console.log(user)
   return request
