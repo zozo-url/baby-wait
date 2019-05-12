@@ -18,11 +18,10 @@ function addChildToWaitList (newChildWaitlistInfo, db = connection) {
 }
 
 
-function deleteChildFromWaitlist (id, db = connection) {
+function deleteChildFromWaitlist (childAndEccId, db = connection) {
     return db('waitlist')
-    .where('child_id', id.waitlistChildId)
-    .andWhere('ecc_id', id.waitlistEccId)
-    //.where ecc_id is ecc_id
+    .where('child_id', childAndEccId.ChildId)
+    .andWhere('ecc_id', childAndEccId.EccId)
     .del()
 }
 // rank_parent is easily changed, need to make unique
