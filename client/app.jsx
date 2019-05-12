@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route }  from 'react-router-dom'
 
-
-
-
-
-
-
-
 import Header from './components/header'
 import Home from './components/Homepage';
 import ECC from './components/EccList';
