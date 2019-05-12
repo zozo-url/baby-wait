@@ -26,11 +26,12 @@ export function getEccList (callback) {
 
 
 export function postParentUser (user, callback) {
+  console.log(user)
   return request
       .post(DatabaseUrl + '/createparentuser')
       .send(user)
       .end((err,res) => {
           console.log(err)
-          console.log(res.body)
+          console.log(res)
       })
 }
