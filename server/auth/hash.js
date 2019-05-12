@@ -6,8 +6,9 @@ function generatePasswordHash (newPassword) {
     return bcrypt.hash(newPassword, 12)
 }
 //comparePasswordToHash
-function comparePasswordToHash (newPassword, dbPassword) {
+function comparePasswordToHash (newPassword, dbPassword,) {
     //hash == password in database?/
+    console.log(newPassword, dbPassword)
     return bcrypt.compare(newPassword, dbPassword)
 }
 

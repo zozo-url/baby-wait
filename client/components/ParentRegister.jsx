@@ -1,4 +1,6 @@
 import React from 'react'
+import { HashRouter as Router, Route, Link } from "react-router-dom"
+
 import {postParentUser} from '../apis/api'
 // import {connect} from 'react-redux'
 // import {registeraction} from '../Actions/Register'
@@ -23,7 +25,6 @@ class  ParentRegister extends React.Component{
   }
 
   submit(e) {
-    e.preventDefault()
     var user = this.state
     postParentUser(user)
   }
@@ -43,7 +44,7 @@ class  ParentRegister extends React.Component{
         <input type='text' name='password' onChange={this.updateState}></input> <br/>
         <h3>Email</h3>
         <input type='text' name='email' onChange={this.updateState}></input> <br/> <br/>
-        <button onClick={this.submit}>submit</button> <br/>
+        <Link to='/login'><button onClick={this.submit}>submit</button></Link>
       </form>
     </div>
   )

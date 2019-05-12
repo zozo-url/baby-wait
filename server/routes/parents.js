@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const db = require("../db/parents");
+const token = require("../auth/token")
 
 router.get('/ecc', (req, res) => {
     db.getEccList()
@@ -32,8 +33,9 @@ router.post('/createparentuser', (req, res, next) => {
                 message: "User Name Taken"
             })
         db.createParentUser(parent)
-            .then(newParent => {
-                res.json(newParent)
+            .then(([newParentId]) => {
+                res.locals.parentId = newParentId
+                next()
             })
             .catch(err => {
                 res.status(500).send(err.message)
@@ -44,6 +46,8 @@ router.post('/createparentuser', (req, res, next) => {
     })        
 
 })
+
+router.post('/login', token.issueToken)
 //
 
 router.post('/createchild', (req, res) => {

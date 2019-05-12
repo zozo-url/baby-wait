@@ -1,4 +1,5 @@
 import React from 'react'
+import { HashRouter as Router, Route, Link } from "react-router-dom"
 
 
 
@@ -17,9 +18,8 @@ class  ParentLogin  extends React.Component{
 
   submit(e){
     e.preventDefault()
-    //run function to try find username and password in database
-    //if find = console.log("welcome {parent.name}!)
-    //if do not find = console.log("sorry u are not a user")
+    let {username, password} = this.state
+    createUser({username, password})
   }
   render (){
   return(
@@ -28,9 +28,9 @@ class  ParentLogin  extends React.Component{
       <h2>Log in</h2>
       <form>
         <h3>Username</h3> 
-        <input type='text' name='username' onChange={updateState}></input> <br/>
+        <input type='text' name='username' onChange={this.updateState}></input> <br/>
         <h3>Password</h3>
-        <input type='text' name='password' onChange={updateState}></input> <br/> <br/>
+        <input type='text' name='password' onChange={this.updateState}></input> <br/> <br/>
         <button>submit</button> <br/>
       </form>
     </div>

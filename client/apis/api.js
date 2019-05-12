@@ -16,6 +16,8 @@ export function append(data) {
 
 
 const DatabaseUrl = 'http://localhost:3000/v1/parents'
+
+
 export function getEccList (callback) {
   return request
       .get(DatabaseUrl)
@@ -24,11 +26,10 @@ export function getEccList (callback) {
       })
 }
 
-export function postParentUser (user, callback) {
-  console.log(user)
+export function postParentUser (parent, callback) {
   return request
       .post(DatabaseUrl + '/createparentuser')
-      .send(user)
+      .send(parent)
       .end((err,res) => {
           console.log(err)
           console.log(res)
@@ -45,3 +46,7 @@ export function getParentUserByUsername (parentUsername, callback) {
           console.log(res)
       })
 }
+
+// export function login () {
+//   const token = 
+// }
