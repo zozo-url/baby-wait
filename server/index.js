@@ -1,5 +1,5 @@
 // Enable .env
-// const envStatus = require('dotenv').config()
+const envStatus = require('dotenv').config()
 // Check if .env is set up and bail out if not.
 // eslint-disable-next-line no-console
 // console.log(envStatus)
