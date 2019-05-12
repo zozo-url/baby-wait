@@ -1,20 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import MenuIcon from '@material-ui/icons/Menu';
-import IconButton from '@material-ui/core/IconButton';
-
-
-
-
-
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import MenuIcon from "@material-ui/icons/Menu";
+import IconButton from "@material-ui/core/IconButton";
 
 class header extends Component {
-
-
-
-
   render() {
     return (
       <AppBar
@@ -33,7 +24,7 @@ class header extends Component {
 </div>
 
 <IconButton
-                        aria-label="Menu"
+                   aria-label="Menu"
                         color="inherit"
                         onClick={()=> console.log('clicked')}
                     >

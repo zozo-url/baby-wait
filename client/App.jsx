@@ -3,9 +3,19 @@ import React, { Component } from 'react';
 
 
 import Header from './components/header'
+import Home from './components/Homepage';
+import ECC from './components/EccList';
+import Footer from './components/Footer'
 
-class app extends React.Component {
+
+
+
+
+
+
+class App extends React.Component {
   render() {
+    
     return (
       <div>
         <Header />
@@ -18,5 +28,5 @@ class app extends React.Component {
 }
 
 
-export default app
+export default App
 

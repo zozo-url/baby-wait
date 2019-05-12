@@ -4,7 +4,13 @@ import { compose, createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 
-import App from './app'
+//COMPONENTS
+
+
+
+
+
+import App from './App'
 import reducers from './Reducers'
 
 
@@ -30,6 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <App/>
     </Provider>,
     // Where should React attach to the DOM
-    document.getElementById('app')
+    document.getElementById('App')
   )
 })
