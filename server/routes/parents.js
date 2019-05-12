@@ -34,7 +34,7 @@ router.post('/addchildtowaitlist', (req, res) => {
 })
 
 router.delete('/deletechildfromwaitlist', (req, res) => {
-    db.deleteChildFromWaitlist(req.body.id)
+    db.deleteChildFromWaitlist(req.body)
     .then(child => {
         res.json(child)
     })
