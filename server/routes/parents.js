@@ -14,7 +14,7 @@ router.get('/ecc', (req, res) => {
 })
 
 router.get('/getparentbyusername', (req, res) => {
-    db.getParentByUsername()
+    db.getParentByUsername(req.body.username)
     .then(parent => {
         res.json(parent)
     })
