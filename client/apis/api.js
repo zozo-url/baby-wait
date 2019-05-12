@@ -13,3 +13,13 @@ export function append(data) {
     .send(DayCareInfo)
     .then(res => res.body);
 }
+
+
+const DatabaseUrl = 'http://localhost:3000/v1/parents'
+
+export function getEccList (callback) {
+  request.get(DatabaseUrl)
+      .end((err,res) => {
+          callback(err, res.body)
+      })
+}
