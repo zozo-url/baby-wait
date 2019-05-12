@@ -13,6 +13,16 @@ router.get('/ecc', (req, res) => {
     })
 })
 
+router.get('/getparentbyusername', (req, res) => {
+    db.getParentByUsername()
+    .then(parent => {
+        res.json(parent)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
+})
+
 router.post('/createchild', (req, res) => {
     db.createChild(req.body)
     .then(child => {
@@ -42,6 +52,7 @@ router.post('/createparentuser', (req, res) => {
         res.status(500).send(err.message)
     })
 })
+
 
 router.delete('/deletechildfromwaitlist', (req, res) => {
     db.deleteChildFromWaitlist(req.body)

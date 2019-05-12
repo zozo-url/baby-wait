@@ -35,3 +35,14 @@ export function postParentUser (user, callback) {
           console.log(res)
       })
 }
+
+export function getParentUserByUsername (parentUsername, callback) {
+  console.log(user)
+  return request
+      .post(DatabaseUrl + '/getparentbyusername')
+      .send(parentUsername)
+      .end((err,res) => {
+          console.log(err)
+          console.log(res)
+      })
+}

@@ -25,6 +25,12 @@ function createParentUser (newParentUser, db = connection) {
     })
 }
 
+function getParentByUsername (username, db = connection) {
+    return db('parent')
+      .where('username', username)
+      .first()
+  }
+
 function addChildToWaitList (newChildWaitlistInfo, db = connection) {
     return db('waitlist')
         .insert(newChildWaitlistInfo)
@@ -55,6 +61,7 @@ function getChildWaitlists (id, db = connection) {
 module.exports = {
     getEccList,
     createParentUser,
+    getParentByUsername,
     createChild,
     addChildToWaitList,
     deleteChildFromWaitlist,
