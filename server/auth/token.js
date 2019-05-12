@@ -4,8 +4,7 @@ const verifyJwt = require("express-jwt")
 const { comparePasswordToHash } = require("./hash")
 
 module.exports = {
-    issueToken,
-    verifyToken
+    issueToken
 }
 
 function issueToken (req, res) {
@@ -51,10 +50,10 @@ function createToken(parent, secret) {
     return jwt.sign(parentUser, secret, options)
 }
 
-function verifyToken(req, res, next) {
-    verifyJwt({ secret: process.env.JWT_secret, credentialsRequired: true}) (
-        req,
-        res,
-        next
-    )
-}
+// function verifyToken(req, res, next) {
+//     verifyJwt({ secret: process.env.JWT_secret, credentialsRequired: true}) (
+//         req,
+//         res,
+//         next
+//     )
+// }
