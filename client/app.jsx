@@ -3,13 +3,11 @@ import { connect } from 'react-redux'
 import * as actions from './Actions'
 
 
+
 //MATERIAL UI IMPORTS
 
 
 import Header from './components/header'
-
-
-
 
 
 class app extends Component {
@@ -46,7 +44,14 @@ class app extends Component {
           }  
           </div>
       </div>
+
+     
+
+
+
     );
+
+ 
   }
 }
 
