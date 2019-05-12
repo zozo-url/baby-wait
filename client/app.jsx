@@ -1,16 +1,47 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route }  from 'react-router-dom'
+
+
+
+
+
+
+
 
 import Header from './components/header'
+import Home from './components/Homepage';
+import ECC from './components/EccList';
 
-class app extends Component {
+
+
+
+class App extends Component {
+
+
+
+
   render() {
+    
     return (
       <div>
+
+
+
+
         <Header/>
-        hello
+
+        <BrowserRouter>
+        <div>
+              <Route path="/Home" component={Home}/>
+              <Route path="/ECC" component={ECC}/>
+       </div>
+        </BrowserRouter>
+        
       </div>
     );
   }
 }
 
-export default app;
+
+
+export default App;
