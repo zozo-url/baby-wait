@@ -12,7 +12,7 @@ class  ParentRegister extends React.Component{
         first_name: '',
         last_name: '',
         username: '',
-        hash_password: '',
+        password: '',
         email: '',
     }
     this.updateState = this.updateState.bind(this)

@@ -1,5 +1,5 @@
 const connection = require('./connection')
-
+const {generatePasswordHash} = require('../auth/hash')
 function getEccList (db = connection) {
     return db('ecc').select()
 }
@@ -12,8 +12,17 @@ function createChild (newChildInfo, db = connection) {
 }
 
 function createParentUser (newParentUser, db = connection) {
-    return db('parent')
-        .insert(newParentUser)
+    return generatePasswordHash(newParentUser.password)
+    .then (hash => {
+        return db('parent')
+        .insert({
+            'first_name': newParentUser.first_name,
+            'last_name': newParentUser.last_name,
+            'username': newParentUser.username,
+            'hash_password': hash,
+            'email': newParentUser.email
+        })
+    })
 }
 
 function addChildToWaitList (newChildWaitlistInfo, db = connection) {
