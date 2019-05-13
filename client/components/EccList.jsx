@@ -30,18 +30,13 @@ class  EccList  extends React.Component{
     this.state={
 
     }
-    this.sortThroughList = this.sortThroughList.bind(this)
   }
 
   componentDidMount() {
-    const myVar = this.props.EccList()
-    this.sortThroughList(myVar)
+  // this.props.data.ecc
+
   }
 
-  sortThroughList (something) {
-    const anotherVar = something.payload.filter(daycare => daycare.suburb == this.props.data.filterWord)
-    this.props.filteredList(anotherVar.map(item => item))
-  }
 
   render (){
     console.log('this.props.data: ', this.props.data)
@@ -52,7 +47,7 @@ class  EccList  extends React.Component{
       <br/>
       <br/>
       <div>
-      {this.props.data.filteredList.map((item, index) => <p key={index}>{item.center_name}</p>)}
+      {this.props.data.ecc.map((item, index) => <p key={index}>{item.center_name}</p>)}
       </div>
         <Link to='/parent/registerwaitlist'><button>I want to register for this ecc</button></Link> <br/>
         <Link to='/parent/home'><button>back to parent dashboard</button></Link>
