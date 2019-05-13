@@ -26,9 +26,11 @@ class  ChildRegister  extends React.Component{
     }
   
     handleSubmit(e){
+      console.log(this.state)
       var child = this.state 
       postRegisteredChild(child)
-      // event.preventDefault()
+      // link the page to parent dashboard
+      // and grab parent id before submit
     }
     
     
@@ -52,7 +54,7 @@ class  ChildRegister  extends React.Component{
             Date of birth:
             <input type="text" name='date_of_birth' value={this.updateState} onChange={this.handleChange} />
             </label>
-            <Link to='/parent/home'><button onClick={this.handleSubmit}>Add a child</button></Link>
+            <button onClick={this.handleSubmit}>Add a child</button>
             </form>
     </div>
   )
