@@ -4,7 +4,15 @@ import { compose, createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 
-//COMPONENTS
+
+
+
+
+import { BrowserRouter, Route } from 'react-router-dom'
+
+
+//ROUTES
+
 
 
 
@@ -35,6 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
     <Provider store={store}>
       <App/>
     </Provider>,
+
+
+  
     // Where should React attach to the DOM
     document.getElementById('App')
   )
