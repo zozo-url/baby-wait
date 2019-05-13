@@ -41,12 +41,13 @@ class  ChildRegister  extends React.Component{
   render (){
   return(
     <div>
+      <div className="padding"></div>
       <div className="main-container">
       <h1></h1>
       <br/>
-      <br/>
+      <br/> 
+      <h2 className="formHeader">Register your child</h2>
            <form>
-             <h1>Register your child</h1>
             <label htmlFor="">
             First name:
             <input type="text" name='first_name' value={this.updateState} onChange={this.handleChange} />

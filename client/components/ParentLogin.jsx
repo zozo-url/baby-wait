@@ -29,7 +29,7 @@ class  ParentLogin  extends React.Component{
     <div>
       <h1><br/><br/></h1>
       <div className="main-container">
-      <h2>Log in</h2>
+      <h2 className="formHeader">Log in</h2>
       <form>
         <h3>Username</h3> 
         <input type='text' name='username' onChange={this.updateState}></input> <br/>

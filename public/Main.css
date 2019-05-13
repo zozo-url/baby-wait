@@ -134,25 +134,29 @@ li{
     }
   }
 
+  .formHeader {
+    color: black;
+  }
+
   /* ECC DASHBOARD */
   
-.eccDashHeader {
+.DashHeader {
     margin-left: 70px;
     color: black;
   }
 
-.eccDashText {
+.DashText {
     margin-left: 40px;
     font-size: 1.3em
   }
 
-.eccDashSubText {
+.DashSubText {
     margin-left: 60px;
     letter-spacing: 0.05em;
     font-size: 0.9em
   }
 
-  .eccButton {
+  .DashButton {
     margin-left: 60px;
     margin-top: 30px;
     letter-spacing: 0.05em;
