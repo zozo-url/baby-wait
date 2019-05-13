@@ -47,4 +47,14 @@ router.get('/waitlist', (req,res) => {
     })
 })
 
+router.get('/updatechild', (req,res) => {
+    db.updateChildStatus(req.body.id)
+    .then(update => {
+        res.json(update)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
+})
+
 module.exports = router

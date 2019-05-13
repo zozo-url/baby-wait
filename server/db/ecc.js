@@ -53,16 +53,42 @@ function EccUserExists (ecc, db = connection) {
 }
 //
 
-// function updateChildStatus (childId, db = connection) {
-//     return db('waitlist')
-//       .where('child_id', childId)
-//       .select()
-//   }
+function findChildWaitlist (childId, db = connection) {
+    return db('waitlist')
+      .where('child_id', childId)
+      .select()
+}
+
+function updateChildStatus (childId, db = connection) {
+    return db('waitlist')
+      .where('child_id', childId)
+      .update({ status: 'waitlist' })
+  }
+
+  function updateEccUser (UpdateEccUser, db = connection) {
+        return db('ecc')
+        .insert({
+            'center_name': updateEccUser.center_name,
+            'ph_number': updateEccUser.ph_number,
+            'url': updateEccUser.url,
+            'email': updateEccUser.email,
+            'address': updateEccUser.address,
+            'suburb': updateEccUser.suburb,
+            'description': updateEccUser.description,
+            'age': updateEccUser.age,
+            'photo': updateEccUser.photo,
+            'username': updateEccUser.username,
+            'hash_password': updateEccUser.hash_password,
+
+        })
+    })
+}
 
 module.exports = {
     getPendingChildren,
     getWaitlistChildren,
     getEccByUsername,
     createEccUser,
-    EccUserExists
+    EccUserExists,
+    updateChildStatus
 }
