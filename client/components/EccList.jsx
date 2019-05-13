@@ -30,102 +30,47 @@ class  EccList  extends React.Component{
     this.state={
 
     }
+    this.sortThroughList = this.sortThroughList.bind(this)
   }
 
-  componentWillMount() {
-    this.setState ({value: this.props.EccList()})
+  componentDidMount() {
+    const myVar = this.props.EccList()
+    this.sortThroughList(myVar)
+  }
+
+  sortThroughList (something) {
+    const anotherVar = something.payload.filter(daycare => daycare.suburb == this.props.data.filterWord)
+    this.props.filteredList(anotherVar.map(item => item))
   }
 
   render (){
+    console.log('this.props.data: ', this.props.data)
   return(
-
-
- 
     <div>
-     
       <br/>
       <br/>
       <br/>
-
-        <h1>I am a list of eccs</h1>
-
-           
-            <div>
-              <div>
-                    {this.state.value.payload.map(item => (
-                     <div>
-                       <ul>
-                          <li>
-                          <p>{item.center_name}</p> 
-                          <p>{item.email}</p> 
-                          </li>
-                        </ul>
-                     </div>
-                           ))
-                     }  
-                </div>
-              </div>
-        
-        
-        
-        
+      <br/>
+      <div>
+      {this.props.data.filteredList.map((item, index) => <p key={index}>{item.center_name}</p>)}
+      </div>
         <Link to='/parent/registerwaitlist'><button>I want to register for this ecc</button></Link> <br/>
         <Link to='/parent/home'><button>back to parent dashboard</button></Link>
     </div>
-
-
-
-
-
 
   )
   
 }
 
-
-
-
 }
-
-// function MediaCard(props) {
-//   const { classes } = props;
-//   return (
-//     <Card className={classes.card}>
-//       <CardActionArea>
-//         <CardMedia
-//           className={classes.media}
-//           image="/static/images/cards/contemplative-reptile.jpg"
-//           title="Contemplative Reptile"
-//         />
-//         <CardContent>
-//           <Typography gutterBottom variant="h5" component="h2">
-//             Lizard
-//           </Typography>
-//           <Typography component="p">
-//             Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-//             across all continents except Antarctica
-//           </Typography>
-//         </CardContent>
-//       </CardActionArea>
-//       <CardActions>
-//         <Button size="small" color="primary">
-//           Share
-//         </Button>
-//         <Button size="small" color="primary">
-//           Learn More
-//         </Button>
-//       </CardActions>
-//     </Card>
-//   );
-// }
-
 
 
 const mapStateToProps = (state) => {
   return {
-    data : state.ECC
+    data : state.ecc
   }
 }
+
 
 // export const styles1 = withStyles(styles)(MediaCard)
 export default connect (mapStateToProps,actions)(EccList);
