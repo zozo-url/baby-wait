@@ -1,53 +1,53 @@
 const express = require("express");
 const router = express.Router();
-const verifyJwt = require("express-jwt")
+const verifyJwt = require("express-jwt");
 const db = require("../db/parents");
-const token = require("../auth/token")
+const token = require("../auth/token");
 
-router.get('/ecc', (req, res) => {
-    db.getEccList()
+router.get("/ecc", (req, res) => {
+  db.getEccList()
     .then(daycares => {
-        res.json(daycares)
+      res.json(daycares);
     })
     .catch(err => {
-        res.status(500).send(err.message)
-    })
-})
+      res.status(500).send(err.message);
+    });
+});
 
 // auth
-router.get('/getparentbyusername', (req, res) => {
-    db.getParentByUsername(req.body.username)
+router.get("/getparentbyusername", (req, res) => {
+  db.getParentByUsername(req.body.username)
     .then(parent => {
-        res.json(parent)
+      res.json(parent);
     })
     .catch(err => {
-        res.status(500).send(err.message)
-    })
-})
+      res.status(500).send(err.message);
+    });
+});
 
-router.post('/createparentuser', (req, res, next) => {
-    const parent = req.body
-    db.parentUserExists(parent)
-        .then(exists => {
-            if (exists) return res.status(400).send({
-                message: "User Name Taken"
-            })
-        db.createParentUser(parent)
-            .then(([newParentId]) => {
-                res.locals.parentId = newParentId
-                next()
-            })
-            .catch(err => {
-                res.status(500).send(err.message)
-            })        
+router.post("/createparentuser", (req, res, next) => {
+  const parent = req.body;
+  db.parentUserExists(parent)
+    .then(exists => {
+      if (exists)
+        return res.status(400).send({
+          message: "User Name Taken"
+        });
+      db.createParentUser(parent)
+        .then(([newParentId]) => {
+          res.locals.parentId = newParentId;
+          next();
         })
+        .catch(err => {
+          res.status(500).send(err.message);
+        });
+    })
     .catch(err => {
-        res.status(500).send(err.message)
-    })        
+      res.status(500).send(err.message);
+    });
+});
 
-})
-
-router.post('/login', token.issueToken)
+router.post("/login", token.issueToken);
 
 // router.get('/homepage',
 //     verifyJwt({ secret:process.env.JWT_SECRET }),
@@ -69,44 +69,45 @@ router.post('/login', token.issueToken)
 //       }
 // //
 
-router.post('/createchild', (req, res) => {
-    db.createChild(req.body)
+router.post("/createchild", (req, res) => {
+  db.createChild(req.body)
     .then(child => {
-        res.json(child)
+      res.json(child);
     })
     .catch(err => {
-        res.status(500).send(err.message)
-    })
-})
+      res.status(500).send(err.message);
+    });
+});
 
-router.post('/addchildtowaitlist', (req, res) => {
-    db.addChildToWaitList(req.body)
+router.post("/addchildtowaitlist", (req, res) => {
+  db.addChildToWaitList(req.body)
     .then(waitlist => {
-        res.json(waitlist)
+      res.json(waitlist);
     })
     .catch(err => {
-        res.status(500).send(err.message)
-    })
-})
+      res.status(500).send(err.message);
+    });
+});
 
-router.delete('/deletechildfromwaitlist', (req, res) => {
-    db.deleteChildFromWaitlist(req.body.id)
+router.delete("/deletechildfromwaitlist", (req, res) => {
+  db.deleteChildFromWaitlist(req.body.id)
     .then(child => {
-        res.json(child)
+      res.json(child);
     })
     .catch(err => {
-        res.status(500).send(err.message)
-    })
-})
+      res.status(500).send(err.message);
+    });
+});
 
-router.get('/childwaitlist/', (req, res) => {
-    db.getChildWaitlists(req.body.id)
+router.get("/childwaitlist", (req, res) => {
+    console.log(req.body)
+  db.getChildWaitlists(req.body)
     .then(waitlist => {
-        res.json(waitlist)
+      res.json(waitlist);
     })
     .catch(err => {
-        res.status(500).send(err.message)
-    })
-})
+      res.status(500).send(err.message);
+    });
+});
 
-module.exports = router
+module.exports = router;

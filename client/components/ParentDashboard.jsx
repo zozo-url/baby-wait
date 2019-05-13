@@ -2,7 +2,7 @@ import React from 'react'
 import {HashRouter as Router, Route, Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
-
+import { getChildWaitlistData } from '../apis/api'
 
 const styles = {
   card: {
@@ -25,7 +25,11 @@ class ParentDashboard  extends React.Component{
   }
 componentWillMount(){
   this.setState({value: this.props.childList()})
+  console.log('data: ', getChildWaitlistData(1))
+  
 }
+
+
   render (){ console.log(this.state)
   return(
     <div>
@@ -56,6 +60,7 @@ componentWillMount(){
             <p className='DashSubText'>Day Care Center: {item.center_name}</p>
             <p className='DashSubText'>Status: {item.status}</p>
              <p className='DashSubText'>Position: {item.rank_ecc}</p>
+
             </div>
         )}
 
