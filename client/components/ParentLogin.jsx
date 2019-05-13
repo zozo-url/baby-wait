@@ -29,14 +29,13 @@ class  ParentLogin  extends React.Component{
     <div>
       <h1><br/><br/></h1>
       <div className="main-container">
-      <h2>Log in</h2>
-      <form onSubmit={this.submit}>
+      <h2 className="formHeader">Log in</h2>
+      <form>
         <h3>Username</h3> 
         <input type='text' name='username' onChange={this.updateState}></input> <br/>
         <h3>Password</h3>
         <input type='text' name='password' onChange={this.updateState}></input> <br/> <br/>
-        <button>submit</button>
-        <Link to='/parent/home'><button>submit</button></Link> <br/>
+        <Link to='/home'><button onClick={this.submit}>submit</button></Link> <br/>
       </form>
      </div>
     </div>

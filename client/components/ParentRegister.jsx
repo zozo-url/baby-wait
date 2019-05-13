@@ -32,7 +32,7 @@ class  ParentRegister extends React.Component{
   return(
     <div>
       <h1><br/><br/></h1>
-      <h2>Sign Up</h2>
+      <h2 className='formHeader'>Sign Up</h2>
       <div className="main-container">
       <form>
         <h3>First Name</h3> 
@@ -45,7 +45,7 @@ class  ParentRegister extends React.Component{
         <input type='text' name='password' onChange={this.updateState}></input> <br/>
         <h3>Email</h3>
         <input type='text' name='email' onChange={this.updateState}></input> <br/> <br/>
-        <Link to='/login'><button onClick={this.submit}>submit</button></Link>
+        <Link to='parent/login'><button onClick={this.submit}>submit</button></Link>
       </form>
       </div>
     </div>
