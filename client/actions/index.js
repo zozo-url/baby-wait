@@ -11,4 +11,12 @@ export function EccList(){
     }
 }
 
+export function filteredEccList(suburb) {
+    console.log('suburb: ', suburb)
+    return {
+        type:'FILTERLIST',
+        suburb
+    }
+}
+
 // 

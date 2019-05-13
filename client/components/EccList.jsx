@@ -37,6 +37,7 @@ class  EccList  extends React.Component{
   }
 
   render (){
+    console.log('this.props: ', this.props)
   return(
 
 
@@ -46,8 +47,10 @@ class  EccList  extends React.Component{
       <br/>
       <br/>
       <br/>
-
-        <h1>I am a list of eccs</h1>
+      <div>
+      Hello
+      </div>
+        {/* <h1>I am a list of eccs</h1>
 
            
             <div>
@@ -64,7 +67,7 @@ class  EccList  extends React.Component{
                            ))
                      }  
                 </div>
-              </div>
+              </div> */}
         
         
         
@@ -123,7 +126,8 @@ class  EccList  extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    data : state.ECC
+    data : state.ECC,
+    filteredList : state.filteredList
   }
 }
 

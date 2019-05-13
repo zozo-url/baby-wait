@@ -1,22 +1,44 @@
 import React from 'react'
-import { HashRouter as Router, Route, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
+import { filteredEccList } from '../actions';
+import { connect } from 'react-redux'
 
 
 class  FilterLocation  extends React.Component{
-  constructor(){
-    super()
-    this.state={
-
+  constructor(props){
+    super(props)
+    this.state = {
+          selectedLocation: ''
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
+
+  handleChange (event) {
+    this.setState({
+      selectedLocation: event.target.value
+    })
+  }
+  
+  handleSubmit () {
+    console.log('clicked + selectedlocation: ', this.state.selectedLocation)
+    this.props.filterEccList(this.state.selectedLocation)
+  }
+  
+
   render (){
+    console.log(this.state.selectedLocation)
   return(
     <div>
-<h1></h1>
-<br/>
-<br/>
-<h1>location filter</h1>
-<Link to='/parent/ecclist'><button>go to ecc list</button></Link>
+      <br/>
+      <br/>
+      <br/>
+      <h1>Location filter</h1>
+      <select name="Locations" onChange={this.handleChange}>
+        <option value="Te Aro">Te Aro</option>
+        <option value="Brooklyn">Brooklyn</option>
+      </select>
+      <Link to='/parent/ecclist'><button onClick={this.handleSubmit}>go to ecc list</button></Link>
     </div>
   )
 }
@@ -43,4 +65,17 @@ class  FilterLocation  extends React.Component{
 
 // </ul>
 //   </div>
-export default FilterLocation
+
+const mapStateToProps = (state) => {
+  return {
+
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    filterEccList: (suburbToFilterBy) => dispatch(filteredEccList(suburbToFilterBy))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (FilterLocation)
