@@ -27,7 +27,7 @@ class  EccSettings  extends React.Component{
 
   submit(e) {
     var user = this.state
-    postParentUser(user)
+    //add db loading capabilities
   }
 // to do: add upload photo capabilities
 
