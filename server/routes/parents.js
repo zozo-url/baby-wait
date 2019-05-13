@@ -91,8 +91,4 @@ router.get('/childwaitlist/:id', (req, res) => {
     })
 })
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b0d27d023691c3aff1b3cdb4b8ba4fe282157d25
 module.exports = router
