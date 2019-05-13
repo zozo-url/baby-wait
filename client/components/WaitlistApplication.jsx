@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { HashRouter as Router, Route, Link } from "react-router-dom"
 
 
 class  WaitlistApplication  extends React.Component{
@@ -30,7 +30,7 @@ class  WaitlistApplication  extends React.Component{
             Date of birth: <br/>
             <input type="text" value={this.state.value} onChange={this.handleChange} /> <br/>
             </label>
-            <input type="submit" value="Submit" />
+            <Link to='/parent/home'><input type="submit" value="Submit" /></Link>
             </form>
     </div>
   )
