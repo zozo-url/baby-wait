@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import ECC from '../reducers/ecc'
+import ecc from '../reducers/ecc'
 import eccWaitlist from '../reducers/eccWaitlist'
 import Child from '../reducers/child'
 
@@ -7,7 +7,7 @@ import Child from '../reducers/child'
 const reducers = combineReducers({
 
 
-ECC,
+ecc,
 eccWaitlist,
 Child,
 
