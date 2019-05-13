@@ -90,7 +90,7 @@ router.post('/addchildtowaitlist', (req, res) => {
 })
 
 router.delete('/deletechildfromwaitlist', (req, res) => {
-    db.deleteChildFromWaitlist(req.body)
+    db.deleteChildFromWaitlist(req.body.id)
     .then(child => {
         res.json(child)
     })
@@ -99,9 +99,8 @@ router.delete('/deletechildfromwaitlist', (req, res) => {
     })
 })
 
-router.get('/childwaitlist/:id', (req, res) => {
-    //checkout this feature futher into the future
-    db.getChildWaitlists(req.params.id)
+router.get('/childwaitlist/', (req, res) => {
+    db.getChildWaitlists(req.body.id)
     .then(waitlist => {
         res.json(waitlist)
     })
