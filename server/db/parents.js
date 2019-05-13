@@ -1,9 +1,9 @@
 const connection = require('./connection')
+const {generatePasswordHash} = require('../auth/hash')
 
 function getEccList (db = connection) {
     return db('ecc').select()
 }
-
 
 function createChild (newChildInfo, db = connection) {
     console.log('newChildInfo: ', newChildInfo) 
@@ -11,11 +11,42 @@ function createChild (newChildInfo, db = connection) {
         .insert(newChildInfo)
 }
 
+//auth functions
+function createParentUser (newParentUser, db = connection) {
+    return generatePasswordHash(newParentUser.password)
+    .then (hash => {
+        return db('parent')
+        .insert({
+            'first_name': newParentUser.first_name,
+            'last_name': newParentUser.last_name,
+            'username': newParentUser.username,
+            'hash_password': hash,
+            'email': newParentUser.email
+        })
+    })
+}
+
+function getParentByUsername (username, db = connection) {
+    return db('parent')
+      .where('username', username)
+      .select()
+  }
+
+function parentUserExists (parent, db = connection) {
+    console.log(parent)
+    return db('parent')
+      .where('username', parent.username)
+      .then(parentUsers => parentUsers.length > 0)
+}
+//
+
 
 function addChildToWaitList (newChildWaitlistInfo, db = connection) {
     return db('waitlist')
         .insert(newChildWaitlistInfo)
 }
+
+
 
 
 function deleteChildFromWaitlist (childAndEccId, db = connection) {
@@ -39,6 +70,9 @@ function getChildWaitlists (id, db = connection) {
 
 module.exports = {
     getEccList,
+    createParentUser,
+    getParentByUsername,
+    parentUserExists,
     createChild,
     addChildToWaitList,
     deleteChildFromWaitlist,
