@@ -8,8 +8,11 @@ import * as actions from './actions'
 
 
 import Header from './components/header'
-import ParentRegister from './components/ParentRegister'
-import ParentLogin from './components/ParentLogin'
+// import ParentRegister from './components/ParentRegister'
+// import ParentLogin from './components/ParentLogin'
+import ChildRegister from './components/childRegister'
+
+
 class App extends React.Component {
   render() {
     
@@ -17,11 +20,11 @@ class App extends React.Component {
     <Router>
       <div>
         <Route path="/" component={Header}/>
-        <Route exact path="/" component={ParentRegister}/>
-        <Route path="/login" component={ParentLogin}/>
+        {/* <Route exact path="/" component={ParentRegister}/>
+        <Route path="/login" component={ParentLogin}/> */}
               {/* <Route path="/"component= {header}/> */}
-      {/* <Route path="/ChildRegister"component= {ChildRegister}/>
-      <Route path="/Homepage"component= {Homepage}/>
+      <Route path="/childRegister"component= {ChildRegister}/>
+      {/* <Route path="/Homepage"component= {Homepage}/>
       <Route path="/EccDashboard"component= {EccDashboard}/>
       <Route path="/EccList"component= {EccList}/>
       <Route path="/EccLogin"component= {EccLogin}/>
@@ -33,7 +36,7 @@ class App extends React.Component {
       <Route path="/nav"component= {nav}/>
       <Route path="/ParentLogin"component= {ParentLogin}/>
       <Route path="/ParentRegister"component= {ParentRegister}/>
-      <Route path="/WaitlistApplication"component= {WaitlistApplication}/> */}
+      <Route path="/WaitlistApplication"component= {WaitlistApplication}/> */} */}
 
     
       </div>
