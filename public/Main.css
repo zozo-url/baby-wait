@@ -137,6 +137,7 @@ li{
   /* ECC DASHBOARD */
   
 .eccDashHeader {
+    margin-left: 70px;
     color: black;
   }
 
@@ -147,6 +148,13 @@ li{
 
 .eccDashSubText {
     margin-left: 60px;
+    letter-spacing: 0.05em;
+    font-size: 0.9em
+  }
+
+  .eccButton {
+    margin-left: 60px;
+    margin-top: 30px;
     letter-spacing: 0.05em;
     font-size: 0.9em
   }

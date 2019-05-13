@@ -29,6 +29,8 @@ class EccDashboard  extends React.Component{
             <p className='eccDashSubText'>{item.parent_first_name} {item.parent_last_name}    {item.parent_email}</p>
           </div>
       })}
+      <br/>
+      <Link to='/ecc/settings'><button className='eccButton'>Settings</button></Link>
     </div>
   )
 }
