@@ -41,6 +41,7 @@ class  ChildRegister  extends React.Component{
   render (){
   return(
     <div>
+      <div className="main-container">
       <h1></h1>
       <br/>
       <br/>
@@ -56,6 +57,7 @@ class  ChildRegister  extends React.Component{
             </label>
             <button onClick={this.handleSubmit}>Add a child</button>
             </form>
+       </div> 
     </div>
   )
 }
