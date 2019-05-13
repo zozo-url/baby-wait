@@ -1,30 +1,9 @@
 import React from 'react'
-<<<<<<< HEAD
-import { Field, reduxForm } from 'redux-form'
-
-
-const SimpleForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props
-
-=======
 import { HashRouter as Router, Route, Link } from "react-router-dom"
->>>>>>> b0d27d023691c3aff1b3cdb4b8ba4fe282157d25
 
 
 
 class  ParentLogin  extends React.Component{
-<<<<<<< HEAD
-  constructor(props){
-    super(props)
-    this.state={}
-   }
-  
-
-  }
-  render (){
-  return(
-    <div></div>
-=======
   constructor(){
     super()
     this.state={
@@ -55,8 +34,8 @@ class  ParentLogin  extends React.Component{
         <button>submit</button> <br/>
       </form>
     </div>
->>>>>>> b0d27d023691c3aff1b3cdb4b8ba4fe282157d25
   )
-}  
+} 
+} 
 
 export default ParentLogin

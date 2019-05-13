@@ -1,39 +1,25 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux'
-import {HashRouter as Router,Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Link }  from 'react-router-dom'
+import { connect } from 'react-redux'
+import * as actions from './actions'
 
-import Header from './components/header';
-import childRegister from './components/childRegister';
-// import Home from './components/Homepage';
-// import ECC from './components/EccList';
-// import Footer from './components/Footer';
-import ChildRegister from './components/ChildRegister';
-// import Homepage from './components/Homepage';
-// import EccDashboard from './components/EccDashboard';
-// import EccList from "./components/EccList";
-// import EccLogin from "./components/EccLogIn";
-// import EccRegister from "./components/EccRegister";
-// import EccSettings from './components/EccSettings';
-// import FilterLocation from './components/FilterLocation';
-// import location from "./components/location";
-// import nav from './components/nav';
-// import ParentLogin from './components/ParentLogin';
-// import ParentRegister from './components/ParentRegister';
-// import WaitlistApplication from './components/WaitlistApplication';
+//MATERIAL UI IMPORTS
 
 
 
-
+import Header from './components/header'
+import ParentRegister from './components/ParentRegister'
+import ParentLogin from './components/ParentLogin'
 class App extends React.Component {
   render() {
     
     return (
-      <Router>
+    <Router>
       <div>
-
-        <Header/>
-        <childRegister/>
-      {/* <Route path="/"component= {header}/> */}
+        <Route path="/" component={Header}/>
+        <Route exact path="/" component={ParentRegister}/>
+        <Route path="/login" component={ParentLogin}/>
+              {/* <Route path="/"component= {header}/> */}
       {/* <Route path="/ChildRegister"component= {ChildRegister}/>
       <Route path="/Homepage"component= {Homepage}/>
       <Route path="/EccDashboard"component= {EccDashboard}/>
@@ -50,14 +36,18 @@ class App extends React.Component {
       <Route path="/WaitlistApplication"component= {WaitlistApplication}/> */}
 
     
-
       </div>
       </Router>
     );
+
+ 
   }
-      
 }
-
-
 export default App
+// const mapStateToProps = (state) => {
+//   return {
+//     data : state.ECC
+//   }
+// }
 
+// export default connect(mapStateToProps,actions) (App);
