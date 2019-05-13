@@ -18,6 +18,7 @@ class  EccRegister  extends React.Component{
   }
   render (){
     return (
+      <div className="main-container">
     <form onSubmit={handleSubmit}>
       <div>
         <label>First Name</label>
@@ -93,6 +94,7 @@ class  EccRegister  extends React.Component{
         </button>
       </div>
     </form>
+    </div>
   )
 }
 }

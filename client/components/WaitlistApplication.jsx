@@ -12,8 +12,12 @@ class  WaitlistApplication  extends React.Component{
   render (){
   return(
     <div>
+      <br/>
+      <br/>
+      <br/>
       <h1>Apply For This Waitlist</h1>
       <br/>
+      <div className="main-container">
       <h3>Select child you want to enrol:</h3>
       <select>
         <option value="child1">child1name</option>
@@ -32,6 +36,7 @@ class  WaitlistApplication  extends React.Component{
             </label>
             <Link to='/parent/home'><input type="submit" value="Submit" /></Link>
             </form>
+       </div>     
     </div>
   )
 }

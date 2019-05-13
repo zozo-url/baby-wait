@@ -28,7 +28,8 @@ class  ParentLogin  extends React.Component{
   return(
     <div>
       <h1><br/><br/></h1>
-      <h2>Log injlkjl</h2>
+      <div className="main-container">
+      <h2>Log in</h2>
       <form onSubmit={this.submit}>
         <h3>Username</h3> 
         <input type='text' name='username' onChange={this.updateState}></input> <br/>
@@ -37,6 +38,7 @@ class  ParentLogin  extends React.Component{
         <button>submit</button>
         <Link to='/parent/home'><button>submit</button></Link> <br/>
       </form>
+     </div>
     </div>
   )
 } 
