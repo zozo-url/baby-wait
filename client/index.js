@@ -17,8 +17,8 @@ import { Provider } from 'react-redux'
 
 
 
-import App from './app'
-import reducers from './Reducers'
+import App from '../client/components/App'
+import reducers from './reducers'
 
 
 // No Thunk

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const verifyJwt = require("express-jwt")
 const db = require("../db/parents");
 const token = require("../auth/token")
 
@@ -48,7 +48,26 @@ router.post('/createparentuser', (req, res, next) => {
 })
 
 router.post('/login', token.issueToken)
-//
+
+// router.get('/homepage',
+//     verifyJwt({ secret:process.env.JWT_SECRET }),
+//     homepage
+//     )
+
+//     function homepage (req, res) {
+//         db.getChildWaitlists(req.id)
+//           .then(({username}) =>
+//             res.json({
+//               ok: true,
+//               username
+//             }))
+//           .catch(() =>
+//             res.status(500).json({
+//               ok: false,
+//               message: 'An error ocurred while retrieving your user profile.'
+//             }))
+//       }
+// //
 
 router.post('/createchild', (req, res) => {
     db.createChild(req.body)

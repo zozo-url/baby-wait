@@ -1,22 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux'
+import { HashRouter as Router, Route, Link }  from 'react-router-dom'
 
 
 
-class  childRegister  extends React.Component{
+
+class  ChildRegister  extends React.Component{
   constructor(props){
     super(props)
-    this.state={value:''};
+    this.state={
+      value:'',
+      first_name:'',
+      last_name:'',
+      date_of_birth:'',
+
+
+    };
 
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this); 
     }
+
     handleChange(event){
       this.setState({value: event.target.value});
     }
   
     handleSubmit(event){
-      alert('A name was submitted:' = this.state.value);
+      event.preventDefault()
+      
     
   
     
@@ -24,21 +35,24 @@ class  childRegister  extends React.Component{
   render (){
   return(
     <div>
-           <form OnSubmit={this.handleSubmit}>
+      <h1></h1>
+      <br/>
+      <br/>
+           <form>
+             <h1>Register your child</h1>
             <label htmlFor="">
-            firstName:
+            First name:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
-            lastName:
+            Last name:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
-            Date of Birth:
+            Date of birth:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
-
             </label>
-            <input type="submit" value="Submit" />
+            <Link to='/parent/home'><input type="submit" value="Submit" /></Link>
             </form>
     </div>
   )
 }
 
 }
-export default childRegister
+export default ChildRegister

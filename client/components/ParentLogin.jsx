@@ -31,11 +31,11 @@ class  ParentLogin  extends React.Component{
         <input type='text' name='username' onChange={this.updateState}></input> <br/>
         <h3>Password</h3>
         <input type='text' name='password' onChange={this.updateState}></input> <br/> <br/>
-        <button>submit</button> <br/>
+        <Link to='/parent/home'><button>submit</button></Link> <br/>
       </form>
     </div>
   )
-}
+} 
+} 
 
-}
 export default ParentLogin
