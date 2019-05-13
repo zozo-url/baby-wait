@@ -26,6 +26,17 @@ export function getEccList (callback) {
       })
 }
 
+export function getChildWaitlistData (id, callback) {
+  console.log(user)
+  return request
+      .post(DatabaseUrl + '/childwaitlist')
+      .send(id)
+      .end((err,res) => {
+          console.log(err)
+          console.log(res)
+      })
+}
+
 export function postParentUser (parent, callback) {
   return request
       .post(DatabaseUrl + '/createparentuser')
@@ -56,6 +67,14 @@ export function postRegisteredChild (newChild, callback) {
           console.log(res)
       })
 }
-// export function login () {
-//   const token = 
-// }
+export function login (creds, callback) {
+  const token = res.body.token
+  return request
+  .post(DatabaseUrl + '/login')
+  .send(creds)
+  .then(res => res.body.token)
+  .catch (err => {
+    throw err
+  })
+      // capture the token, send it to localstorage
+}
