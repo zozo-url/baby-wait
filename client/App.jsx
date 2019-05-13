@@ -19,11 +19,11 @@ class App extends React.Component {
     return (
     <Router>
       <div>
-        <Route path="/" component={Header}/>
-        {/* <Route exact path="/" component={ParentRegister}/>
-        <Route path="/login" component={ParentLogin}/> */}
-              {/* <Route path="/"component= {header}/> */}
-      <Route path="/childRegister"component= {ChildRegister}/>
+        {/* <Route path="/" component={Header}/>
+       <Route exact path="/" component={ParentRegister}/> 
+        <Route path="/login" component={ParentLogin}/> 
+              <Route path="/"component= {header}/> */}
+      {/* <Route path="/childRegister"component= {ChildRegister}/> */}
       {/* <Route path="/Homepage"component= {Homepage}/>
       <Route path="/EccDashboard"component= {EccDashboard}/>
       <Route path="/EccList"component= {EccList}/>
