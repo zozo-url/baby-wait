@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { HashRouter as Router, Route, Link }  from 'react-router-dom'
 
 
 class  EccList  extends React.Component{
@@ -12,7 +12,13 @@ class  EccList  extends React.Component{
   render (){
   return(
     <div>
-        hello
+      <h1>
+      </h1>
+      <br/>
+      <br/>
+        <h1>I am a list of eccs</h1>
+        <Link to='/parent/registerwaitlist'><button>I want to register for this ecc</button></Link> <br/>
+        <Link to='/parent/home'><button>back to parent dashboard</button></Link>
     </div>
   )
 }

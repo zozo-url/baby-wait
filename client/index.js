@@ -8,7 +8,6 @@ import { Provider } from 'react-redux'
 
 
 
-import { BrowserRouter, Route } from 'react-router-dom'
 
 
 //ROUTES
@@ -18,8 +17,8 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 
 
-import App from './App'
-import reducers from './Reducers'
+import App from '../client/components/App'
+import reducers from './reducers'
 
 
 // No Thunk
