@@ -47,6 +47,15 @@ export function getParentUserByUsername (parentUsername, callback) {
       })
 }
 
+export function postRegisteredChild (newChild, callback) {
+  return request
+      .post(DatabaseUrl + '/createchild')
+      .send(newChild)
+      .end((err,res) => {
+          console.log(err)
+          console.log(res)
+      })
+}
 // export function login () {
 //   const token = 
 // }
