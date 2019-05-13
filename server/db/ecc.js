@@ -52,6 +52,13 @@ function EccUserExists (ecc, db = connection) {
       .then(eccUsers => eccUsers.length > 0)
 }
 //
+
+// function updateChildStatus (childId, db = connection) {
+//     return db('waitlist')
+//       .where('child_id', childId)
+//       .select()
+//   }
+
 module.exports = {
     getPendingChildren,
     getWaitlistChildren,

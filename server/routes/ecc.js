@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
 const db = require("../db/ecc");
+const token = require("../auth/token")
 
 //auth
 router.post('/createuserecc', (req, res, next) => {
@@ -24,7 +24,8 @@ router.post('/createuserecc', (req, res, next) => {
         res.status(500).send(err.message)
     })
 })
-
+//this isn't working
+router.post('/login', token.issueEccToken)
 //
 
 router.get('/pending', (req,res) => {
