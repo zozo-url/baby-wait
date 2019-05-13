@@ -18,6 +18,16 @@ class  EccSettings  extends React.Component{
       username: '',
       hash_password: '',
     }
+    this.updateState = this.updateState.bind(this)
+    this.submit = this.submit.bind(this)
+  }
+  updateState(e){
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  submit(e) {
+    var user = this.state
+    postParentUser(user)
   }
 // to do: add upload photo capabilities
 
