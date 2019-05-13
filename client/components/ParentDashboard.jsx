@@ -13,22 +13,35 @@ class ParentDashboard  extends React.Component{
   render (){
   return(
     <div>
-      <h1></h1>
+      <div className="padding">
+      <header></header>
+      </div>
       <br/>
-      <br/>
-      <h1></h1>
-      <h1>parent dashboard</h1>
-      <p>list of children</p>
+      <div className="main-container">
+      <div className="header">
+       <h1>PARENT DASHBOARD</h1>
+      </div>
+      <div className="small-container">
+      
+       <h2>LIST OF CHILDREN</h2>
       <li>child1</li>
       <li>child2</li>
       <Link to='/parent/registerchild'><button>add child</button></Link> <br/>
       <br/>
-      <p>list of my waitlists</p>
+      
+      </div>
+     <div className="small-container">
+      <h2>LIST OF MY WAITLIST</h2>
         <li>child 1 = ecc 1</li>
         <li>child 1 = ecc 2</li>
         <li>child 2 = ecc 1</li> 
         <br/>
       <Link to='/parent/filter'><button>search early childhood centers</button></Link>
+      
+      </div>
+      
+      </div>
+      
   </div>
   )
 }

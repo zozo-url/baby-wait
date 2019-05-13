@@ -22,3 +22,41 @@ header .header_logo_daycare{
 header .header_logo_title {
   text-transform: uppercase;
 }
+
+.main-container{
+align-content: center;
+text-align: center;
+border: 2px solid rgb(0, 47, 255);
+border-radius: 12px;
+background-color: azure;
+padding: 20px;
+width: 60%;
+  
+}
+
+.small-container{
+  align-content: center;
+  text-align: center;
+  border: 2px solid rgb(0, 47, 255);
+  border-radius: 12px;
+  background-color: azure;
+  padding: 20px;
+  width: 60%;
+  margin-left: 70px;
+  
+}
+.padding{
+  padding:30px;
+}
+
+h1{
+  font-size: 70px;
+}
+
+h2{
+  font-size: 35px;
+  }
+
+  li{
+    text-decoration: none;
+  }
