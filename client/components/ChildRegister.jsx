@@ -9,7 +9,6 @@ class  ChildRegister  extends React.Component{
   constructor(props){
     super(props)
     this.state={
-      value:'',
       first_name:'',
       last_name:'',
       date_of_birth:'',
@@ -21,17 +20,20 @@ class  ChildRegister  extends React.Component{
       this.handleSubmit = this.handleSubmit.bind(this); 
     }
 
-    handleChange(event){
-      this.setState({value: event.target.value});
+    handleChange(e){
+      this.setState({[e.target.name]: e.target.value});
     }
   
     handleSubmit(event){
+
       event.preventDefault()
-      
+    }
+    
+    
     
   
     
-  }
+  
   render (){
   return(
     <div>
@@ -42,13 +44,13 @@ class  ChildRegister  extends React.Component{
              <h1>Register your child</h1>
             <label htmlFor="">
             First name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input type="text" name='first_name' value={this.updateState} onChange={this.handleChange} />
             Last name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input type="text" name='last_name' value={this.updateState} onChange={this.handleChange} />
             Date of birth:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <input type="text" name='date_of_birth' value={this.updateState} onChange={this.handleChange} />
             </label>
-            <Link to='/parent/home'><input type="submit" value="Submit" /></Link>
+            <Link to='/parent/home'><input type="submit" value="Submit" />Add a child</Link>
             </form>
     </div>
   )
