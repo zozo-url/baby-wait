@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Link }  from 'react-router-dom'
+import { HashRouter as Router, Route, Link }  from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from './actions'
 
@@ -10,7 +10,8 @@ import * as actions from './actions'
 import Header from './components/header'
 import ParentRegister from './components/ParentRegister'
 import ParentLogin from './components/ParentLogin'
-class app extends Component {
+import WaitlistApplication from './components/WaitlistApplication';
+class App extends Component {
   render() {
     
     return (
@@ -19,6 +20,7 @@ class app extends Component {
         <Route path="/" component={Header}/>
         <Route exact path="/" component={ParentRegister}/>
         <Route path="/login" component={ParentLogin}/>
+        <Route path="/waitlist/apply" component={WaitlistApplication}/>
         
       </div>
       </Router>
@@ -28,10 +30,11 @@ class app extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    data : state.ECC
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     data : state.ECC
+//   }
+// }
 
-export default connect(mapStateToProps,actions) (App);
+// export default connect(mapStateToProps,actions) (App);
+export default App;

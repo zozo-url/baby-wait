@@ -24,15 +24,14 @@ class  childRegister  extends React.Component{
   render (){
   return(
     <div>
-           <form OnSubmit={this.handleSubmit}>
+           <form>
             <label htmlFor="">
-            firstName:
+            First name:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
-            lastName:
+            Last name:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
-            Date of Birth:
+            Date of birth:
             <input type="text" value={this.state.value} onChange={this.handleChange} />
-
             </label>
             <input type="submit" value="Submit" />
             </form>
