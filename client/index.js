@@ -18,7 +18,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 
 
-import App from './app'
+import App from './App'
 import reducers from './Reducers'
 
 
