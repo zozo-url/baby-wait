@@ -35,7 +35,7 @@ class  ParentLogin  extends React.Component{
       </form>
     </div>
   )
-}
+} 
+} 
 
-}
 export default ParentLogin
