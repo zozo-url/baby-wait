@@ -11,12 +11,18 @@ export function EccList(){
     }
 }
 
-export function filteredEccList(suburb) {
-    console.log('suburb: ', suburb)
+export function setFilterEccWord(suburb) {
     return {
-        type:'FILTERLIST',
+        type:'FILTER_WORD',
         suburb
     }
 }
 
-// 
+export function filteredList(theList) {
+    return {
+        type:'FILTERED_LIST', 
+        theList
+    }
+}
+
+
