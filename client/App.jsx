@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import {HashRouter as Router,Route, Link } from 'react-router-dom';
 
 import Header from './components/header';
+import childRegister from './components/childRegister';
 // import Home from './components/Homepage';
 // import ECC from './components/EccList';
 // import Footer from './components/Footer';
-// import ChildRegister from './components/ChildRegister';
+import ChildRegister from './components/ChildRegister';
 // import Homepage from './components/Homepage';
 // import EccDashboard from './components/EccDashboard';
 // import EccList from "./components/EccList";
@@ -31,6 +32,7 @@ class App extends React.Component {
       <div>
 
         <Header/>
+        <childRegister/>
       {/* <Route path="/"component= {header}/> */}
       {/* <Route path="/ChildRegister"component= {ChildRegister}/>
       <Route path="/Homepage"component= {Homepage}/>
