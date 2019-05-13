@@ -24,17 +24,27 @@ class ParentDashboard  extends React.Component{
       <div className="small-container">
       
        <h2>LIST OF CHILDREN</h2>
-      <li>child1</li>
-      <li>child2</li>
+
+      <li className='li'>child1</li>
+      <li className='li'>child2</li>
+      <li className='li'>child3</li>
+      <li className='li'>child4</li>
+      <li className='li'>child5</li>
+      <li className='li'>child6</li>
+      <br/>
       <Link to='/parent/registerchild'><button>add child</button></Link> <br/>
       <br/>
       
       </div>
      <div className="small-container">
+
       <h2>LIST OF MY WAITLIST</h2>
-        <li>child 1 = ecc 1</li>
-        <li>child 1 = ecc 2</li>
-        <li>child 2 = ecc 1</li> 
+
+        <li className='li'>child 1 = ecc 1</li>
+        <li className='li'>child 2 = ecc 2</li>
+        <li className='li'>child 3 = ecc 3</li> 
+        <li className='li'>child 4 = ecc 4</li> 
+        <li className='li'>child 5 = ecc 5</li> 
         <br/>
       <Link to='/parent/filter'><button>search early childhood centers</button></Link>
       
