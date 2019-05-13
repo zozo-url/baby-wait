@@ -29,7 +29,9 @@ class App extends React.Component {
     return (
       <Router>
       <div>
-      <Route path="/"component= {header}/>
+
+        <Header/>
+      {/* <Route path="/"component= {header}/> */}
       {/* <Route path="/ChildRegister"component= {ChildRegister}/>
       <Route path="/Homepage"component= {Homepage}/>
       <Route path="/EccDashboard"component= {EccDashboard}/>
