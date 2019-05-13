@@ -33,6 +33,7 @@ class  ParentRegister extends React.Component{
     <div>
       <h1><br/><br/></h1>
       <h2>Sign Up</h2>
+      <div className="main-container">
       <form>
         <h3>First Name</h3> 
         <input type='text' name='first_name' onChange={this.updateState}></input> <br/>
@@ -46,6 +47,7 @@ class  ParentRegister extends React.Component{
         <input type='text' name='email' onChange={this.updateState}></input> <br/> <br/>
         <Link to='/login'><button onClick={this.submit}>submit</button></Link>
       </form>
+      </div>
     </div>
   )
 }

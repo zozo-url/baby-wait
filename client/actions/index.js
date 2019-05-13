@@ -11,6 +11,7 @@ export function EccList(){
     }
 }
 
+<<<<<<< HEAD
 export function EccWaitlistInfo(){
 
     return{
@@ -51,3 +52,33 @@ export function EccWaitlistInfo(){
 }
 
 
+// 
+export function childList(){
+
+    return{
+        type:'CHILD_LIST',
+        payload: [
+            {
+                "first_name": "Abi2",
+                "status": "pending",
+                "rank_ecc": 1,
+                "rank_parent": 1,
+                "center_name": "Active Explorers Cambridge Terrace"
+            },
+            {
+                "first_name": "Abi2",
+                "status": "waitlist",
+                "rank_ecc": 1,
+                "rank_parent": 3,
+                "center_name": "BestStart Tory Street"
+            },
+            {
+                "first_name": "Abi2",
+                "status": "waitlist",
+                "rank_ecc": 1,
+                "rank_parent": 2,
+                "center_name": "Active Explorers Cambridge Terrace"
+            }
+         ]
+    }
+}
