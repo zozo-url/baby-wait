@@ -3,6 +3,7 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
 
+
 const styles = {
   card: {
     maxWidth: 345,
@@ -58,15 +59,20 @@ componentWillMount(){
 
       <h2>LIST OF MY WAITLIST</h2>
 
+      <h3>Childs Name:</h3>
+
+      <p>{this.state.value.payload[0].first_name}</p>
       {this.state.value.payload.map(item =>
               <div>
             <li className='li'>
-            Position: Accepted/Waiting
+            
+           
+            <h3>Position: Accepted/Waiting</h3>
             <p>{item.status}</p>
-            Day Care Center: 
+            <h3>Day Care Center:</h3> 
              <p>{item.center_name}</p>
-            Position in the list: 
-              <p>{item.rank_ecc}</p>
+            <h3>Position in the list:</h3> 
+             <p>{item.rank_ecc}</p>
               </li>
             </div>
         )}
