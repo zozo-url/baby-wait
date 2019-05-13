@@ -5,8 +5,6 @@ import * as actions from '../actions'
 
 //MATERIAL UI IMPORTS
 
-
-
 import Header from './Header'
 import ParentRegister from './ParentRegister'
 import ParentLogin from './ParentLogin'
@@ -15,6 +13,9 @@ import ChildRegister from './ChildRegister';
 import EccList from './EccList';
 import FilterLocation from './FilterLocation'
 import WaitlistApplication from './WaitlistApplication'
+
+import EccDashboard from './EccDashboard'
+
 class App extends React.Component {
   render() {
     
@@ -29,6 +30,7 @@ class App extends React.Component {
         <Route path="/parent/filter" component={FilterLocation}/>
         <Route path="/parent/ecclist" component={EccList}/>
         <Route path="/parent/registerwaitlist" component={WaitlistApplication}/>
+        <Route path="/ecc/home" component={EccDashboard}/>
       </div>
     </Router>
     );
