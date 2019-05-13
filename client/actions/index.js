@@ -14,7 +14,7 @@ export function EccList(){
 export function childList(){
 
     return{
-        type:'Child_list',
+        type:'CHILD_LIST',
         payload: [
             {
                 "first_name": "Abi2",

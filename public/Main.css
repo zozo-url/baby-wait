@@ -54,10 +54,11 @@ h1{
 }
 
 h2{
-  font-size: 35px;
+  font-size: 40px;
   }
 
 
 li{
     text-decoration: none;
+    font-size: 35px;
   }
