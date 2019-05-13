@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { HashRouter as Router, Route, Link }  from 'react-router-dom'
+import { postRegisteredChild } from '../apis/api';
 
 
 
@@ -24,9 +25,10 @@ class  ChildRegister  extends React.Component{
       this.setState({[e.target.name]: e.target.value});
     }
   
-    handleSubmit(event){
-
-      event.preventDefault()
+    handleSubmit(e){
+      var child = this.state 
+      postRegisteredChild(child)
+      // event.preventDefault()
     }
     
     
@@ -50,7 +52,7 @@ class  ChildRegister  extends React.Component{
             Date of birth:
             <input type="text" name='date_of_birth' value={this.updateState} onChange={this.handleChange} />
             </label>
-            <Link to='/parent/home'><input type="submit" value="Submit" />Add a child</Link>
+            <Link to='/parent/home'><button onClick={this.handleSubmit}>Add a child</button></Link>
             </form>
     </div>
   )
