@@ -11,6 +11,21 @@ export function EccList(){
     }
 }
 
+export function setFilterEccWord(suburb) {
+    return {
+        type:'FILTER_WORD',
+        suburb
+    }
+}
+
+export function filteredList(theList) {
+    return {
+        type:'FILTERED_LIST', 
+        theList
+    }
+}
+
+
 export function EccWaitlistInfo(){
 
     return{
