@@ -50,6 +50,44 @@ export function EccWaitlistInfo(){
     }
 }
 
+export function EccPendingInfo(){
+
+    return{
+        type:'ECC_PENDING',
+        payload: [
+            {
+                "center_name": "Active Explorers Cambridge Terrace",
+                "child_status": "pending",
+                "child_rank": 1,
+                "child_first_name": "Abi2",
+                "child_last_name": "Lodo",
+                "parent_first_name": "Devon",
+                "parent_last_name": "Longbottom",
+                "parent_email": "bigdogggottaeat@example.com"
+            },
+            {
+                "center_name": "Active Explorers Cambridge Terrace",
+                "child_status": "pending",
+                "child_rank": 2,
+                "child_first_name": "Sarah",
+                "child_last_name": "Evans",
+                "parent_first_name": "Simon",
+                "parent_last_name": "Guy",
+                "parent_email": "guyman@example.com"
+            },
+            {
+                "center_name": "Active Explorers Cambridge Terrace",
+                "child_status": "pending",
+                "child_rank": 3,
+                "child_first_name": "Josh",
+                "child_last_name": "Boyman",
+                "parent_first_name": "Lisa",
+                "parent_last_name": "Cool",
+                "parent_email": "lisa111@example.com"
+            }
+        ]
+    }
+}
 
 // 
 export function childList(){
