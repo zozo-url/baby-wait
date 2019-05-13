@@ -11,7 +11,6 @@ export function EccList(){
     }
 }
 
-<<<<<<< HEAD
 export function EccWaitlistInfo(){
 
     return{

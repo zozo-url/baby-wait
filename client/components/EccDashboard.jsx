@@ -14,8 +14,8 @@ class EccDashboard  extends React.Component{
     this.setState({value: this.props.EccWaitlistInfo()})
   }
 
+
   render () {
-console.log(this.state.value.payload[0].child_first_name)
   return (
     <div className='eccDash'> 
       <h1></h1>
@@ -25,7 +25,8 @@ console.log(this.state.value.payload[0].child_first_name)
       <h1 className='eccDashHeader'>Your Waitlist</h1>
       {this.state.value.payload.map((item, id) => {
         return <div>
-          <p key={id}>{item.child_rank}. {item.child_first_name} {item.child_last_name}  <button>x</button></p> 
+          <p key={id} className='eccDashText'>{item.child_rank}. {item.child_first_name} {item.child_last_name}  <button>x</button></p> 
+            <p className='eccDashSubText'>{item.parent_first_name} {item.parent_last_name}    {item.parent_email}</p>
           </div>
       })}
     </div>
