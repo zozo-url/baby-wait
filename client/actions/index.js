@@ -1,9 +1,16 @@
-import { getEccList } from '../apis/api'
+import { getEccList, getChildWithParentId } from '../apis/api'
 
 export function EccList(payload){
 
     return{
         type:'ECC_List',
+        payload
+    }
+}
+
+export function saveUsersChildren(payload){
+    return {
+        type: 'CHILD_LIST',
         payload
     }
 }
@@ -29,6 +36,14 @@ export function fetchECCList(filterWord) {
         })
     }
     
+}
+
+export function fetchChildrenOfParent(parentId) {
+    return dispatch => {
+        getChildWithParentId(parentId, (err, childrenList) => {
+            dispatch(saveUsersChildren(childrenList))
+        })
+    }
 }
 
 export function EccWaitlistInfo(){
