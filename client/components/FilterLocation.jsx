@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import { setFilterEccWord } from '../actions';
 import { connect } from 'react-redux'
+import Location from './location'
 
 
 class  FilterLocation  extends React.Component{
@@ -38,7 +39,9 @@ class  FilterLocation  extends React.Component{
         <option value="Brooklyn">Brooklyn</option>
       </select>
       <Link to='/parent/ecclist'><button onClick={this.handleSubmit}>go to ecc list</button></Link>
+    
     </div>
+    
   )
 }
 
