@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link }  from 'react-router-dom'
-<<<<<<< HEAD
 // import { Field, reduxForm } from 'redux-form'
-=======
->>>>>>> bc9d6b4909bc5a44185726f039b9cc5fce2e1baa
 
 
 
