@@ -14,7 +14,6 @@ export function append(data) {
     .then(res => res.body);
 }
 
-
 const ParentDbUrl = 'http://localhost:3000/v1/parents'
 
 
@@ -26,17 +25,15 @@ export function getEccList (filterWord ,callback) {
       })
 }
 
-export function getChildWaitlistData (id, callback) {
-  return request
-      .post(ParentDbUrl + '/childwaitlist')
-      .send(id)
-      .end((err,res) => {
-          console.log(err)
-          console.log(res)
-      })
+export function getChildWaitlistData(id, callback) {
+  return request.get(ParentDbUrl + "/childwaitlist/" + id).end((err, res) => {
+    console.log(err);
+    console.log(res);
+    callback(err, res.body);
+  });
 }
 
-export function postParentUser (parent, callback) {
+export function postParentUser(parent, callback) {
   return request
       .post(ParentDbUrl + '/createparentuser')
       .send(parent)
@@ -46,8 +43,8 @@ export function postParentUser (parent, callback) {
       })
 }
 
-export function getParentUserByUsername (parentUsername, callback) {
-  console.log(user)
+export function getParentUserByUsername(parentUsername, callback) {
+  console.log(user);
   return request
       .post(ParentDbUrl + '/getparentbyusername')
       .send(parentUsername)
@@ -57,7 +54,7 @@ export function getParentUserByUsername (parentUsername, callback) {
       })
 }
 
-export function postRegisteredChild (newChild, callback) {
+export function postRegisteredChild(newChild, callback) {
   return request
       .post(ParentDbUrl + '/createchild')
       .send(newChild)
@@ -66,8 +63,8 @@ export function postRegisteredChild (newChild, callback) {
           console.log(res)
       })
 }
-export function login (creds, callback) {
-  const token = res.body.token
+export function login(creds, callback) {
+  const token = res.body.token;
   return request
   .post(ParentDbUrl + '/login')
   .send(creds)
