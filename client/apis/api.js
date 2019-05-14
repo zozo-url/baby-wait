@@ -18,9 +18,9 @@ export function append(data) {
 const ParentDbUrl = 'http://localhost:3000/v1/parents'
 
 
-export function getEccList (callback) {
+export function getEccList (filterWord ,callback) {
   return request
-      .get(ParentDbUrl)
+      .get(DatabaseUrl + '/ecc' + '?filterWord=' + filterWord)
       .end((err,res) => {
           callback(err, res.body)
       })

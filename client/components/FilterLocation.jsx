@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom"
 import { setFilterEccWord } from '../actions';
 import { connect } from 'react-redux'
+import { fetchECCList } from '../actions'
 
 
 class  FilterLocation  extends React.Component{
@@ -22,6 +23,7 @@ class  FilterLocation  extends React.Component{
   
   handleSubmit () {
     this.props.setFilterEccWord(this.state.selectedLocation)
+    this.props.setEccData(this.state.selectedLocation)
   }
   
 
@@ -65,16 +67,11 @@ class  FilterLocation  extends React.Component{
 // </ul>
 //   </div>
 
-const mapStateToProps = (state) => {
-  return {
-
-  }
-}
-
 const mapDispatchToProps = (dispatch) => {
   return {
-    setFilterEccWord: (suburbToFilterBy) => dispatch(setFilterEccWord(suburbToFilterBy))
+    setFilterEccWord: (suburbToFilterBy) => dispatch(setFilterEccWord(suburbToFilterBy)),
+    setEccData: (filterWord) => dispatch(fetchECCList(filterWord))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (FilterLocation)
+export default connect(null, mapDispatchToProps) (FilterLocation)
