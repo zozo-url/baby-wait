@@ -114,10 +114,10 @@ export function updateChildStateToWaitlist (childId, callback) {
       })
 }
 
-export function deleteChildFromWaitlist (childId, callback) {
+export function deleteChildFromWaitlist (childId, eccId, callback) {
   return request
-      .post(EccDbUrl + '/deletechildfromwaitlist/' + childId)
-      .send(id)
+      .post(EccDbUrl + '/deletechildfromwaitlist/' + childId + '/' + eccId)
+      .send(childId)
       .end((err,res) => {
         callback(err, res.body)
       })
