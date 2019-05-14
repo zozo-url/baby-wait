@@ -25,38 +25,24 @@ const styles = {
 };
 
 class  EccList  extends React.Component{
-  constructor(){
-    super()
-    this.state={
-
-    }
-  }
-
-  componentDidMount() {
-  // this.props.data.ecc
-
-  }
-
 
   render (){
     console.log('this.props.data: ', this.props.data)
   return(
-    <div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
       <div>
-      {this.props.data.ecc.map((item, index) => <p key={index}>{item.center_name}</p>)}
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div>
+        {this.props.data.ecc.map((item, index) => <p key={index}>{item.center_name}</p>)}
+        </div>
+          <Link to='/parent/registerwaitlist'><button>I want to register for this ecc</button></Link> <br/>
+          <Link to='/parent/home'><button>back to parent dashboard</button></Link>
       </div>
-        <Link to='/parent/registerwaitlist'><button>I want to register for this ecc</button></Link> <br/>
-        <Link to='/parent/home'><button>back to parent dashboard</button></Link>
-    </div>
-
-  )
+    )
+  }
   
-}
-
 }
 
 

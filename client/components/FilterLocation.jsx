@@ -67,12 +67,6 @@ class  FilterLocation  extends React.Component{
 // </ul>
 //   </div>
 
-const mapStateToProps = (state) => {
-  return {
-
-  }
-}
-
 const mapDispatchToProps = (dispatch) => {
   return {
     setFilterEccWord: (suburbToFilterBy) => dispatch(setFilterEccWord(suburbToFilterBy)),
@@ -80,4 +74,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (FilterLocation)
+export default connect(null, mapDispatchToProps) (FilterLocation)
