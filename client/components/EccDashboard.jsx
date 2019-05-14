@@ -25,8 +25,9 @@ class EccDashboard  extends React.Component{
       <h1></h1>
       <br/>
       <br/>
-      <h1></h1>
+      <div className="header"></div>
       <h1 className='DashHeader'>Your Waitlist</h1>
+      <div className="main-container">
       {this.state.value.payload.map((item, id) => {
         return <div>
           <p key={id} className='DashText'>{item.child_rank}. {item.child_first_name} {item.child_last_name}  <button>x</button></p> 
@@ -35,6 +36,7 @@ class EccDashboard  extends React.Component{
       })}
       <br/>
       <Link to='/ecc/settings'><button className='DashButton'>Settings</button></Link>
+      </div>
     </div>
   )
 }
