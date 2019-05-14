@@ -99,9 +99,9 @@ router.delete("/deletechildfromwaitlist", (req, res) => {
     });
 });
 
-router.get("/childwaitlist", (req, res) => {
-    console.log(req.body)
-  db.getChildWaitlists(req.body)
+router.get("/childwaitlist/:id", (req, res) => {
+  console.log(req.params.id);
+  db.getChildWaitlists(req.params.id)
     .then(waitlist => {
       res.json(waitlist);
     })

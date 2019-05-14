@@ -1,28 +1,26 @@
-const webpack = require('webpack')
-const path = require('path')
+const webpack = require("webpack");
+const path = require("path");
 
 const config = {
-  entry: './client/index.js',
+  entry: "./client/index.js",
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "public"),
+    filename: "bundle.js"
   },
-  mode: 'development',
+  mode: "development",
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        use: "babel-loader",
         exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    extensions: [
-      '.js',
-      '.jsx'
-    ]
-  }
-}
+    extensions: [".js", ".jsx"]
+  },
+  devtool: "source-map"
+};
 
-module.exports = config
+module.exports = config;

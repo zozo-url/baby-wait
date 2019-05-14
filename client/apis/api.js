@@ -1,6 +1,5 @@
 import request from "superagent";
 
-
 const DayCareUrl =
   'http://catalogue.data.govt.nz/api/3/action/datastore_search_sql?sql=SELECT * FROM"26f44973-b06d-479d-b697-8d7943c97c57"';
 
@@ -15,67 +14,60 @@ export function append(data) {
     .then(res => res.body);
 }
 
+const DatabaseUrl = "http://localhost:3000/v1/parents";
 
-const DatabaseUrl = 'http://localhost:3000/v1/parents'
-
-
-export function getEccList (callback) {
-  return request
-      .get(DatabaseUrl)
-      .end((err,res) => {
-          callback(err, res.body)
-      })
+export function getEccList(callback) {
+  return request.get(DatabaseUrl).end((err, res) => {
+    callback(err, res.body);
+  });
 }
 
-export function getChildWaitlistData (id, callback) {
-  
-  return request
-      .get(DatabaseUrl + '/childwaitlist')
-      .send(id)
-      .end((err,res) => {
-          console.log(err)
-          console.log(res)
-      })
+export function getChildWaitlistData(id, callback) {
+  return request.get(DatabaseUrl + "/childwaitlist/" + id).end((err, res) => {
+    console.log(err);
+    console.log(res);
+    callback(err, res.body);
+  });
 }
 
-export function postParentUser (parent, callback) {
+export function postParentUser(parent, callback) {
   return request
-      .post(DatabaseUrl + '/createparentuser')
-      .send(parent)
-      .end((err,res) => {
-          console.log(err)
-          console.log(res)
-      })
+    .post(DatabaseUrl + "/createparentuser")
+    .send(parent)
+    .end((err, res) => {
+      console.log(err);
+      console.log(res);
+    });
 }
 
-export function getParentUserByUsername (parentUsername, callback) {
-  console.log(user)
+export function getParentUserByUsername(parentUsername, callback) {
+  console.log(user);
   return request
-      .post(DatabaseUrl + '/getparentbyusername')
-      .send(parentUsername)
-      .end((err,res) => {
-          console.log(err)
-          console.log(res)
-      })
+    .post(DatabaseUrl + "/getparentbyusername")
+    .send(parentUsername)
+    .end((err, res) => {
+      console.log(err);
+      console.log(res);
+    });
 }
 
-export function postRegisteredChild (newChild, callback) {
+export function postRegisteredChild(newChild, callback) {
   return request
-      .post(DatabaseUrl + '/createchild')
-      .send(newChild)
-      .end((err,res) => {
-          console.log(err)
-          console.log(res)
-      })
+    .post(DatabaseUrl + "/createchild")
+    .send(newChild)
+    .end((err, res) => {
+      console.log(err);
+      console.log(res);
+    });
 }
-export function login (creds, callback) {
-  const token = res.body.token
+export function login(creds, callback) {
+  const token = res.body.token;
   return request
-  .post(DatabaseUrl + '/login')
-  .send(creds)
-  .then(res => res.body.token)
-  .catch (err => {
-    throw err
-  })
-      // capture the token, send it to localstorage
+    .post(DatabaseUrl + "/login")
+    .send(creds)
+    .then(res => res.body.token)
+    .catch(err => {
+      throw err;
+    });
+  // capture the token, send it to localstorage
 }
