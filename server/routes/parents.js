@@ -4,15 +4,16 @@ const verifyJwt = require("express-jwt");
 const db = require("../db/parents");
 const token = require("../auth/token");
 
-router.get("/ecc", (req, res) => {
-  db.getEccList()
+router.get('/ecc', (req, res) => {
+    console.log(req.query.filterWord)
+    db.getEccList()
     .then(daycares => {
-      res.json(daycares);
+        res.json(daycares.filter(daycare => daycare.suburb == req.query.filterWord))
     })
     .catch(err => {
-      res.status(500).send(err.message);
-    });
-});
+        res.status(500).send(err.message)
+    })
+})
 
 // auth
 router.get("/getparentbyusername", (req, res) => {
