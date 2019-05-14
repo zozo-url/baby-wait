@@ -28,8 +28,8 @@ router.post('/createuserecc', (req, res, next) => {
 router.post('/login', token.issueEccToken)
 //
 
-router.get('/pending', (req,res) => {
-    db.getPendingChildren(req.body)
+router.get('/pending/:id', (req,res) => {
+    db.getPendingChildren(req.params.id)
     .then(pending => {
         res.json(pending)
     })

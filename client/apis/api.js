@@ -26,7 +26,8 @@ export function getEccList (filterWord ,callback) {
 }
 
 export function getChildWaitlistData(id, callback) {
-  return request.get(ParentDbUrl + "/childwaitlist/" + id).end((err, res) => {
+  return request.get(ParentDbUrl + "/childwaitlist/" + id)
+    .end((err, res) => {
     console.log(err);
     console.log(res);
     callback(err, res.body);
@@ -79,10 +80,9 @@ const EccDbUrl = 'http://localhost:3000/v1/eccs'
 
 export function getEccPendingData (id, callback) {
   return request
-      .get(EccDbUrl + '/pending')
+      .get(EccDbUrl + '/pending/' + id)
       .send(id)
       .end((err,res) => {
-          console.log(err)
-          console.log(res)
+         callback(err, res.body);
       })
 }
