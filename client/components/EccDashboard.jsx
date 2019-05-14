@@ -2,7 +2,7 @@ import React from 'react'
 import { HashRouter as Router, Route, Link }  from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
-import { getEccPendingData } from "../apis/api"
+import { getEccPendingData, getEccWaitlistData } from "../apis/api"
 
 class EccDashboard  extends React.Component{
   constructor() {
@@ -16,15 +16,22 @@ class EccDashboard  extends React.Component{
   }
   componentWillMount() {
     // this.getEccPendingData(this.state.currentUser)
+   
        getEccPendingData(1, (err,data) => {
            this.setState({pendingValue: data});
-          
+           
        });
+
+       getEccWaitlistData(1,(err,data) => {
+         this.setState({waitlistValue: data});
+       })
+           
   }
 
 
   render () {
-     console.log(this.state.pendingValue)
+     console.log('pending: ', this.state.pendingValue)
+     console.log('waitlist: ', this.state.waitlistValue)
   return (
     <div className='Dash'> 
       <br/>
@@ -37,25 +44,25 @@ class EccDashboard  extends React.Component{
       {/* {this.state.pendingValue.length > 0 ? this.state.pendingValue[0].first_name : ""} */}
       {this.state.pendingValue.map((item,id) => {
         return <div>
-          <p key={id} className='DashText'>{item.child_rank} {item.child_first_name} {item.child_last_name}  <button>x</button></p> 
+          <p key={id} className='DashText'>{item.child_rank} {item.child_first_name} {item.child_last_name}  <button className=''>x</button></p> 
             <p className='DashSubText'>{item.parent_first_name} {item.parent_last_name}    {item.parent_email}</p>
         </div>
-      })} </div>
+      })}
+       </div>
               <div className="main-container">
             <h1 className='DashHeader'>Your Waitlist</h1>
              
              {this.state.waitlistValue.map((item,id) => {
         return <div>
-          <p key={id} className='DashText'>{item.center_name}{item.ph_number}
-          {item.child_rank} 
-          {item.child_first_name} {item.child_last_name}  <button>x</button></p> 
-            <p className='DashSubText'>{item.parent_first_name} {item.parent_last_name}    {item.parent_email}</p>
+                    <p key={id} className='DashText'>
+          {item.child_rank} {item.child_first_name} {item.child_last_name}  <button className=''>x</button></p> 
+            <p className='DashSubText'>{item.parent_first_name} {item.parent_last_name}</p>
           </div>
       })}
       <br/>
-      <Link to='/ecc/settings'><button className='DashButton'>Settings</button>
-      </Link>
+     
       </div>
+       <Link to='/ecc/settings'><button className='DashButton'>Settings</button></Link>
    </div>
     
   )
