@@ -67,7 +67,7 @@ function getChildWaitlists (id, db = connection) {
     .join('child', 'parent.id', '=', 'parent_id')
     .join('waitlist', 'child_id', '=', 'waitlist.child_id')
     .join('ecc', 'ecc_id', '=', 'ecc.id')
-    .select('child.first_name', 'waitlist.status', 'waitlist.rank_ecc', 'waitlist.rank_parent', 'ecc.center_name')
+    .select('child.first_name', 'waitlist.child_id', 'waitlist.ecc_id', 'waitlist.status', 'waitlist.rank_ecc', 'waitlist.rank_parent', 'ecc.center_name')
 }
 
 

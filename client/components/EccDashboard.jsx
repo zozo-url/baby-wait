@@ -13,29 +13,17 @@ class EccDashboard  extends React.Component{
       waitlistValue: [],
     }
     this.deleteThisChild=this.deleteThisChild.bind(this)
-    // this.getEccPendingData=this.getEccPendingData.bind(this)
-    // this.getEccWaitlistData= this.getEccWaitlistData.bind(this)
-    // this.deleteChildFromWaitlist=this. deleteChildFromWaitlist.bind(this)
   }
   componentWillMount() {
-    // this.getEccPendingData(this.state.currentUser)
-   
        getEccPendingData(1, (err,data) => {
-           this.setState({pendingValue: data});
-           
+           this.setState({pendingValue: data});  
        });
 
        getEccWaitlistData(1,(err,data) => {
          this.setState({waitlistValue: data});
-       })
-
-      //  deleteChildFromWaitlist=()=>{
-        
-         
-      //  }        
+       })     
   }
   deleteThisChild (childId, eccId) {
-    // const childId = this.state.childId.filter(item => item.childId !== childId)
     deleteChildFromWaitlist(childId, eccId, (err, data)=> {
       if (err){
         console.log(err)
@@ -53,7 +41,6 @@ class EccDashboard  extends React.Component{
   render () {
      console.log('pending: ', this.state.pendingValue)
      console.log('waitlist: ', this.state.waitlistValue)
-     console.log('delete:', )
   return (
     <div className='Dash'> 
       <br/>
@@ -62,8 +49,6 @@ class EccDashboard  extends React.Component{
       <div className="main-container">
       <div className="header"></div>
       <h1 className='DashHeader'>Your Pending Waitlist</h1>
-      
-      {/* {this.state.pendingValue.length > 0 ? this.state.pendingValue[0].first_name : ""} */}
       {this.state.pendingValue.map((item,id) => {
         return <div>
           <p key={id} className='DashText'>{item.child_rank} {item.child_first_name} {item.child_last_name}  <button className='' onClick={() => this.deleteThisChild(item.child_id, item.ecc_id)}>x</button></p> 

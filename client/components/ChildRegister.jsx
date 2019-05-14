@@ -13,8 +13,7 @@ class  ChildRegister  extends React.Component{
       first_name:'',
       last_name:'',
       date_of_birth:'',
-
-
+      parent_id: 1
     };
 
       this.handleChange = this.handleChange.bind(this);
