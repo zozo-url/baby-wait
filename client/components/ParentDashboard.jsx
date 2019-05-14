@@ -58,12 +58,12 @@ class ParentDashboard extends React.Component {
           <br />
           <Link to="/parent/filter">
             <button className="DashButton">
-              search early childhood centers
+              search early childhood center
             </button>
           </Link>
           <Link to = "/parent/registerchild">
           <button className="DashButton">
-            Add child to registerchild
+            add child
           </button>
           </Link>
         </div>

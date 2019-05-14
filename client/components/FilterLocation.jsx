@@ -39,7 +39,7 @@ class  FilterLocation  extends React.Component{
         <option value="Te Aro">Te Aro</option>
         <option value="Brooklyn">Brooklyn</option>
       </select>
-      <Link to='/parent/ecclist'><button onClick={this.handleSubmit}>go to ecc list</button></Link>
+      <Link to='/parent/ecclist'><button className="DashButton" onClick={this.handleSubmit}>go to ecc list</button></Link>
     
     </div>
     

@@ -56,7 +56,8 @@ class  ChildRegister  extends React.Component{
             Date of birth:
             <input type="text" name='date_of_birth' value={this.updateState} onChange={this.handleChange} />
             </label>
-            <Link to='/parent/home'><button onClick={this.handleSubmit}>Add a child</button></Link>
+            <Link to='/parent/home'><button className="DashButton" onClick={this.handleSubmit}>Add a child</button></Link>
+            <Link to='/parent/home'><button className="DashButton">back</button></Link>
             </form>
        </div> 
     </div>
