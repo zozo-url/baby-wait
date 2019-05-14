@@ -84,7 +84,7 @@ export function EccPendingInfo(){
                 "center_name": "Active Explorers Cambridge Terrace",
                 "child_status": "pending",
                 "child_rank": 2,
-                "child_first_name": "Sarah",
+                "child_first_name": "Ella",
                 "child_last_name": "Evans",
                 "parent_first_name": "Simon",
                 "parent_last_name": "Guy",

@@ -2,15 +2,19 @@ import React from 'react'
 import { HashRouter as Router, Route, Link }  from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from '../actions'
+import { getEccPendingData } from '../apis/api'
 
 class EccDashboard  extends React.Component{
   constructor() {
     super()
     this.state = { 
-
+      currentUser: 1,
+      value: ''
     }
+    this.getEccPendingData(this.getEccPendingData).bind(this)
   }
   componentWillMount() {
+    this.getEccPendingData(this.state.currentUser))
     this.setState({value: this.props.EccWaitlistInfo()})
   }
 

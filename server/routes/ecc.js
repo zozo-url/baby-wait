@@ -29,7 +29,7 @@ router.post('/login', token.issueEccToken)
 //
 
 router.get('/pending', (req,res) => {
-    db.getPendingChildren(req.body.id)
+    db.getPendingChildren(req.body)
     .then(pending => {
         res.json(pending)
     })
@@ -39,8 +39,8 @@ router.get('/pending', (req,res) => {
 })
 router.get('/waitlist', (req,res) => {
     db.getWaitlistChildren(req.body.id)
-    .then(pending => {
-        res.json(pending)
+    .then(waitlist => {
+        res.json(waitlist)
     })
     .catch(err => {
         res.status(500).send(err.message)

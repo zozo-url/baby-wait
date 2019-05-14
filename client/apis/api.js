@@ -15,21 +15,20 @@ export function append(data) {
 }
 
 
-const DatabaseUrl = 'http://localhost:3000/v1/parents'
+const ParentDbUrl = 'http://localhost:3000/v1/parents'
 
 
 export function getEccList (callback) {
   return request
-      .get(DatabaseUrl)
+      .get(ParentDbUrl)
       .end((err,res) => {
           callback(err, res.body)
       })
 }
 
 export function getChildWaitlistData (id, callback) {
-  console.log(user)
   return request
-      .post(DatabaseUrl + '/childwaitlist')
+      .post(ParentDbUrl + '/childwaitlist')
       .send(id)
       .end((err,res) => {
           console.log(err)
@@ -39,7 +38,7 @@ export function getChildWaitlistData (id, callback) {
 
 export function postParentUser (parent, callback) {
   return request
-      .post(DatabaseUrl + '/createparentuser')
+      .post(ParentDbUrl + '/createparentuser')
       .send(parent)
       .end((err,res) => {
           console.log(err)
@@ -50,7 +49,7 @@ export function postParentUser (parent, callback) {
 export function getParentUserByUsername (parentUsername, callback) {
   console.log(user)
   return request
-      .post(DatabaseUrl + '/getparentbyusername')
+      .post(ParentDbUrl + '/getparentbyusername')
       .send(parentUsername)
       .end((err,res) => {
           console.log(err)
@@ -60,7 +59,7 @@ export function getParentUserByUsername (parentUsername, callback) {
 
 export function postRegisteredChild (newChild, callback) {
   return request
-      .post(DatabaseUrl + '/createchild')
+      .post(ParentDbUrl + '/createchild')
       .send(newChild)
       .end((err,res) => {
           console.log(err)
@@ -70,11 +69,23 @@ export function postRegisteredChild (newChild, callback) {
 export function login (creds, callback) {
   const token = res.body.token
   return request
-  .post(DatabaseUrl + '/login')
+  .post(ParentDbUrl + '/login')
   .send(creds)
   .then(res => res.body.token)
   .catch (err => {
     throw err
   })
       // capture the token, send it to localstorage
+}
+
+const EccDbUrl = 'http://localhost:3000/v1/eccs'
+
+export function getEccPendingData (id, callback) {
+  return request
+      .get(EccDbUrl + '/pending')
+      .send(id)
+      .end((err,res) => {
+          console.log(err)
+          console.log(res)
+      })
 }
