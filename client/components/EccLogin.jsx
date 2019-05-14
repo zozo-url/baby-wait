@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link }  from 'react-router-dom'
 
-class  EccLogIn  extends React.Component{
+class  EccLogin  extends React.Component{
   constructor(){
     super()
     this.state={
@@ -41,4 +41,4 @@ class  EccLogIn  extends React.Component{
 }
 
 }
-export default EccLogIn
+export default EccLogin

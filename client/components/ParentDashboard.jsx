@@ -1,43 +1,46 @@
-import React from 'react'
-import {HashRouter as Router, Route, Link} from 'react-router-dom'
-import { connect } from 'react-redux'
-import * as actions from '../actions'
-
+import React from "react";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../actions";
+import { getChildWaitlistData } from "../apis/api";
 
 const styles = {
   card: {
-    maxWidth: 345,
+    maxWidth: 345
   },
   media: {
-    height: 140,
-  },
+    height: 140
+  }
 };
 
-
-
-
-class ParentDashboard  extends React.Component{
-  constructor(){
-    super()
-    this.state={
-
-    }
+class ParentDashboard extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      value: []
+    };
   }
-componentWillMount(){
-  this.setState({value: this.props.childList()})
-}
-  render (){ console.log(this.state)
-  return(
-    <div>
-            <div className="padding"></div>
-            <br/>
-            <br/>
-            <br/>
+  componentWillMount() {
+    // this.setState({value: this.props.childList()})
+    // console.log("data: ", getChildWaitlistData(1));
+    getChildWaitlistData(1, (err, data) => {
+      this.setState({ value: data });
+    });
+  }
 
-            <div>
-            <h2 className='DashHeader'>PARENT DASHBOARD</h2>
-            </div>
-{/*             
+  render() {
+    console.log(this.state);
+    return (
+      <div>
+        <div className="padding" />
+        <br />
+        <br />
+        <br />
+
+        <div>
+          <h2 className="DashHeader">PARENT DASHBOARD</h2>
+        </div>
+        {/*             
 
             <div>
             <h2 className='DashHeader'>Children Signed Up</h2>
@@ -47,35 +50,38 @@ componentWillMount(){
              <br/>
        </div>
        */}
-     <div>
-
-      <h2 className='DashHeader'>Waitlist</h2>
-      <p className='DashText'>{this.state.value.payload[0].first_name}</p>
-      {this.state.value.payload.map(item =>
-              <div>
-            <p className='DashSubText'>Day Care Center: {item.center_name}</p>
-            <p className='DashSubText'>Status: {item.status}</p>
-             <p className='DashSubText'>Position: {item.rank_ecc}</p>
+        <div>
+          <h2 className="DashHeader">Waitlist</h2>
+          <p className="DashText">
+          {this.state.value.length > 0 ? this.state.value[0].first_name : ""}
+          </p>
+          {this.state.value.map(item => (
+            <div>
+              <p className="DashSubText">Day Care Center: {item.center_name}</p>
+              <p className="DashSubText">Status: {item.status}</p>
+              {item.status !== 'pending' ? <p className="DashSubText">Position: {item.rank_ecc}</p> : ""}
             </div>
-        )}
+          ))}
 
-        <br/>
-      <Link to='/parent/filter'><button className="DashButton">search early childhood centers</button></Link>
-      
+          <br />
+          <Link to="/parent/filter">
+            <button className="DashButton">
+              search early childhood centers
+            </button>
+          </Link>
+        </div>
       </div>
-      
- 
-  </div>
-  )
-}
-
-}
-const mapStateToProps = (state) => {
-  return {
-    data : state.Child
+    );
   }
 }
+const mapStateToProps = state => {
+  return {
+    data: state.Child
+  };
+};
 
 // export const styles1 = withStyles(styles)(MediaCard)
-export default connect (mapStateToProps,actions)(ParentDashboard);
-
+export default connect(
+  mapStateToProps,
+  actions
+)(ParentDashboard);
