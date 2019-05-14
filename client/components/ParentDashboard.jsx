@@ -14,8 +14,9 @@ class ParentDashboard extends React.Component {
     };
     this.deleteThisChild=this.deleteThisChild.bind(this)
   }
-  componentWillMount() {
-    getChildWaitlistData(this.state.currentUser, (err, data) => {
+  
+  componentWillReceiveProps(nextProps) {
+    getChildWaitlistData(nextProps.currentUser, (err, data) => {
       this.setState({ value: data });
     });
   }
@@ -35,9 +36,11 @@ class ParentDashboard extends React.Component {
 
   render() {
     console.log(this.state);
-    return (
+     console.log('current user: ', this.props.currentUser)
+     return (
       <div>
         <div className="padding" />
+        
         <br />
         <br />
         <br />
@@ -77,7 +80,8 @@ class ParentDashboard extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    data: state.Child
+    data: state.Child,
+    currentUser: state.user.currentUser
   };
 };
 

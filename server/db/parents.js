@@ -30,6 +30,7 @@ function getParentByUsername (username, db = connection) {
     return db('parent')
       .where('username', username)
       .select()
+      .first()
   }
 
 function parentUserExists (parent, db = connection) {

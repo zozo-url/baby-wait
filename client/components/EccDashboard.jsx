@@ -41,6 +41,7 @@ class EccDashboard  extends React.Component{
   render () {
      console.log('pending: ', this.state.pendingValue)
      console.log('waitlist: ', this.state.waitlistValue)
+     console.log('current user: ', this.props.currentUser)
   return (
     <div className='Dash'> 
       <br/>
@@ -78,7 +79,8 @@ class EccDashboard  extends React.Component{
 }
 const mapStateToProps = (state) => {
   return {
-    data : state.ecc
+    data : state.ecc,
+    currentUser: state.user.currentUser
   }
 }
 
