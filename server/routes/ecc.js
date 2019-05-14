@@ -29,7 +29,7 @@ router.post('/login', token.issueEccToken)
 //
 
 router.get('/pending', (req,res) => {
-    db.getPendingChildren(req.body.id)
+    db.getPendingChildren(req.body)
     .then(pending => {
         res.json(pending)
     })
@@ -39,12 +39,42 @@ router.get('/pending', (req,res) => {
 })
 router.get('/waitlist', (req,res) => {
     db.getWaitlistChildren(req.body.id)
-    .then(pending => {
-        res.json(pending)
+    .then(waitlist => {
+        res.json(waitlist)
     })
     .catch(err => {
         res.status(500).send(err.message)
     })
 })
+
+router.get('/updatechild', (req,res) => {
+    db.updateChildStatus(req.body.id)
+    .then(update => {
+        res.json(update)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
+})
+
+router.get('/deletechildfromwaitlist', (req, res) => {
+    db.deleteChildFromWaitlist(req.body.id)
+    .then(child => {
+        res.json(child)
+    })
+    .catch(err => {
+        res.status(500).send(err.message)
+    })
+})
+
+// router.post('/updateeccuser', (req,res) => {
+//     db.updateEccUser(req.body)
+//     .then(update => {
+//         res.json(update)
+//     })
+//     .catch(err => {
+//         res.status(500).send(err.message)
+//     })
+// })
 
 module.exports = router

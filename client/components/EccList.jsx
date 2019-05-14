@@ -35,14 +35,20 @@ class  EccList  extends React.Component{
         <br/>
         <br/>
         <div>
-        {this.props.data.ecc.map((item, index) => <p key={index}>{item.center_name}</p>)}
+        {this.props.data.ecc.map((item, index) => 
+        <div key={index}>
+          <h4>{item.center_name}</h4>
+          <p>Address: {item.address}, {item.suburb}</p>
+          <p>{item.description}</p>
+          <Link to={'/parent/registerwaitlist/' + item.id}><button>I want to register for this ecc</button></Link>
+        </div>)}
         </div>
-          <Link to='/parent/registerwaitlist'><button>I want to register for this ecc</button></Link> <br/>
+           <br/>
           <Link to='/parent/home'><button>back to parent dashboard</button></Link>
       </div>
     )
   }
-  
+
 }
 
 
