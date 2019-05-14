@@ -4,14 +4,6 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 import { getChildWaitlistData } from "../apis/api";
 
-const styles = {
-  card: {
-    maxWidth: 345
-  },
-  media: {
-    height: 140
-  }
-};
 
 class ParentDashboard extends React.Component {
   constructor() {
