@@ -15,7 +15,7 @@ import FilterLocation from './FilterLocation'
 import WaitlistApplication from './WaitlistApplication'
 
 import EccRegister from './EccRegister'
-import EccLogin from './EccLogIn'
+import EccLogin from './EccLogin'
 import EccDashboard from './EccDashboard'
 import EccSettings from './EccSettings'
 
