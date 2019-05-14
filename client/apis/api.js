@@ -34,6 +34,15 @@ export function getChildWaitlistData(id, callback) {
   });
 }
 
+export function getChildWithParentId(ParentId, callback) {
+  return request.get(ParentDbUrl + "/childlist/" + ParentId)
+    .end((err, res) => {
+    console.log(err);
+    console.log(res);
+    callback(err, res.body);
+  });
+}
+
 export function postParentUser(parent, callback) {
   return request
       .post(ParentDbUrl + '/createparentuser')
