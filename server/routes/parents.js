@@ -110,4 +110,14 @@ router.get("/childwaitlist/:id", (req, res) => {
     });
 });
 
+router.get("/childlist/:id", (req, res) => {
+  db.getChildByParentId(req.params.id)
+    .then(waitlist => {
+      res.json(waitlist);
+    })
+    .catch(err => {
+      res.status(500).send(err.message);
+    });
+});
+
 module.exports = router;

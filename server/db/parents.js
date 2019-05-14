@@ -46,7 +46,11 @@ function addChildToWaitList (newChildWaitlistInfo, db = connection) {
         .insert(newChildWaitlistInfo)
 }
 
-
+function getChildByParentId (parentId, db = connection) {
+    return db('child')
+      .where('parent_id', parentId)
+      .select('child.id', 'child.first_name')
+}
 
 
 function deleteChildFromWaitlist (childAndEccId, db = connection) {
@@ -76,5 +80,6 @@ module.exports = {
     createChild,
     addChildToWaitList,
     deleteChildFromWaitlist,
-    getChildWaitlists
+    getChildWaitlists,
+    getChildByParentId
 }

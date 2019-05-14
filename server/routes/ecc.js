@@ -47,8 +47,8 @@ router.get('/waitlist/:id', (req,res) => {
     })
 })
 
-router.get('/updatechild', (req,res) => {
-    db.updateChildStatus(req.body.id)
+router.post('/updatechild/:id', (req,res) => {
+    db.updateChildStatusToWaitlist(req.params.id)
     .then(update => {
         res.json(update)
     })
@@ -57,8 +57,8 @@ router.get('/updatechild', (req,res) => {
     })
 })
 
-router.get('/deletechildfromwaitlist', (req, res) => {
-    db.deleteChildFromWaitlist(req.body.id)
+router.post('/deletechildfromwaitlist/:id', (req, res) => {
+    db.deleteChildFromWaitlist(req.params.id)
     .then(child => {
         res.json(child)
     })
