@@ -73,6 +73,17 @@ export function postRegisteredChild(newChild, callback) {
           console.log(res)
       })
 }
+
+export function postChildToWaitlist(newChild, callback) {
+  return request
+      .post(ParentDbUrl + '/addchildtowaitlist')
+      .send(newChild)
+      .end((err,res) => {
+          console.log(err)
+          console.log(res)
+          callback(err, res.body);
+      })
+}
 export function login(creds, callback) {
   const token = creds.token;
   return request
