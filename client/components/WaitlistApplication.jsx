@@ -1,14 +1,25 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from "react-router-dom"
-
+import { connect } from 'react-redux'
+import { getChildWithParentId, fetchChildrenOfParent } from '../actions/'
 
 class  WaitlistApplication  extends React.Component{
   constructor(){
     super()
     this.state={
-
+      selectedChild: 'child1'
     }
+    this.createChildList = this.createChildList.bind(this)
   }
+
+  createChildList(parentId) {
+    this.props.getParentsChildren(parentId)
+  }
+
+  componentDidMount() {
+    this.createChildList(2) //changefrom hardcoded to currentUserId later
+  }
+
   render (){
   return(
     <div>
@@ -19,12 +30,11 @@ class  WaitlistApplication  extends React.Component{
       <br/>
       <div className="main-container">
       <h3>Select child you want to enrol:</h3>
-      <select>
-        <option value="child1">child1name</option>
-        <option value="child2">child2name</option>
+      <select onSelect={this.handleChange}>
+        {this.props.data.usersChildren.map((child, index) => <option key={index} value={child.id}>{child.first_name}</option>)}
       </select>
       <br/>
-      <h3>or fill out this form:</h3>
+      {/* <h3>or fill out this form:</h3>
       <form>
             <label htmlFor="">
             First name: <br/>
@@ -35,11 +45,24 @@ class  WaitlistApplication  extends React.Component{
             <input type="text" value={this.state.value} onChange={this.handleChange} /> <br/>
             </label>
             <Link to='/parent/home'><input type="submit" value="Submit" /></Link>
-            </form>
+            </form> */}
        </div>     
     </div>
   )
 }
 
 }
-export default WaitlistApplication
+
+const mapStateToProps = (state) => {
+  return {
+    data: state.ecc
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getParentsChildren: (parentId) => dispatch(fetchChildrenOfParent(parentId))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WaitlistApplication)
