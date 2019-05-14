@@ -9,40 +9,55 @@ class EccDashboard  extends React.Component{
     super()
     this.state = { 
       currentUser: 1,
-      value: []
+      pendingValue: [],
+      waitlistValue: []
     }
     // this.getEccPendingData(this.getEccPendingData).bind(this)
   }
   componentWillMount() {
     // this.getEccPendingData(this.state.currentUser)
        getEccPendingData(1, (err,data) => {
-           this.setState({value: data});
+           this.setState({pendingValue: data});
           
        });
   }
 
 
   render () {
-     console.log(this.state.value)
+     console.log(this.state.pendingValue)
   return (
     <div className='Dash'> 
-      <h1></h1>
       <br/>
       <br/>
+      <br/>
+      <div className="main-container">
       <div className="header"></div>
       <h1 className='DashHeader'>Your Pending Waitlist</h1>
-      <div className="main-container">
-      {/* {this.state.value.length > 0 ? this.state.value[0].first_name : ""} */}
-      {this.state.value.map((item,id) => {
+      
+      {/* {this.state.pendingValue.length > 0 ? this.state.pendingValue[0].first_name : ""} */}
+      {this.state.pendingValue.map((item,id) => {
         return <div>
-          <p key={id} className='DashText'>{item.child_rank} {item.first_name} {item.last_name}  <button>x</button></p> 
-            {/* <p className='DashSubText'>{item.parent_first_name} {item.parent_last_name}    {item.parent_email}</p> */}
+          <p key={id} className='DashText'>{item.child_rank} {item.child_first_name} {item.child_last_name}  <button>x</button></p> 
+            <p className='DashSubText'>{item.parent_first_name} {item.parent_last_name}    {item.parent_email}</p>
+        </div>
+      })} </div>
+              <div className="main-container">
+            <h1 className='DashHeader'>Your Waitlist</h1>
+             
+             {this.state.waitlistValue.map((item,id) => {
+        return <div>
+          <p key={id} className='DashText'>{item.center_name}{item.ph_number}
+          {item.child_rank} 
+          {item.child_first_name} {item.child_last_name}  <button>x</button></p> 
+            <p className='DashSubText'>{item.parent_first_name} {item.parent_last_name}    {item.parent_email}</p>
           </div>
       })}
       <br/>
-      <Link to='/ecc/settings'><button className='DashButton'>Settings</button></Link>
+      <Link to='/ecc/settings'><button className='DashButton'>Settings</button>
+      </Link>
       </div>
-    </div>
+   </div>
+    
   )
 }
 
