@@ -37,8 +37,8 @@ router.get('/pending/:id', (req,res) => {
         res.status(500).send(err.message)
     })
 })
-router.get('/waitlist', (req,res) => {
-    db.getWaitlistChildren(req.body.id)
+router.get('/waitlist/:id', (req,res) => {
+    db.getWaitlistChildren(req.params.id)
     .then(waitlist => {
         res.json(waitlist)
     })

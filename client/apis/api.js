@@ -86,3 +86,12 @@ export function getEccPendingData (id, callback) {
          callback(err, res.body);
       })
 }
+
+export function getEccWaitlistData (id, callback) {
+  return request
+      .get(EccDbUrl + '/waitlist/' + id)
+      .send(id)
+      .end((err,res) => {
+         callback(err, res.body);
+      })
+}
