@@ -57,8 +57,8 @@ router.post('/updatechild/:id', (req,res) => {
     })
 })
 
-router.post('/deletechildfromwaitlist/:id', (req, res) => {
-    db.deleteChildFromWaitlist(req.params.id)
+router.post('/deletechildfromwaitlist/:childId/:eccId', (req, res) => {
+    db.deleteChildFromWaitlist(req.params.childId, req.params.eccId)
     .then(child => {
         res.json(child)
     })

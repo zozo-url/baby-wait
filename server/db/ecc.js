@@ -7,7 +7,7 @@ function getPendingChildren (id, db = connection) {
         .join('child', 'child_id', '=', 'child.id')
         .where('waitlist.status', 'pending')
         .join('parent','parent_id', '=', 'parent.id')
-        .select('ecc.center_name', 'waitlist.status as child_status', 'waitlist.rank_ecc as child_rank', 'child.first_name as child_first_name', 'child.last_name as child_last_name', 'parent.first_name as parent_first_name', 'parent.last_name as parent_last_name', 'parent.email as parent_email')
+        .select('ecc.center_name', 'waitlist.child_id', 'waitlist.ecc_id',  'waitlist.status as child_status', 'waitlist.rank_ecc as child_rank', 'child.first_name as child_first_name', 'child.last_name as child_last_name', 'parent.first_name as parent_first_name', 'parent.last_name as parent_last_name', 'parent.email as parent_email')
 }
 function getWaitlistChildren (id, db = connection) {
     return db('ecc').where('ecc.id', id)
@@ -15,7 +15,7 @@ function getWaitlistChildren (id, db = connection) {
         .join('child', 'child_id', '=', 'child.id')
         .where('waitlist.status', 'waitlist')
         .join('parent','parent_id', '=', 'parent.id')
-        .select('ecc.center_name', 'waitlist.status as child_status', 'waitlist.rank_ecc as child_rank', 'child.first_name as child_first_name', 'child.last_name as child_last_name', 'parent.first_name as parent_first_name', 'parent.last_name as parent_last_name', 'parent.email as parent_email')
+        .select('ecc.center_name', 'waitlist.child_id', 'waitlist.ecc_id', 'waitlist.status as child_status', 'waitlist.rank_ecc as child_rank', 'child.first_name as child_first_name', 'child.last_name as child_last_name', 'parent.first_name as parent_first_name', 'parent.last_name as parent_last_name', 'parent.email as parent_email')
 }
 
 function updateChildStatusToWaitlist (childId, db = connection) {
@@ -24,9 +24,9 @@ function updateChildStatusToWaitlist (childId, db = connection) {
       .update({ status: 'waitlist' })
   }
 
-function deleteChildFromWaitlist (childId, db = connection) {
+function deleteChildFromWaitlist (childId, eccId, db = connection) {
     return db('waitlist')
-    .where('child_id', childId)
+    .where('child_id', childId).andWhere('ecc_id', eccId)
     .del()
 }
 
