@@ -26,8 +26,8 @@ class App extends React.Component {
     <Router>
       <div>
         <Route path="/" component={Header}/>
-        <Route exact path="parent/login" component={ParentRegister}/>
-        <Route path="parent/login" component={ParentLogin}/>
+        <Route path="/parent/register" component={ParentRegister}/>
+        <Route path="/parent/login" component={ParentLogin}/>
         <Route path="/parent/home" component={ParentDashboard}/>
         <Route path="/parent/registerchild" component={ChildRegister}/>
         <Route path="/parent/filter" component={FilterLocation}/>

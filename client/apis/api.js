@@ -64,7 +64,7 @@ export function postRegisteredChild(newChild, callback) {
       })
 }
 export function login(creds, callback) {
-  const token = res.body.token;
+  const token = creds.token;
   return request
   .post(ParentDbUrl + '/login')
   .send(creds)
