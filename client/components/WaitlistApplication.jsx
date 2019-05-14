@@ -31,7 +31,7 @@ class  WaitlistApplication  extends React.Component{
       <div className="main-container">
       <h3>Select child you want to enrol:</h3>
       <select onSelect={this.handleChange}>
-        {this.props.data.usersChildren.map(child => <option value={child.id}>{child.first_name}</option>)}
+        {this.props.data.usersChildren.map((child, index) => <option key={index} value={child.id}>{child.first_name}</option>)}
       </select>
       <br/>
       {/* <h3>or fill out this form:</h3>
