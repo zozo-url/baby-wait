@@ -11,10 +11,10 @@ class EccDashboard  extends React.Component{
       currentUser: 1,
       value: ''
     }
-    this.getEccPendingData(this.getEccPendingData).bind(this)
+    // this.getEccPendingData(this.getEccPendingData).bind(this)
   }
   componentWillMount() {
-    this.getEccPendingData(this.state.currentUser)
+    // this.getEccPendingData(this.state.currentUser)
     this.setState({value: this.props.EccWaitlistInfo()})
   }
 

@@ -19,7 +19,7 @@ const ParentDbUrl = 'http://localhost:3000/v1/parents'
 
 export function getEccList (filterWord ,callback) {
   return request
-      .get(DatabaseUrl + '/ecc' + '?filterWord=' + filterWord)
+      .get(ParentDbUrl + '/ecc' + '?filterWord=' + filterWord)
       .end((err,res) => {
           callback(err, res.body)
       })
