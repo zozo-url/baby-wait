@@ -95,3 +95,21 @@ export function getEccWaitlistData (id, callback) {
          callback(err, res.body);
       })
 }
+
+export function updateChildStateToWaitlist (childId, callback) {
+  return request
+      .post(EccDbUrl + '/updatechild/' + childId)
+      .send(id)
+      .end((err,res) => {
+        callback(err, res.body)
+      })
+}
+
+export function deleteChildFromWaitlist (childId, callback) {
+  return request
+      .post(EccDbUrl + '/deletechildfromwaitlist/' + childId)
+      .send(id)
+      .end((err,res) => {
+        callback(err, res.body)
+      })
+}
