@@ -16,10 +16,22 @@ export function append(data) {
 
 const DatabaseUrl = "http://localhost:3000/v1/parents";
 
+<<<<<<< HEAD
 export function getEccList(callback) {
   return request.get(DatabaseUrl).end((err, res) => {
     callback(err, res.body);
   });
+=======
+const DatabaseUrl = 'http://localhost:3000/v1/parents'
+
+
+export function getEccList (filterWord ,callback) {
+  return request
+      .get(DatabaseUrl + '/ecc' + '?filterWord=' + filterWord)
+      .end((err,res) => {
+          callback(err, res.body)
+      })
+>>>>>>> bc9d6b4909bc5a44185726f039b9cc5fce2e1baa
 }
 
 export function getChildWaitlistData(id, callback) {
