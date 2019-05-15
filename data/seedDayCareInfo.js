@@ -16,7 +16,6 @@ const eccdata = filteredEccArray.map(ecc => {
     description: ecc.Org_Type,
     age: ecc.All_Children,
     username: ecc.Email,
-    
     }
     }
    )
