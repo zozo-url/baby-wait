@@ -42,12 +42,12 @@ submit(e) {
   render (){
     return (
           <div>
-            <h1><br/></h1>
+            <h1>Eary Childhood Register</h1>
             <h2 className="formHeader">Sign Up</h2>
               <div className="main-container">
+              <img src="/public/images/dropbox-abc-blocks.jpg" alt=""></img><br/>
                 <form>
-                  <h3 className="formSubHeading">Photo</h3>
-                  <img src="./public/images/dropbox-abc-blocks.jpg" alt=""></img><br/>
+                               
                   <h3 className="formSubHeading">Username</h3> 
                   <input type='text' name='username' onChange={this.updateState}></input> <br/>
                   <h3 className="formSubHeading">Password</h3>

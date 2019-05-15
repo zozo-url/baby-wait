@@ -35,35 +35,28 @@ const SideDrawer = (props) => {
                    Home
                 </ListItem>
                 </Link>
+                    <br/>
 
-                <Link to ="/parent/login" style = {{
+                <Link to = "/parent/login" style = {{
                     textDecoration: 'none',
                 }}>
                 <ListItem button onClick={()=> scrollToElement('featured')}>
                    Log In
                 </ListItem>
                </Link>
+                    <br/>
+                 
 
-                <Link to ="/parent/home" style = {{                 textDecoration: 'none',
-                    }}>
-                <ListItem button onClick={()=> scrollToElement('featured')}>
-                   Parent Dash Board
-                </ListItem>
-                </Link>
-
-
-
-                <Link to ="/parent/register" style = {{
+                <Link to = "/parent/register" style = {{
                     textDecoration: 'none',
                     }}>
                 <ListItem button onClick={()=> scrollToElement('featured')}>
                    Parent Register
                 </ListItem>
                 </Link>
+                        <br/>
 
-
-                
-                <Link to ="/ecc/register" style = {{
+                <Link to = "/ecc/register" style = {{
                     textDecoration: 'none',
                     }}>
                 <ListItem button onClick={()=> scrollToElement('featured')}>
@@ -71,6 +64,16 @@ const SideDrawer = (props) => {
                 </ListItem>
                 </Link>
 
+                  <br/>
+
+                <Link to = "#/parent/home" style = {{
+                    textDecoration: 'none',
+                }}>
+                <ListItem button onClick={()=> scrollToElement('featured')}>
+                   Parent Dash Board Log In
+                </ListItem>
+               </Link>
+                    <br/>
             </List> 
         </Drawer>
     );
