@@ -22,6 +22,7 @@ export function saveUsersChildren(payload){
     }
 }
 
+
 export function setFilterEccWord(suburb) {
     return {
         type:'FILTER_WORD',
@@ -42,7 +43,6 @@ export function fetchECCList(filterWord) {
             dispatch(EccList(eccList))
         })
     }
-    
 }
 
 export function fetchChildrenOfParent(parentId) {
