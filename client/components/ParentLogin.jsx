@@ -17,11 +17,13 @@ class  ParentLogin  extends React.Component{
     this.submit = this.submit.bind(this)
   }
   updateState(e){
+    console.log(this.state)
     this.setState({[e.target.name]: e.target.value})
   }
 
   submit(e){
     console.log("submit")
+    console.log(this.state)
     let {username, password} = this.state
     login({username, password})
     .then(user => {
@@ -46,13 +48,13 @@ class  ParentLogin  extends React.Component{
       <div className='subtitle'>Please sign in</div>
 
       <div className='input-fields'>
-        <input type='text' placeholder='Username' className='input-line full-width' onChange={this.updateState} ></input>
-        <input type='text' placeholder='Password' className='input-line full-width' onChange={this.updateState}></input>
+        <input type='text' placeholder='Username' name="username" className='input-line full-width' onChange={this.updateState} ></input>
+        <input type='text' placeholder='Password'  name="password" className='input-line full-width' onChange={this.updateState}></input>
 
         </div>
 
         <div className='spacing'>or continue with <span className='highlight'>Facebook</span></div>
-      <div><Link to='/parent/home'><button className='ghost-round full-width' onClick={this.submit}>Create Account</button></Link></div>
+      <div><Link to='/parent/home'><button className='ghost-round full-width' onClick={this.submit}>Log in</button></Link></div>
         </div>
       </div>
     </div>

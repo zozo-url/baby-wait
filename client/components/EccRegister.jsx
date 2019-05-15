@@ -56,16 +56,16 @@ submit(e) {
       <div className='subtitle'>Sign Up</div>
 
       <div className='input-fields'>
-        <input type='text' placeholder='Username' className='input-line full-width' onChange={this.updateState} ></input>
-        <input type='text' placeholder='Password' className='input-line full-width' onChange={this.updateState}></input>
-        <input type='text' placeholder='Name of ECE' className='input-line full-width' onChange={this.updateState}></input>
-        <input type='text' placeholder='Eamil' className='input-line full-width' onChange={this.updateState}></input>
-        <input type='text' placeholder='Address' className='input-line full-width' onChange={this.updateState}></input>
-        <input type='text' placeholder='Suburb' className='input-line full-width' onChange={this.updateState}></input>
+        <input type='text' name='username' placeholder='Username' className='input-line full-width' onChange={this.updateState} ></input>
+        <input type='text' name='hash_password' placeholder='Password' className='input-line full-width' onChange={this.updateState}></input>
+        <input type='text' name='center_name' placeholder='Name of ECE' className='input-line full-width' onChange={this.updateState}></input>
+        <input type='text' name='email' placeholder='Eamil' className='input-line full-width' onChange={this.updateState}></input>
+        <input type='text' name='address' placeholder='Address' className='input-line full-width' onChange={this.updateState}></input>
+        <input type='text' name='suburb' placeholder='Suburb' className='input-line full-width' onChange={this.updateState}></input>
         </div>
 
         
-      <div><Link to='/parent/home'><button className='ghost-round full-width' onClick={this.submit}>SUbmit</button></Link></div>
+      <div><Link to='/login'><button className='ghost-round full-width' onClick={this.submit}>SUbmit</button></Link></div>
         </div>
       </div>
     </div>

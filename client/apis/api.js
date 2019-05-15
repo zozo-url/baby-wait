@@ -93,6 +93,7 @@ export function postChildToWaitlist(newChildInfo, callback) {
       })
 }
 export function login(creds, callback) {
+ console.log(creds)
   const token = creds.token;
   return request
   .post(ParentDbUrl + '/login')
