@@ -64,7 +64,7 @@ class EccDashboard  extends React.Component{
              
              {this.state.waitlistValue.map((item,id) => {
         return <div>
-                    <p key={id} className='DashText'>
+            <p key={id} className='DashText'>
           {item.child_rank} {item.child_first_name} {item.child_last_name}  <button className='' onClick={() => this.deleteThisChild(item.child_id, item.ecc_id)}>x</button></p> 
             <p className='DashSubText'>{item.parent_first_name} {item.parent_last_name}</p>
           </div>
