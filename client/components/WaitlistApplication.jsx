@@ -16,16 +16,29 @@ class  WaitlistApplication  extends React.Component{
     }
     this.createChildList = this.createChildList.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   createChildList(parentId) {
     this.props.getParentsChildren(parentId)
   }
 
-  handleSubmit(){
-    var selectedChildId = document.getElementById('selectChild').value
-    this.setState({child_id: selectedChildId})
 
+  handleChange(){
+      var idString = document.getElementById('selectChild').value
+      var selectedChildId = Number(idString)
+      console.log("child_id", selectedChildId)
+    console.log("ecc_id", this.props.data.eccId)
+    this.setState({
+      child_id: selectedChildId,
+      ecc_id: this.props.data.eccId
+    })
+  }
+
+  handleSubmit(){
+    console.log("this state: ", this.state)
+    var newChildToWaitlist = this.state
+    postChildToWaitlist(newChildToWaitlist)
   }
 
 
@@ -49,7 +62,8 @@ class  WaitlistApplication  extends React.Component{
       <br/>
       <div className="main-container">
       <h3>Select child you want to enrol:</h3>
-      <select id="selectChild">
+      <select id="selectChild" onChange={this.handleChange}>
+      <option  value="select">select a child</option>
         {this.props.data.usersChildren.map((child, index) => <option key={index} value={child.id}>{child.first_name}</option>)}
       </select>
       <br/>

@@ -90,7 +90,6 @@ export function postChildToWaitlist(newChildInfo, callback) {
       .end((err,res) => {
           console.log(err)
           console.log(res)
-          callback(err, res.body);
       })
 }
 export function login(creds, callback) {
