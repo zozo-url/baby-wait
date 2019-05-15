@@ -6,6 +6,10 @@ import * as actions from '../actions'
 
 
 class  EccList  extends React.Component{
+  componentDidMount() {
+    if(!this.props.currentUser) 
+      this.props.history.push('/parent/login')
+    }
 
   render (){
     console.log('this.props.data: ', this.props.data)
@@ -16,6 +20,7 @@ class  EccList  extends React.Component{
         <br/>
         <br/>
         <div>
+        <Link to={'/parent/registerwaitlist/' + 17}><button>I want to register for this ecc</button></Link>
         {this.props.data.ecc.map((item, index) => 
         <div key={index}>
           <h4>{item.center_name}</h4>
@@ -35,7 +40,8 @@ class  EccList  extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    data : state.ecc
+    data : state.ecc,
+    currentUser: state.user.currentUser
   }
 }
 
