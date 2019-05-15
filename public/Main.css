@@ -165,3 +165,81 @@ header .header_logo_title {
   font-weight: 300;
   margin-bottom: 90px;
 }
+
+/*====================
+        Parent REG login
+======================*/
+
+
+.PR_LOGIN{
+	font-family: 'Open Sans Condensed', arial, sans;
+	width: 500px;
+	padding: 30px;
+	background: #FFFFFF;
+	margin: 50px auto;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+	-webkit-box-shadow:  0px 0px 15px rgba(0, 0, 0, 0.22);
+
+}
+.PR_LOGIN h3{
+	background: #4D4D4D;
+	text-transform: uppercase;
+	font-family: 'Open Sans Condensed', sans-serif;
+	color: #797979;
+	font-size: 18px;
+	font-weight: 100;
+	padding: 20px;
+	margin: -30px -30px 30px -30px;
+}
+.PR_LOGIN input[type="text"],
+.PR_LOGIN input[type="date"],
+.PR_LOGIN input[type="datetime"],
+.PR_LOGIN input[type="email"],
+.PR_LOGIN input[type="number"],
+.PR_LOGIN input[type="search"],
+.PR_LOGIN input[type="time"],
+.PR_LOGIN input[type="url"],
+.PR_LOGIN input[type="password"],
+.PR_LOGIN textarea,
+.PR_LOGIN select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	margin-bottom: 10px;
+	font: 16px Arial, Helvetica, sans-serif;
+	height: 45px;
+}
+.PR_LOGIN textarea{
+	resize:none;
+	overflow: hidden;
+}
+.PR_LOGIN input[type="button"], 
+.PR_LOGIN input[type="submit"]{
+	-moz-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	box-shadow: inset 0px 1px 0px 0px #45D6D6;
+	background-color: #2CBBBB;
+	border: 1px solid #27A0A0;
+	display: inline-block;
+	cursor: pointer;
+	color: #FFFFFF;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 14px;
+	padding: 8px 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.PR_LOGIN input[type="button"]:hover, 
+.PR_LOGIN input[type="submit"]:hover {
+	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
+	background-color:#34CACA;
+}

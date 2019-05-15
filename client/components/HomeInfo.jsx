@@ -26,7 +26,7 @@ class HomeInfo extends Component {
                                     Early Childhood Centers
                                     </div>
                                     <div className="vn_desc">
-                                    A list of Early child centers
+                                    
                                     </div>
                                 </div>
                             </div>
