@@ -24,8 +24,11 @@ class  WaitlistApplication  extends React.Component{
 
   handleSubmit(){
     var selectedChildId = document.getElementById('selectChild').value
-    postChildToWaitlist(childInfo)
+    this.setState({child_id: selectedChildId})
+    console.log(this.state)
   }
+
+
 
   componentDidMount() {
     if(this.props.currentUser) {
