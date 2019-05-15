@@ -18,7 +18,7 @@ function issueEccToken (req, res) {
             res.status(403).json({ message: "User does not exist" })
         }
         else {
-            comparePasswordToHash(req.body.password, ecc[0].hash_password)
+            comparePasswordToHash(req.body.password, ecc.hash_password)
             .then(match => {
                 if(!match) {
                     res.status(400).json({

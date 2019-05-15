@@ -1,4 +1,4 @@
-export default function(state = {currentUser: 1},action){
+export default function(state = {currentUser: null},action){
 
     switch(action.type){
         case 'SET_CURRENT_USER':

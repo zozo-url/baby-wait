@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 
 import SideDrawer from './SideDrawer'
+import Carrousel from "./Carrousel";
 
 class  Header extends Component{
  
@@ -54,9 +55,9 @@ toggleDrawer = (value) => {
       <AppBar
       position="fixed"
       style={{
-        backgroundColor:  '#2f2f2f' , 
-          boxShadow: 'none',
-          padding: '10px 0px'
+        backgroundColor: this.state.headerShow ? '#2f2f2f' : 'transparent',
+        boxShadow: 'none',
+        padding: '10px 0px'
       }}
          >
           <Toolbar>
@@ -85,6 +86,8 @@ toggleDrawer = (value) => {
 
 
       </AppBar>
+
+    
     );
   }
 }

@@ -4,7 +4,7 @@ const db = require("../db/ecc");
 const token = require("../auth/token")
 
 //auth
-router.post('/createuserecc', (req, res, next) => {
+router.post('/createeccuser', (req, res, next) => {
     const ecc = req.body
     db.EccUserExists(ecc)
         .then(exists => {
@@ -14,7 +14,7 @@ router.post('/createuserecc', (req, res, next) => {
         db.createEccUser(ecc)
             .then(([newEccId]) => {
                 res.locals.eccId = newEccId
-                next()
+                res.json(ecc)
             })
             .catch(err => {
                 res.status(500).send(err.message)
