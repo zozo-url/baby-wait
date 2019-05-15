@@ -2,14 +2,20 @@ import React from 'react'
 import { HashRouter as Router, Route, Link } from "react-router-dom"
 import { connect } from 'react-redux'
 import { setCurrentUser, fetchChildrenOfParent } from '../actions/'
+import { postChildToWaitlist } from '../apis/api';
 
 class  WaitlistApplication  extends React.Component{
   constructor(){
     super()
     this.state={
-      selectedChild: 'child1'
+      child_id: '',
+      ecc_id: '',
+      status: 'pending',
+      rank_ecc: null,
+      rank_parent: null
     }
     this.createChildList = this.createChildList.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   createChildList(parentId) {
@@ -17,7 +23,8 @@ class  WaitlistApplication  extends React.Component{
   }
 
   handleSubmit(){
-    console.log(document.getElementById('selectChild').value)
+    var selectedChildId = document.getElementById('selectChild').value
+    postChildToWaitlist(childInfo)
   }
 
   componentDidMount() {
@@ -39,7 +46,7 @@ class  WaitlistApplication  extends React.Component{
       <br/>
       <div className="main-container">
       <h3>Select child you want to enrol:</h3>
-      <select id="selectChild" onSelect={this.handleChange}>
+      <select id="selectChild" onSelect={this.handleChange(() => this.props.currentUser)}>
         {this.props.data.usersChildren.map((child, index) => <option key={index} value={child.id}>{child.first_name}</option>)}
       </select>
       <br/>
