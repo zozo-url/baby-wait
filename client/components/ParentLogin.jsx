@@ -1,7 +1,8 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from "react-router-dom"
-
+import { connect } from 'react-redux'
 import { login } from '../apis/api'
+import { setCurrentUser } from '../actions';
 
 
 class  ParentLogin  extends React.Component{
@@ -20,9 +21,13 @@ class  ParentLogin  extends React.Component{
 
   submit(e){
     console.log("submit")
-    e.preventDefault()
     let {username, password} = this.state
     login({username, password})
+    .then(user => {
+      console.log(user)
+      this.props.dispatch(setCurrentUser(user.parentId))
+      this.props.history.push('/parent/home')
+    })
   }
   render (){
   return(
@@ -35,7 +40,7 @@ class  ParentLogin  extends React.Component{
         <input type='text' name='username' onChange={this.updateState}></input> <br/>
         <h3>Password</h3>
         <input type='text' name='password' onChange={this.updateState}></input> <br/> <br/>
-        <Link to='/parent/home'><button>submit</button></Link> <br/>
+        <Link to='/parent/home'><button onClick={this.submit}>submit</button></Link> <br/>
       </form>
      </div>
     </div>
@@ -43,4 +48,4 @@ class  ParentLogin  extends React.Component{
 } 
 } 
 
-export default ParentLogin
+export default connect()(ParentLogin)
