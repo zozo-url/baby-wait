@@ -17,7 +17,8 @@ const eccdata = filteredEccArray.map(ecc => {
     age: ecc.All_Children,
     username: ecc.Email,
     hash_password:'$2b$12$MruTWZcAw/NY2T5ZOAn4iuGo5DwQbC4TLO5ymSgrW3gBGQvOYqCWa',
-    photo: ecc.url
+    photo: <image>photo</image>
+    
   };
 });
 
