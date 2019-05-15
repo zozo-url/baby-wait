@@ -25,8 +25,12 @@ class HomeInfo extends Component {
                                     <div className="vn_title">
                                     Early Childhood Centers
                                     </div>
-                                    <div className="vn_desc">
-                                    
+                                    <div className="vn_desc" style={{
+                                        textAlign:"left",
+                                        fontSize: "20px"
+                                        
+                                    }}>
+                                    We provide a full list of Early Childhood Centers in New Zealand, so that you may search according to your needs
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +52,12 @@ class HomeInfo extends Component {
                                     <div className="vn_title">
                                     Services 
                                     </div>
-                                    <div className="vn_desc">
+                                    <div className="vn_desc"
+                                    style={{
+                                        textAlign:"left",
+                                        fontSize: "20px"
+                                        
+                                    }}>
                                     
                                     </div>
                                 </div>
@@ -71,8 +80,13 @@ class HomeInfo extends Component {
                                     <div className="vn_title">
                                    Location
                                     </div>
-                                    <div className="vn_desc">
-                                    
+                                    <div className="vn_desc"
+                                    style={{
+                                        textAlign:"left",
+                                        fontSize: "20px"
+                                        
+                                    }}>
+                                    Find the closet Early Childhood center based on how close it is to your home or when you work.
                                     </div>
                                 </div>
                             </div>

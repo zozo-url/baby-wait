@@ -2,6 +2,7 @@ import React from 'react'
 import { HashRouter as Router, Route, Link } from "react-router-dom"
 
 import {postParentUser} from '../apis/api'
+import Header from './Header'
 // import {connect} from 'react-redux'
 // import {registeraction} from '../Actions/Register'
 // import {loginerroraction} from '../Actions/Login'
@@ -31,6 +32,7 @@ class  ParentRegister extends React.Component{
   render (){
   return(
     <div>
+      <Header/>
       <h1>Parent Register</h1>
       <h2 className='formHeader'>Sign Up</h2>
       <div className="main-container">

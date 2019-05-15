@@ -2,7 +2,7 @@ body {
   padding:0;
   margin:0;
   font-family: 'Roboto', sans-serif;
-  background: #3c3c3c
+  background:#ffc6b4,
 }
 
 .font_righteous {
@@ -10,7 +10,7 @@ body {
 }
 
 .bck_black {
-  background: #3c3c3c;
+  background: #ffc6b4;
 }
 .bck_white {
   background: #ffffff;
@@ -72,30 +72,33 @@ header .header_logo_title {
 
 .daycare {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   width: 400px;
-  height: 160px;
-  -webkit-transform: translate(-50%, -50%);  
-  transform: translate(-50%, -50%);   
-  border: 2px solid white;
+  height: 140px;
+  -webkit-transform: translate(-120%, -10%);  
+  transform: translate(-120%, -10%);   
+  /* border: 2px solid  #e988ac; */
 }
 
 .daycare .wrapper {
-  border: 2px solid white;
+  /* border: 2px solid white; */
   height: 121px;
   margin: 6px;
   text-align: center;
-  color: #fff;
-  font-size: 40px;
+  color:#f7f7f7 ;
+  font-size: 100px;
   padding: 21px 70px 0px 70px;
   
+}
+.daycare .wrapper .span1{
+  color: #e988ac
 }
 
 .firstImage{
   width: 100%;
   position: absolute;
-
+height: auto;
 }
 
 /*====================
@@ -127,9 +130,7 @@ header .header_logo_title {
   transition: all 500ms ease;
 } */
 
-.vn_item .vn_inner:hover {
-  background: #3e3e3e;
-}
+
 
 /* .vn_item .vn_icon_square {
   width: 100px;
@@ -373,7 +374,7 @@ button:focus {
   justify-content: center;
   background: #eee;
   height: 100%;
-  justify-content: center
+  margin: 50px auto;
 }
 
 .content {
@@ -460,7 +461,6 @@ button:focus {
   opacity:0.1;
     background: url('') left no-repeat;
   background-size:cover;
-  
 }
 
 @media (max-width: 500px) {
