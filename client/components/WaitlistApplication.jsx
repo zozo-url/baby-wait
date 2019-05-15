@@ -1,40 +1,58 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from "react-router-dom"
 import { connect } from 'react-redux'
-import { fetchChildrenOfParent } from '../actions/'
-import { postChildToWaitlist } from '../apis/api'
-
+import { selectEcc, setCurrentUser, fetchChildrenOfParent } from '../actions/'
+import { postChildToWaitlist } from '../apis/api';
 
 class  WaitlistApplication  extends React.Component{
   constructor(){
     super()
     this.state={
-      selectedChild: ''
+      child_id: '',
+      ecc_id: '',
+      status: 'pending',
+      rank_ecc: null,
+      rank_parent: null
     }
     this.createChildList = this.createChildList.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
   }
 
   createChildList(parentId) {
     this.props.getParentsChildren(parentId)
   }
 
-  componentDidMount() {
-    this.createChildList(2) //changefrom hardcoded to currentUserId later
-  }
 
-  handleChange(event) {
+  handleChange(){
+      var idString = document.getElementById('selectChild').value
+      var selectedChildId = Number(idString)
+      console.log("child_id", selectedChildId)
+    console.log("ecc_id", this.props.data.eccId)
     this.setState({
-      selectedChild: event.target.value
+      child_id: selectedChildId,
+      ecc_id: this.props.data.eccId
     })
   }
 
-  handleClick() {
-    postChildToWaitlist(this.state.selectedChild, this.render())
+  handleSubmit(){
+    console.log("this state: ", this.state)
+    var newChildToWaitlist = this.state
+    postChildToWaitlist(newChildToWaitlist)
+  }
+
+
+
+  componentDidMount() {
+    if(this.props.currentUser) {
+      this.createChildList(this.props.currentUser)
+    } else {
+      this.props.history.push('/parent/login')
+    }
   }
 
   render (){
+    console.log('eccId: ', this.props.data.eccId)
   return(
     <div>
       <br/>
@@ -44,11 +62,13 @@ class  WaitlistApplication  extends React.Component{
       <br/>
       <div className="main-container">
       <h3>Select child you want to enrol:</h3>
-      <select onSelect={this.handleChange}>
+      <select id="selectChild" onChange={this.handleChange}>
+      <option  value="select">select a child</option>
         {this.props.data.usersChildren.map((child, index) => <option key={index} value={child.id}>{child.first_name}</option>)}
       </select>
-      <Link to='/parent/home'><button onClick={this.handleClick}>Enrol</button></Link> 
       <br/>
+      <Link to='/parent/home'><button className="DashButton" onClick={this.handleSubmit}>submit</button></Link> 
+      <button className="DashButton">back</button>
       {/* <h3>or fill out this form:</h3>
       <form>
             <label htmlFor="">
@@ -70,7 +90,8 @@ class  WaitlistApplication  extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    data: state.ecc
+    data: state.ecc,
+    currentUser: state.user.currentUser
   }
 }
 

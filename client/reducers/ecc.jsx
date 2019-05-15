@@ -1,4 +1,4 @@
-export default function(state = {ecc:[], filteredList: [], usersChildren: []}, action){
+export default function(state = {ecc:[], filteredList: [], usersChildren: [], eccId: null}, action){
     switch(action.type){
         case 'ECC_List':
             return{...state,ecc:action.payload}
@@ -8,6 +8,8 @@ export default function(state = {ecc:[], filteredList: [], usersChildren: []}, a
             return{...state, filteredList: action.theList}
         case 'CHILD_LIST':
             return{...state, usersChildren: action.payload}
+        case 'SELECT_ECC':
+        return{...state, eccId: action.id}
         default:
             return state;
 

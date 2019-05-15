@@ -90,7 +90,7 @@ router.post("/createchild", (req, res) => {
     });
 });
 
-router.post("/addchildtowaitlist", (req, res) => {
+router.post("/addchildtowaitlist/", (req, res) => {
   db.addChildToWaitList(req.body)
     .then(waitlist => {
       res.json(waitlist);

@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import { getChildWaitlistData, deleteChildFromWaitlist } from "../apis/api";
+import { thisTypeAnnotation } from "@babel/types";
 
 
 class ParentDashboard extends React.Component {
@@ -15,7 +16,6 @@ class ParentDashboard extends React.Component {
   }
 
   componentDidMount() {
-    console.log('cdm')
     if(this.props.currentUser) {
       getChildWaitlistData(this.props.currentUser, (err, data) => {
         this.setState({ value: data });
@@ -25,11 +25,11 @@ class ParentDashboard extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    getChildWaitlistData(nextProps.currentUser, (err, data) => {
-      this.setState({ value: data });
-    });
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   getChildWaitlistData(nextProps.currentUser, (err, data) => {
+  //     this.setState({ value: data });
+  //   });
+  // }
   
   deleteThisChild (childId, eccId) {
     deleteChildFromWaitlist(childId, eccId, (err, data)=> {
@@ -45,7 +45,7 @@ class ParentDashboard extends React.Component {
   } 
 
   render() {
-    console.log(this.state);
+    console.log(this.state.value);
      console.log('current user: ', this.props.currentUser)
      return (
       <div>
@@ -60,26 +60,22 @@ class ParentDashboard extends React.Component {
           <h2 className="DashHeader">Waitlist</h2>
           {!this.state.value[0] ? <p className="DashSubText">You have no children registered.</p> : 
           <div>
-            {!this.state.value.center_name ? 
-              <div>
-              <p className="DashText">{this.state.value[0].first_name}</p>
-              <p className="DashSubText">This child is not on any waitlists.</p>
-              </div>
-              : this.state.value.waitlists.map((item, id) => (
-                <div id={id}>
-                  <p className="DashText">{item.first_name}</p>
-                  <p className="DashSubText">Day Care Center: {item.center_name}  <button className='' onClick={() => this.deleteThisChild(item.child_id, item.ecc_id)}>x</button></p>
-                  <p className="DashSubText">Status: {item.status} </p>
-                  {item.status !== 'pending' ? <p className="DashSubText">Position: {item.rank_ecc}</p> : ""}
-                  <br/>
+            {this.state.value.map((item, index) => (
+                <div>
+                      <p className="DashText">{item.first_name}</p>
+                  {item.waitlists.map((item2, id) => (
+                      <div id={id}>
+                          <p className="DashSubText">Day Care Center: {item2.ecc_name}  <button className='' onClick={() => this.deleteThisChild(item2.child_id, item2.ecc_id)}>x</button></p>
+                          <p className="DashSubText">Status: {item2.status} </p>
+                          {item2.status !== 'pending' ? <p className="DashSubText">Position: {item2.rank_ecc}</p> : ""}
+                          <br/>
+                      </div>
+                  ))}
                 </div>
               ))}
-          </div>}
-          
-          
-
-              </div>
-
+            </div>  
+            }
+            </div>
           <br />
           <Link to="/parent/filter">
             <button className="DashButton">

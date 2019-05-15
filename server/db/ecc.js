@@ -2,8 +2,9 @@ const connection = require('./connection')
 const {generatePasswordHash} = require('../auth/hash')
 
 function getPendingChildren (id, db = connection) {
+    console.log(id)
     return db('ecc').where('ecc.id', id)
-        .join('waitlist', 'ecc.id', '=', 'waitlist.ecc_id')
+    .join('waitlist', 'waitlist.ecc_id', '=', 'ecc.id')
         .join('child', 'child_id', '=', 'child.id')
         .where('waitlist.status', 'pending')
         .join('parent','parent_id', '=', 'parent.id')

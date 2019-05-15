@@ -83,14 +83,13 @@ export function postRegisteredChild(newChild, callback) {
       })
 }
 
-export function postChildToWaitlist(newChild, callback) {
+export function postChildToWaitlist(newChildInfo, callback) {
   return request
       .post(ParentDbUrl + '/addchildtowaitlist')
-      .send(newChild)
+      .send(newChildInfo)
       .end((err,res) => {
           console.log(err)
           console.log(res)
-          callback(err, res.body);
       })
 }
 export function login(creds, callback) {
