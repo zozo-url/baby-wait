@@ -55,7 +55,7 @@ toggleDrawer = (value) => {
       <AppBar
       position="fixed"
       style={{
-        backgroundColor: this.state.headerShow ? '#b5c5c5' : 'transparent',
+        backgroundColor: this.state.headerShow ? '#2f2f2f' : 'transparent',
         boxShadow: 'none',
         padding: '4px 0px'
       }}

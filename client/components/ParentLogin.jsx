@@ -52,7 +52,7 @@ class  ParentLogin  extends React.Component{
         </div>
 
         <div className='spacing'>or continue with <span className='highlight'>Facebook</span></div>
-      <div><Link to='/parent/home'><button className='ghost-round full-width' onClick={this.submit}>Create Account</button></Link></div>
+      <div><Link to='/parent/home'><button className='ghost-round full-width' onClick={this.submit}>Sign in</button></Link></div>
         </div>
       </div>
     </div>
