@@ -15,6 +15,13 @@ export function EccList(payload){
     }
 }
 
+export function selectEcc(id) {
+    return {
+      type: 'SELECT_ECC',
+      id
+    }
+  }
+
 export function saveUsersChildren(payload){
     return {
         type: 'CHILD_LIST',

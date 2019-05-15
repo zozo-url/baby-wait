@@ -10,6 +10,10 @@ class  EccList  extends React.Component{
     if(!this.props.currentUser) 
       this.props.history.push('/parent/login')
     }
+  handleClick (id) {
+    console.log('this is id', id)
+      this.props.data.selectEcc(id)
+    }
 
   render (){
     console.log('this.props.data: ', this.props.data)
@@ -20,13 +24,13 @@ class  EccList  extends React.Component{
         <br/>
         <br/>
         <div>
-        <Link to={'/parent/registerwaitlist/' + 17}><button>I want to register for this ecc</button></Link>
+
         {this.props.data.ecc.map((item, index) => 
         <div key={index}>
           <h4>{item.center_name}</h4>
           <p>Address: {item.address}, {item.suburb}</p>
           <p>{item.description}</p>
-          <Link to={'/parent/registerwaitlist/' + item.id}><button>I want to register for this ecc</button></Link>
+          <Link to={'/parent/registerwaitlist/'}><button onClick={() => this.handleClick(item.id)}>I want to register for this ecc</button></Link>
         </div>)}
         </div>
            <br/>

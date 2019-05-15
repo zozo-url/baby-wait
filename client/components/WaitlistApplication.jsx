@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from "react-router-dom"
 import { connect } from 'react-redux'
-import { setCurrentUser, fetchChildrenOfParent } from '../actions/'
+import { selectEcc, setCurrentUser, fetchChildrenOfParent } from '../actions/'
 import { postChildToWaitlist } from '../apis/api';
 
 class  WaitlistApplication  extends React.Component{
@@ -38,18 +38,8 @@ class  WaitlistApplication  extends React.Component{
     }
   }
 
-  handleChange(event) {
-    this.setState({
-      selectedChild: event.target.value
-    })
-  }
-
-  handleClick() {
-    postChildToWaitlist(this.state.selectedChild, this.render())
-  }
-
   render (){
-    console.log(document.getElementById('selectChild'))
+    console.log('eccId: ', this.props.data.eccId)
   return(
     <div>
       <br/>
@@ -59,12 +49,11 @@ class  WaitlistApplication  extends React.Component{
       <br/>
       <div className="main-container">
       <h3>Select child you want to enrol:</h3>
-      <select id="selectChild" onSelect={this.handleChange(() => this.props.currentUser)}>
+      <select id="selectChild">
         {this.props.data.usersChildren.map((child, index) => <option key={index} value={child.id}>{child.first_name}</option>)}
       </select>
-      <Link to='/parent/home'><button onClick={this.handleClick}>Enrol</button></Link> 
       <br/>
-      <button className="DashButton" onClick={this.handleSubmit}>submit</button>
+      <Link to='/parent/home'><button className="DashButton" onClick={this.handleSubmit}>submit</button></Link> 
       <button className="DashButton">back</button>
       {/* <h3>or fill out this form:</h3>
       <form>
