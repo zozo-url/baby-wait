@@ -26,7 +26,7 @@ class App extends React.Component {
     return (
     <Router>
       <div>
-        <Route path="/" component={LandingPage}/>
+        <Route path exact="/" component={LandingPage}/>
         <Route path="/parent/register" component={ParentRegister}/>
         <Route path="/parent/login" component={ParentLogin}/>
         <Route path="/parent/home" component={ParentDashboard}/>
