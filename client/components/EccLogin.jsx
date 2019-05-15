@@ -10,6 +10,7 @@ class  EccLogin  extends React.Component{
       password: ''
     }
     this.updateState = this.updateState.bind(this)
+    this.submit = this.submit.bind(this)
   }
   updateState(e){
     this.setState({[e.target.name]: e.target.value})

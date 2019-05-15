@@ -37,8 +37,9 @@ class ParentDashboard extends React.Component {
         console.log(err)
       }
       else {
-        this.setState({
-          value: this.state.value.filter(item => (item.child_id !== childId) || (item.ecc_id !== eccId))
+        this.
+        setState({
+          value: this.state.value.filter(item => (item.id !== childId) || (item.ecc_id !== eccId))
         })
       }
     })

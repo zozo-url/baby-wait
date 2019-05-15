@@ -157,7 +157,7 @@ export function postEccUser(ecc, callback) {
 }
 
 export function eccLogin(creds, callback) {
-  // const token = creds.token;
+  const token = creds.token;
   return request
   .post(EccDbUrl + '/login')
   .send(creds)

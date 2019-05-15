@@ -8,20 +8,22 @@ class EccDashboard  extends React.Component{
   constructor() {
     super()
     this.state = { 
-      currentUser: 184,
       pendingValue: [],
       waitlistValue: [],
     }
     this.deleteThisChild=this.deleteThisChild.bind(this)
   }
   componentWillMount() {
-       getEccPendingData(20, (err,data) => {
+      getEccPendingData(this.props.currentUser, (err,data) => {
            this.setState({pendingValue: data});  
        });
 
-       getEccWaitlistData(20,(err,data) => {
+       getEccWaitlistData(this.props.currentUser,(err,data) => {
          this.setState({waitlistValue: data});
-       })     
+       })
+    // } else {
+    //   this.props.history.push('/ecc/login')
+    // }
   }
   deleteThisChild (childId, eccId) {
     deleteChildFromWaitlist(childId, eccId, (err, data)=> {
