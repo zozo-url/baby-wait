@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link }  from 'react-router-dom'
 import { connect } from 'react-redux'
-import * as actions from '../actions'
+import { selectEcc } from '../actions'
 
 
 
@@ -10,9 +10,10 @@ class  EccList  extends React.Component{
     if(!this.props.currentUser) 
       this.props.history.push('/parent/login')
     }
-  handleClick (id) {
+  
+    handleClick (id) {
     console.log('this is id', id)
-      this.props.data.selectEcc(id)
+      this.props.getEccId(id)
     }
 
   render (){
@@ -49,6 +50,11 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getEccId: (id) => dispatch(selectEcc(id))
+  }
+}
 
-// export const styles1 = withStyles(styles)(MediaCard)
-export default connect (mapStateToProps,actions)(EccList);
+
+export default connect (mapStateToProps,mapDispatchToProps)(EccList);

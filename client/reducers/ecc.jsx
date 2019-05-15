@@ -9,7 +9,7 @@ export default function(state = {ecc:[], filteredList: [], usersChildren: [], ec
         case 'CHILD_LIST':
             return{...state, usersChildren: action.payload}
         case 'SELECT_ECC':
-        return{...state, eccForApplication: action.id}
+        return{...state, eccId: action.id}
         default:
             return state;
 
