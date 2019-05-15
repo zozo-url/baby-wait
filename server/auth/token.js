@@ -18,7 +18,7 @@ function issueEccToken (req, res) {
             res.status(403).json({ message: "User does not exist" })
         }
         else {
-            comparePasswordToHash(req.body.password, ecc[0].hash_password)
+            comparePasswordToHash(req.body.password, ecc.hash_password)
             .then(match => {
                 if(!match) {
                     res.status(400).json({
@@ -71,17 +71,17 @@ function issueToken (req, res) {
     })
 }
 
-function createToken(parent, secret) {
-    const parentUser = {
-        parentId: parent.id,
-        username: parent.username
+function createToken(user, secret) {
+    const user = {
+        userId: user.id,
+        username: user.username
     }
-    console.log('parentUser: ', parentUser)
+    console.log('User: ', user)
     const options = {
         expiresIn: "24h"
     }
 
-    return jwt.sign(parentUser, secret, options)
+    return jwt.sign(user, secret, options)
 }
 
 // function verifyToken(req, res, next) {
