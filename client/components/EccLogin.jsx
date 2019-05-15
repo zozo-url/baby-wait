@@ -1,12 +1,15 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link }  from 'react-router-dom'
+import {eccLogin} from '../apis/api'
 
 class  EccLogin  extends React.Component{
-  constructor(){
+  constructor(props){
     super()
-    this.state={
-
+    this.state = {
+      username: '',
+      password: ''
     }
+    this.updateState = this.updateState.bind(this)
   }
   updateState(e){
     this.setState({[e.target.name]: e.target.value})
@@ -16,10 +19,11 @@ class  EccLogin  extends React.Component{
   submit(e){
     console.log("submit")
     let {username, password} = this.state
-    // login({username, password})
+    eccLogin({username, password})
   }
 
   render (){
+    console.log(this.state)
   return(
     <div>
       <div className="main-container">

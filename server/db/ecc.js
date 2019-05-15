@@ -22,6 +22,8 @@ function updateChildStatusToWaitlist (childId, db = connection) {
     return db('waitlist')
       .where('child_id', childId)
       .update({ status: 'waitlist' })
+      //get child result
+      //
   }
 
 function deleteChildFromWaitlist (childId, eccId, db = connection) {
@@ -32,7 +34,6 @@ function deleteChildFromWaitlist (childId, eccId, db = connection) {
 
 //auth
 function createEccUser (newEccUser, db = connection) {
-    console.log(newEccUser)
     return generatePasswordHash(newEccUser.hash_password)
     .then (hash => {
         return db('ecc')
@@ -47,7 +48,7 @@ function createEccUser (newEccUser, db = connection) {
             'age': newEccUser.age,
             'photo': newEccUser.photo,
             'username': newEccUser.username,
-            'hash_password': newEccUser.hash_password,
+            'hash_password': hash,
 
         })
     })
@@ -57,6 +58,7 @@ function getEccByUsername (eccUsername, db = connection) {
     return db('ecc')
       .where('username', eccUsername)
       .select()
+      .first()
   }
 
 function EccUserExists (ecc, db = connection) {

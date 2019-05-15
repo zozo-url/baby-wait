@@ -138,3 +138,29 @@ export function deleteChildFromWaitlist (childId, eccId, callback) {
         callback(err, res.body)
       })
 }
+
+export function postEccUser(ecc, callback) {
+  return request
+      .post(EccDbUrl + '/createeccuser')
+      .send(ecc)
+      .end((err,res) => {
+          console.log(err)
+          console.log(res)
+      })
+}
+
+export function eccLogin(creds, callback) {
+  // const token = creds.token;
+  return request
+  .post(EccDbUrl + '/login')
+  .send(creds)
+  .then(res => res.body.token)
+  .then(token => {
+      const user = decode(token)
+      return user
+  })
+  .catch (err => {
+    throw err
+  })
+      // capture the token, send it to localstorage
+}
