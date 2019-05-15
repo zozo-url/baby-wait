@@ -43,7 +43,6 @@ export function fetchECCList(filterWord) {
             dispatch(EccList(eccList))
         })
     }
-    
 }
 
 export function fetchChildrenOfParent(parentId) {
