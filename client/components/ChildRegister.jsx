@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { HashRouter as Router, Route, Link }  from 'react-router-dom'
 import * as actions from "../actions";
 import { postRegisteredChild } from '../apis/api';
+import Header from './Header'
 
 
 
@@ -45,6 +46,7 @@ class  ChildRegister  extends React.Component{
     console.log(this.state)
   return(
     <div>
+      <Header/>
       <div className="padding"></div>
       <div className="main-container">
       <h1></h1>

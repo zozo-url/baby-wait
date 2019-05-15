@@ -28,7 +28,7 @@ const SideDrawer = (props) => {
             onClose={()=> props.onClose(false)}
         >
             <List component="nav">
-                <Link to ="/home" style = {{
+                <Link to ="/" style = {{
                     textDecoration: 'none',
                 }}>
                 <ListItem button onClick={()=> scrollToElement('featured')}>

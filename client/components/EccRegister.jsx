@@ -26,6 +26,8 @@ class  EccRegister  extends React.Component{
       username: '',
       hash_password: '',
   }
+
+  
   
   this.updateState = this.updateState.bind(this)
   this.submit = this.submit.bind(this)
@@ -41,29 +43,37 @@ submit(e) {
 
   render (){
     return (
-          <div>
-            <h1>Eary Childhood Register</h1>
-            <h2 className="formHeader">Sign Up</h2>
-              <div className="main-container">
-              <img src="/public/images/dropbox-abc-blocks.jpg" alt=""></img><br/>
-                <form>
-                               
-                  <h3 className="formSubHeading">Username</h3> 
-                  <input type='text' name='username' onChange={this.updateState}></input> <br/>
-                  <h3 className="formSubHeading">Password</h3>
-                  <input type='text' name='hash_password' onChange={this.updateState}></input> <br/>
-                  <h3 className="formSubHeading">Name of ECE</h3>
-                  <input type='text' name='center_name' onChange={this.updateState}></input> <br/>
-                  <h3 className="formSubHeading">Email</h3>
-                  <input type='text' name='email' onChange={this.updateState}></input> <br/>
-                  <h3 className="formSubHeading">Address</h3>
-                  <input type='text' name='address' onChange={this.updateState}></input>
-                  <h3 className="formSubHeading">Suburb</h3>
-                  <input type='text' name='suburb' onChange={this.updateState}></input> <br/> <br/>
-                  <Link to='login'><button onClick={this.submit}>submit</button></Link>
-                </form>
-              </div>
-          </div>
+
+
+<div>
+
+<div className='bold-line'></div>
+  <div className="main-container">
+      <div className='window'>
+        <div className='overlay'></div>
+        <div className='content'>
+        <div className='welcome'>Eary Childhood Register</div>
+      <div className='subtitle'>Sign Up</div>
+
+      <div className='input-fields'>
+        <input type='text' placeholder='Username' className='input-line full-width' onChange={this.updateState} ></input>
+        <input type='text' placeholder='Password' className='input-line full-width' onChange={this.updateState}></input>
+        <input type='text' placeholder='Name of ECE' className='input-line full-width' onChange={this.updateState}></input>
+        <input type='text' placeholder='Eamil' className='input-line full-width' onChange={this.updateState}></input>
+        <input type='text' placeholder='Address' className='input-line full-width' onChange={this.updateState}></input>
+        <input type='text' placeholder='Suburb' className='input-line full-width' onChange={this.updateState}></input>
+        </div>
+
+        
+      <div><Link to='/parent/home'><button className='ghost-round full-width' onClick={this.submit}>SUbmit</button></Link></div>
+        </div>
+      </div>
+    </div>
+   
+</div>
+
+
+
   )
 }
 }
