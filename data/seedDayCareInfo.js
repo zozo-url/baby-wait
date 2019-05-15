@@ -15,7 +15,8 @@ const eccdata = filteredEccArray.map(ecc => {
     suburb: ecc.Add1_Suburb + ", " + ecc.Add1_City,
     description: ecc.Org_Type + ", " + ecc.Authority,
     age: ecc.All_Children,
-    username: ecc.Email
+    username: ecc.Email,
+    hash_password:'$2b$12$MruTWZcAw/NY2T5ZOAn4iuGo5DwQbC4TLO5ymSgrW3gBGQvOYqCWa'
   };
 });
 
