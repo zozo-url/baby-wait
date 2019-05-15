@@ -26,7 +26,6 @@ class ParentDashboard extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('cwrp')
     getChildWaitlistData(nextProps.currentUser, (err, data) => {
       this.setState({ value: data });
     });
@@ -64,7 +63,8 @@ class ParentDashboard extends React.Component {
           <p className="DashText">
           {this.state.value.length > 0 ? this.state.value[0].first_name : ""}
           </p>
-          {this.state.value.map((item, id) => (
+          {!this.state.value.center_name ? <p className="DashSubText">This child is not on any waitlists.</p>
+           : this.state.value.map((item, id) => (
             <div id={id}>
               <p className="DashSubText">Day Care Center: {item.center_name}  <button className='' onClick={() => this.deleteThisChild(item.child_id, item.ecc_id)}>x</button></p>
               <p className="DashSubText">Status: {item.status} </p>
