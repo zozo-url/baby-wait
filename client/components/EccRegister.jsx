@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link }  from 'react-router-dom'
+import { postEccUser } from '../apis/api'
 
 
 
@@ -29,12 +30,11 @@ class  EccRegister  extends React.Component{
 }
 updateState(e){
   this.setState({[e.target.name]: e.target.value})
-  console.log(this.state)
 }
 
 submit(e) {
   var user = this.state
-  //function to save to database 
+  postEccUser(user)
 }
 
   render (){

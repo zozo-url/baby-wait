@@ -32,7 +32,6 @@ function deleteChildFromWaitlist (childId, eccId, db = connection) {
 
 //auth
 function createEccUser (newEccUser, db = connection) {
-    console.log(newEccUser)
     return generatePasswordHash(newEccUser.hash_password)
     .then (hash => {
         return db('ecc')
