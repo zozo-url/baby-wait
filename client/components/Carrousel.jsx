@@ -14,10 +14,11 @@ const Carrousel = () => {
     }
 
     return (
+
         <div 
             className="carrousel_wrapper"
             style={{
-                background:"red",
+                background:"grey",
                 height:`${window.innerHeight}px`,
                 overflow:'hidden'
             }}
@@ -27,10 +28,11 @@ const Carrousel = () => {
                    <div 
                         className="carrousel_image"
                         style={{
-                            background:"red",
                             height:`${window.innerHeight}px`
                         }}
-                   ></div>
+                   >
+                   <img src = "./images/s1.jpg" className="firstImage"/>
+                   </div>
                 </div>
                 
             </Slider>

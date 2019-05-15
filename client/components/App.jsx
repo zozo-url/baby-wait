@@ -9,8 +9,8 @@ import Header from './Header'
 import ParentRegister from './ParentRegister'
 import ParentLogin from './ParentLogin'
 import ParentDashboard from './ParentDashboard'
-import ChildRegister from './ChildRegister';
-import EccList from './EccList';
+import ChildRegister from './ChildRegister'
+import EccList from './EccList'
 import FilterLocation from './FilterLocation'
 import WaitlistApplication from './WaitlistApplication'
 import LandingPage from './LandingPage'

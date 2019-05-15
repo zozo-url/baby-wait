@@ -8,7 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 
 import SideDrawer from './SideDrawer'
-import Carrousel from "./Carrousel";
+
 
 class  Header extends Component{
  
@@ -57,14 +57,14 @@ toggleDrawer = (value) => {
       style={{
         backgroundColor: this.state.headerShow ? '#2f2f2f' : 'transparent',
         boxShadow: 'none',
-        padding: '10px 0px'
+        padding: '4px 0px'
       }}
          >
           <Toolbar>
 
             <div className="header_logo">
-                <div className="font_righteous header_logo_daycare">Daycare2.0</div>
-                <div className="header_logo_title">The Waitlist</div>
+                <div className="font_righteous header_logo_daycare"></div>
+                <div className="header_logo_title"></div>
             </div>
 
             <IconButton
