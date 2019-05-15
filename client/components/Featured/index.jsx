@@ -10,7 +10,7 @@ const index = () => {
 
             <div className="daycare">
                 <div className = "wrapper">
-                    DAYCARE 2.0
+                    Baby Wait
                 </div>
 
             </div>

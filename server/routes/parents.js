@@ -15,6 +15,16 @@ router.get('/ecc', (req, res) => {
     })
 })
 
+router.get('/ecc/suburbs', (req, res) => {
+  db.getEccList()
+  .then(daycares => {
+    res.json(daycares.map(daycare => daycare.suburb))
+  })
+  .catch(err => {
+    res.status(500).send(err.message)
+  })
+})
+
 // auth
 router.get("/getparentbyusername", (req, res) => {
   db.getParentByUsername(req.body.username)

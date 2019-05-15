@@ -26,6 +26,14 @@ export function getEccList (filterWord ,callback) {
       })
 }
 
+export function getEccSuburbs (callback) {
+  return request
+    .get(ParentDbUrl + '/ecc/suburbs')
+    .end((err, res) => {
+      callback(err, res.body)
+    })
+}
+
 export function getChildWaitlistData(id, callback) {
   return request.get(ParentDbUrl + "/childwaitlist/" + id)
     .end((err, res) => {

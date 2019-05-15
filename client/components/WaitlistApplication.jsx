@@ -38,6 +38,16 @@ class  WaitlistApplication  extends React.Component{
     }
   }
 
+  handleChange(event) {
+    this.setState({
+      selectedChild: event.target.value
+    })
+  }
+
+  handleClick() {
+    postChildToWaitlist(this.state.selectedChild, this.render())
+  }
+
   render (){
     console.log(document.getElementById('selectChild'))
   return(
@@ -52,6 +62,7 @@ class  WaitlistApplication  extends React.Component{
       <select id="selectChild" onSelect={this.handleChange(() => this.props.currentUser)}>
         {this.props.data.usersChildren.map((child, index) => <option key={index} value={child.id}>{child.first_name}</option>)}
       </select>
+      <Link to='/parent/home'><button onClick={this.handleClick}>Enrol</button></Link> 
       <br/>
       <button className="DashButton" onClick={this.handleSubmit}>submit</button>
       <button className="DashButton">back</button>

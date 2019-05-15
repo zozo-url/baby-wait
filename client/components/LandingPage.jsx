@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-
 import Header from './Header'
 import Featured from './Featured'
+import HomeInfo from './HomeInfo'
 
 class LandingPage extends Component {
     render() {
@@ -10,6 +10,7 @@ class LandingPage extends Component {
             <div>
                 <Header/>
                 <Featured/>
+                <HomeInfo/>
             </div>
         );
     }
