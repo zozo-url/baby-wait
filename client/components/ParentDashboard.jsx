@@ -9,12 +9,11 @@ class ParentDashboard extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentUser: 1,
       value: []
     };
     this.deleteThisChild=this.deleteThisChild.bind(this)
   }
-  
+
   componentWillReceiveProps(nextProps) {
     getChildWaitlistData(nextProps.currentUser, (err, data) => {
       this.setState({ value: data });

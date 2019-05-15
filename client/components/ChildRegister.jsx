@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { HashRouter as Router, Route, Link }  from 'react-router-dom'
+import * as actions from "../actions";
 import { postRegisteredChild } from '../apis/api';
 
 
@@ -13,11 +14,14 @@ class  ChildRegister  extends React.Component{
       first_name:'',
       last_name:'',
       date_of_birth:'',
-      parent_id: 1
     };
 
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this); 
+    }
+
+    componentDidMount() {
+        this.setState({ ...this.state, parent_id: this.props.currentUser });
     }
 
     handleChange(e){
@@ -25,8 +29,8 @@ class  ChildRegister  extends React.Component{
     }
   
     handleSubmit(e){
-      console.log(this.state)
-      var child = this.state 
+      console.log('state for sending:', child)
+      var child = this.state
       postRegisteredChild(child)
       // link the page to parent dashboard
       // and grab parent id before submit
@@ -38,6 +42,7 @@ class  ChildRegister  extends React.Component{
     
   
   render (){
+    console.log(this.state)
   return(
     <div>
       <div className="padding"></div>
@@ -49,11 +54,11 @@ class  ChildRegister  extends React.Component{
            <form>
             <label htmlFor="">
             First name:
-            <input type="text" name='first_name' value={this.updateState} onChange={this.handleChange} />
+            <input type="text" name='first_name' onChange={this.handleChange} />
             Last name:
-            <input type="text" name='last_name' value={this.updateState} onChange={this.handleChange} />
+            <input type="text" name='last_name' onChange={this.handleChange} />
             Date of birth:
-            <input type="text" name='date_of_birth' value={this.updateState} onChange={this.handleChange} />
+            <input type="text" name='date_of_birth' onChange={this.handleChange} />
             </label>
             <Link to='/parent/home'><button className="DashButton" onClick={this.handleSubmit}>Add a child</button></Link>
             <Link to='/parent/home'><button className="DashButton">back</button></Link>
@@ -62,6 +67,11 @@ class  ChildRegister  extends React.Component{
     </div>
   )
 }
-
 }
-export default ChildRegister
+const mapStateToProps = state => {
+  return {
+    currentUser: state.user.currentUser
+  };
+};
+
+export default connect (mapStateToProps, actions)(ChildRegister)
