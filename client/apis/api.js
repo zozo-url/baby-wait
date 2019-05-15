@@ -1,4 +1,5 @@
 import request from "superagent";
+import decode from 'jwt-decode'
 
 const DayCareUrl =
   'http://catalogue.data.govt.nz/api/3/action/datastore_search_sql?sql=SELECT * FROM"26f44973-b06d-479d-b697-8d7943c97c57"';
@@ -90,6 +91,10 @@ export function login(creds, callback) {
   .post(ParentDbUrl + '/login')
   .send(creds)
   .then(res => res.body.token)
+  .then(token => {
+      const user = decode(token)
+      return user
+  })
   .catch (err => {
     throw err
   })

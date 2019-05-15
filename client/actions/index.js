@@ -1,5 +1,12 @@
 import { getEccList, getChildWithParentId } from '../apis/api'
 
+export function setCurrentUser(id) {
+    return {
+      type: 'SET_CURRENT_USER',
+      id
+    }
+  }
+
 export function EccList(payload){
 
     return{
