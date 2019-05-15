@@ -13,6 +13,7 @@ import ChildRegister from './ChildRegister';
 import EccList from './EccList';
 import FilterLocation from './FilterLocation'
 import WaitlistApplication from './WaitlistApplication'
+import LandingPage from './LandingPage'
 
 import EccRegister from './EccRegister'
 import EccLogin from './EccLogin'
@@ -25,7 +26,7 @@ class App extends React.Component {
     return (
     <Router>
       <div>
-        <Route path="/" component={Header}/>
+        <Route path="/" component={LandingPage}/>
         <Route path="/parent/register" component={ParentRegister}/>
         <Route path="/parent/login" component={ParentLogin}/>
         <Route path="/parent/home" component={ParentDashboard}/>
