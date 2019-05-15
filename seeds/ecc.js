@@ -1,5 +1,7 @@
+const apiSeed = require( '../data/seedDayCareInfo')
 
-exports.seed = function(knex, Promise) {
+
+function oldSeed (knex, Promise) {
   // Deletes ALL existing entries
   return knex('ecc').del()
     .then(function () {
@@ -10,5 +12,17 @@ exports.seed = function(knex, Promise) {
         {id: 3, center_name: 'Capital City Preschool', ph_number: '043846560', url: 'https://www.capitalcitypreschool.co.nz/', email: 'preschool@capitalcitypreschool.co.nz', address: '3 MacDonald Crescent', suburb: 'Te Aro', description: 'Capital City Preschool is a non-profit preschool providing education and care for preschool children aged 3-5 years, and has been operating for over 24 years.', age: '3+', photo: 'ecc.jpeg', username: 'CCP', hash_password: 'CCP' },
         {id: 4, center_name: 'Brooklyn Kids Childcare Center', ph_number: '048025782', url: 'https://www.brooklynkids.co.nz/', email: 'manager@brooklynkids.co.nz', address: '37-41 Cleveland Street', suburb: 'Brooklyn', description: 'At Brooklyn Kids Childcare Center, we believer in providing a holistic learning environment where children have the time and space to develop. We want to support children to become lifelong learners, who are passionate and curious about the world around them.', age: 'all ages', photo: 'ecc.jpeg', username: 'BKCC', hash_password: 'BKCC' },
       ]);
+    });
+};
+
+
+exports.seed = function(knex, Promise) {
+
+  // Deletes ALL existing entries
+  return knex('ecc').del()
+    .then(function () {
+      // Inserts seed entries
+      return knex('ecc').insert(apiSeed())
+    
     });
 };
