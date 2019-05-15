@@ -30,40 +30,46 @@ const SideDrawer = (props) => {
             <List component="nav">
                 <Link to ="/home" style = {{
                     textDecoration: 'none',
-
-                }}>
-                <ListItem button onClick={()=> scrollToElement('featured')}>
-                   Log In
-                </ListItem>
-                </Link>
-                <Link to ="/parent/login" style = {{
-                    textDecoration: 'none',
-                    
-                }}>
-                <ListItem button onClick={()=> scrollToElement('featured')}>
-                   Register
-                </ListItem>
-                </Link>
-                <Link to ="/parent/home" style = {{
-                    textDecoration: 'none',
-                    
                 }}>
                 <ListItem button onClick={()=> scrollToElement('featured')}>
                    Home
                 </ListItem>
                 </Link>
 
-                <Link to ="/parent/ecclist" style = {{
+                <Link to ="/parent/login" style = {{
                     textDecoration: 'none',
-                    
                 }}>
                 <ListItem button onClick={()=> scrollToElement('featured')}>
-                   Early Childhood Center
+                   Log In
+                </ListItem>
+               </Link>
+
+                <Link to ="/parent/home" style = {{                 textDecoration: 'none',
+                    }}>
+                <ListItem button onClick={()=> scrollToElement('featured')}>
+                   Parent Dash Board
                 </ListItem>
                 </Link>
 
+
+
+                <Link to ="/parent/register" style = {{
+                    textDecoration: 'none',
+                    }}>
+                <ListItem button onClick={()=> scrollToElement('featured')}>
+                   Parent Register
+                </ListItem>
+                </Link>
+
+
                 
-                
+                <Link to ="/ecc/register" style = {{
+                    textDecoration: 'none',
+                    }}>
+                <ListItem button onClick={()=> scrollToElement('featured')}>
+                   Early Child Care Register
+                </ListItem>
+                </Link>
 
             </List> 
         </Drawer>
