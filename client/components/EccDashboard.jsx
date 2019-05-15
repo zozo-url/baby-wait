@@ -8,20 +8,22 @@ class EccDashboard  extends React.Component{
   constructor() {
     super()
     this.state = { 
-      currentUser: 184,
       pendingValue: [],
       waitlistValue: [],
     }
     this.deleteThisChild=this.deleteThisChild.bind(this)
   }
   componentWillMount() {
-       getEccPendingData(20, (err,data) => {
+      getEccPendingData(this.props.currentUser, (err,data) => {
            this.setState({pendingValue: data});  
        });
 
-       getEccWaitlistData(20,(err,data) => {
+       getEccWaitlistData(this.props.currentUser,(err,data) => {
          this.setState({waitlistValue: data});
-       })     
+       })
+    // } else {
+    //   this.props.history.push('/ecc/login')
+    // }
   }
   deleteThisChild (childId, eccId) {
     deleteChildFromWaitlist(childId, eccId, (err, data)=> {
@@ -62,7 +64,7 @@ class EccDashboard  extends React.Component{
              
              {this.state.waitlistValue.map((item,id) => {
         return <div>
-                    <p key={id} className='DashText'>
+            <p key={id} className='DashText'>
           {item.child_rank} {item.child_first_name} {item.child_last_name}  <button className='' onClick={() => this.deleteThisChild(item.child_id, item.ecc_id)}>x</button></p> 
             <p className='DashSubText'>{item.parent_first_name} {item.parent_last_name}</p>
           </div>

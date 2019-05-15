@@ -80,6 +80,7 @@ function getChildWaitlists (id, db = connection) {
                 child = {}
                 child.id = waitlistItem.id
                 child.first_name = waitlistItem.first_name
+                child.ecc_id = waitlistItem.ecc_id
                 child.waitlists = []
                 children[child.id] = child
             }
@@ -87,7 +88,9 @@ function getChildWaitlists (id, db = connection) {
             if(i > 0) lastChild = waitlistData[i-1]
 
             if(waitlistItem.center_name) child.waitlists.push({
+                ecc_id: waitlistItem.ecc_id,
                 ecc_name: waitlistItem.center_name,
+                child_id: waitlistItem.child_id,
                 ecc_rank: waitlistItem.rank_ecc,
                 status: waitlistItem.status
             })
