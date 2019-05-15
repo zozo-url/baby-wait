@@ -49,29 +49,36 @@ class ParentDashboard extends React.Component {
      console.log('current user: ', this.props.currentUser)
      return (
       <div>
-        <div className="padding" />
-        
+        <div className="padding"/>
         <br />
         <br />
         <br />
-
         <div>
           <h2 className="DashHeader">PARENT DASHBOARD</h2>
         </div>
         <div>
           <h2 className="DashHeader">Waitlist</h2>
-          <p className="DashText">
-          {this.state.value.length > 0 ? this.state.value[0].first_name : ""}
-          </p>
-          {!this.state.value.center_name ? <p className="DashSubText">This child is not on any waitlists.</p>
-           : this.state.value.map((item, id) => (
-            <div id={id}>
-              <p className="DashSubText">Day Care Center: {item.center_name}  <button className='' onClick={() => this.deleteThisChild(item.child_id, item.ecc_id)}>x</button></p>
-              <p className="DashSubText">Status: {item.status} </p>
-              {item.status !== 'pending' ? <p className="DashSubText">Position: {item.rank_ecc}</p> : ""}
-              <br/>
-            </div>
-          ))}
+          {!this.state.value[0] ? <p className="DashSubText">You have no children registered.</p> : 
+          <div>
+            {!this.state.value.center_name ? 
+              <div>
+              <p className="DashText">{this.state.value[0].first_name}</p>
+              <p className="DashSubText">This child is not on any waitlists.</p>
+              </div>
+              : this.state.value.waitlists.map((item, id) => (
+                <div id={id}>
+                  <p className="DashText">{item.first_name}</p>
+                  <p className="DashSubText">Day Care Center: {item.center_name}  <button className='' onClick={() => this.deleteThisChild(item.child_id, item.ecc_id)}>x</button></p>
+                  <p className="DashSubText">Status: {item.status} </p>
+                  {item.status !== 'pending' ? <p className="DashSubText">Position: {item.rank_ecc}</p> : ""}
+                  <br/>
+                </div>
+              ))}
+          </div>}
+          
+          
+
+              </div>
 
           <br />
           <Link to="/parent/filter">
@@ -84,9 +91,8 @@ class ParentDashboard extends React.Component {
             add child
           </button>
           </Link>
-        </div>
       </div>
-    );
+    )
   }
 }
 const mapStateToProps = state => {
