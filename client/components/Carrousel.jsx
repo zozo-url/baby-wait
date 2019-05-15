@@ -3,6 +3,7 @@ import Slider from "react-slick";
 
 
 
+
 const Carrousel = () => {
 
     const settings = {
@@ -16,6 +17,7 @@ const Carrousel = () => {
         <div 
             className="carrousel_wrapper"
             style={{
+                background:"red",
                 height:`${window.innerHeight}px`,
                 overflow:'hidden'
             }}
@@ -25,7 +27,7 @@ const Carrousel = () => {
                    <div 
                         className="carrousel_image"
                         style={{
-                            background:`url(${slide_one})`,
+                            background:"red",
                             height:`${window.innerHeight}px`
                         }}
                    ></div>
