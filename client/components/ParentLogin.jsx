@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { HashRouter as Router, Route, Link } from "react-router-dom"
 import { connect } from 'react-redux'
 import { login } from '../apis/api'
 import { setCurrentUser } from '../actions';
+import Fade from 'react-reveal/Fade'
 
 
 class  ParentLogin  extends React.Component{
@@ -31,19 +32,34 @@ class  ParentLogin  extends React.Component{
   }
   render (){
   return(
-    <div>
-      <h1><br/><br/></h1>
-      <div className="main-container">
-      <h2 className="formHeader">Log in</h2>
-      <form>
-        <h3>Username</h3> 
-        <input type='text' name='username' onChange={this.updateState}></input> <br/>
-        <h3>Password</h3>
-        <input type='text' name='password' onChange={this.updateState}></input> <br/> <br/>
-        <Link to='/parent/home'><button onClick={this.submit}>submit</button></Link> <br/>
-      </form>
-     </div>
+<div>
+<img src = "./images/s1.jpg" className="firstImage"/>
+<Fade top delay={500} duration ={1000}>
+<div>
+
+<div className='bold-line'></div>
+  <div className="main-container">
+      <div className='window'>
+        <div className='overlay'></div>
+        <div className='content'>
+        <div className='welcome'>Welcome</div>
+      <div className='subtitle'>Please sign in</div>
+
+      <div className='input-fields'>
+        <input type='text' placeholder='Username' className='input-line full-width' onChange={this.updateState} ></input>
+        <input type='text' placeholder='Password' className='input-line full-width' onChange={this.updateState}></input>
+
+        </div>
+
+        <div className='spacing'>or continue with <span className='highlight'>Facebook</span></div>
+      <div><Link to='/parent/home'><button className='ghost-round full-width' onClick={this.submit}>Create Account</button></Link></div>
+        </div>
+      </div>
     </div>
+   
+</div>
+</Fade>
+</div>
   )
 } 
 } 
