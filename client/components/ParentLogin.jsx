@@ -26,6 +26,7 @@ class  ParentLogin  extends React.Component{
     .then(user => {
       console.log(user)
       this.props.dispatch(setCurrentUser(user.parentId))
+      this.props.history.push('/parent/home')
     })
   }
   render (){

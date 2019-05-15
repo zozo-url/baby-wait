@@ -65,11 +65,50 @@ function deleteChildFromWaitlist (childAndEccId, db = connection) {
 
 function getChildWaitlists (id, db = connection) {
     return db('parent').where('parent.id', id)
-    .join('child', 'parent.id', '=', 'parent_id')
-    .join('waitlist', 'child_id', '=', 'waitlist.child_id')
-    .join('ecc', 'ecc_id', '=', 'ecc.id')
+    .join('child', 'child.parent_id', '=', 'parent.id')
+    .leftOuterJoin('waitlist', 'child_id', '=', 'waitlist.child_id')
+    .leftOuterJoin('ecc', 'waitlist.ecc_id', '=', 'ecc.id')
     .select('child.first_name', 'waitlist.child_id', 'waitlist.ecc_id', 'waitlist.status', 'waitlist.rank_ecc', 'waitlist.rank_parent', 'ecc.center_name')
 }
+
+var parent = [
+{
+    child1: {
+        id: '',
+        first_name: '',
+        waitlists: {
+            ecc1: {
+                id: '',
+                center_name: '',
+                child1_rank: '',
+            },
+            ecc2: {
+                id: '',
+                center_name: '',
+                child1_rank: '',
+            }
+        }
+    }
+},
+{
+    child2: {
+        id: '',
+        first_name: '',
+        waitlists: {
+            ecc1: {
+                id: '',
+                center_name: '',
+                child2_rank: '',
+            },
+            ecc2: {
+                id: '',
+                center_name: '',
+                child2_rank: '',
+            }
+        }
+    }
+}
+]
 
 
 

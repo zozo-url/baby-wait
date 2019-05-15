@@ -14,7 +14,19 @@ class ParentDashboard extends React.Component {
     this.deleteThisChild=this.deleteThisChild.bind(this)
   }
 
+  componentDidMount() {
+    console.log('cdm')
+    if(this.props.currentUser) {
+      getChildWaitlistData(this.props.currentUser, (err, data) => {
+        this.setState({ value: data });
+      });
+    } else {
+      this.props.history.push('/parent/login')
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
+    console.log('cwrp')
     getChildWaitlistData(nextProps.currentUser, (err, data) => {
       this.setState({ value: data });
     });
