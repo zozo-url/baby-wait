@@ -50,7 +50,7 @@ class  EccSettings  extends React.Component{
         <h3 className="formSubHeading">Email</h3>
         <input type='text' name='email' onChange={this.updateState}></input> <br/>
         <h3 className="formSubHeading">Address</h3>
-        <input type='text' name='address' onChange={this.updateState}></input>
+        <input type='text' name='address' onChange={this.updateState}></input> <br/>
         <h3 className="formSubHeading">Suburb</h3>
         <input type='text' name='suburb' onChange={this.updateState}></input> <br/> 
         <h3 className="formSubHeading">Phone Number</h3>
@@ -58,7 +58,7 @@ class  EccSettings  extends React.Component{
         <h3 className="formSubHeading">Website</h3>
         <input type='text' name='url' onChange={this.updateState}></input> <br/>
         <h3 className="formSubHeading">Service Description</h3>
-        <input type='text' name='description' onChange={this.updateState}></input> <br/>
+        <input type='text' name='description' onChange={this.updateState}></input><br/>
         <h3 className="formSubHeading">Service Age Group</h3>
         <input type='text' name='age' onChange={this.updateState}></input> <br/>  
         <br/>

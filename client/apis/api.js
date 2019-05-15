@@ -26,6 +26,14 @@ export function getEccList (filterWord ,callback) {
       })
 }
 
+export function getEccSuburbs (callback) {
+  return request
+    .get(ParentDbUrl + '/ecc/suburbs')
+    .end((err, res) => {
+      callback(err, res.body)
+    })
+}
+
 export function getChildWaitlistData(id, callback) {
   return request.get(ParentDbUrl + "/childwaitlist/" + id)
     .end((err, res) => {
@@ -75,14 +83,13 @@ export function postRegisteredChild(newChild, callback) {
       })
 }
 
-export function postChildToWaitlist(newChild, callback) {
+export function postChildToWaitlist(newChildInfo, callback) {
   return request
       .post(ParentDbUrl + '/addchildtowaitlist')
-      .send(newChild)
+      .send(newChildInfo)
       .end((err,res) => {
           console.log(err)
           console.log(res)
-          callback(err, res.body);
       })
 }
 export function login(creds, callback) {

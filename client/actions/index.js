@@ -15,12 +15,20 @@ export function EccList(payload){
     }
 }
 
+export function selectEcc(id) {
+    return {
+      type: 'SELECT_ECC',
+      id
+    }
+  }
+
 export function saveUsersChildren(payload){
     return {
         type: 'CHILD_LIST',
         payload
     }
 }
+
 
 export function setFilterEccWord(suburb) {
     return {
@@ -42,7 +50,6 @@ export function fetchECCList(filterWord) {
             dispatch(EccList(eccList))
         })
     }
-    
 }
 
 export function fetchChildrenOfParent(parentId) {

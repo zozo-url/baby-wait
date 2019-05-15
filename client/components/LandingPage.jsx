@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 import Header from './Header'
 import Featured from './Featured'
 import HomeInfo from './HomeInfo'
