@@ -58,41 +58,14 @@ class HomeInfo extends Component {
                                         fontSize: "20px"
                                         
                                     }}>
-                                    
+                                    Children matter. That’s why since 1972, we’ve been providing childcare that keeps babies, toddlers and preschoolers safe, loved, and learning. When you trust Kindercare with your child’s early care and education, we commit to a partnership with you that nurtures your child’s amazing potential, 
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </Zoom>
 
-                    <Zoom duration={1500}>
-                        <div className="vn_item">
-                            <div className="vn_outer">
-                                <div className="vn_inner">
-                                    <div className="vn_icon_square bck_red"></div>
-                                    <div 
-                                        className="vn_icon"
-                                        style={{
-
-                                            // background:`url(${icon_calendar})`
-                                        }}
-                                    ></div>
-                                    <div className="vn_title">
-                                   Location
-                                    </div>
-                                    <div className="vn_desc"
-                                    style={{
-                                        textAlign:"left",
-                                        fontSize: "20px"
-                                        
-                                    }}>
-                                    Find the closet Early Childhood center based on how close it is to your home or when you work.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </Zoom>
+            
                     
                 </div>
             </div>

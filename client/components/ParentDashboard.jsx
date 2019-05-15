@@ -25,11 +25,6 @@ class ParentDashboard extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   getChildWaitlistData(nextProps.currentUser, (err, data) => {
-  //     this.setState({ value: data });
-  //   });
-  // }
   
   deleteThisChild (childId, eccId) {
     deleteChildFromWaitlist(childId, eccId, (err, data)=> {
