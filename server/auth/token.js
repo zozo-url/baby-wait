@@ -71,17 +71,17 @@ function issueToken (req, res) {
     })
 }
 
-function createToken(user, secret) {
-    const user = {
-        userId: user.id,
-        username: user.username
+function createToken(parent, secret) {
+    const parentUser = {
+        parentId: parent.id,
+        username: parent.username
     }
-    console.log('User: ', user)
+    console.log('parentUser: ', parentUser)
     const options = {
         expiresIn: "24h"
     }
 
-    return jwt.sign(user, secret, options)
+    return jwt.sign(parentUser, secret, options)
 }
 
 // function verifyToken(req, res, next) {

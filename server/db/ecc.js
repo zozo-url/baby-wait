@@ -22,6 +22,8 @@ function updateChildStatusToWaitlist (childId, db = connection) {
     return db('waitlist')
       .where('child_id', childId)
       .update({ status: 'waitlist' })
+      //get child result
+      //
   }
 
 function deleteChildFromWaitlist (childId, eccId, db = connection) {
