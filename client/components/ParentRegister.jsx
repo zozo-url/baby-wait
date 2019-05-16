@@ -31,9 +31,13 @@ class  ParentRegister extends React.Component{
   }
   render (){
   return(
+    
     <div>
+         
       <Header/>
+    
       <h1>Parent Register</h1>
+      
       <h2 className='formHeader'>Sign Up</h2>
       <div className="main-container">
       <form className ='PR_LOGIN'>
