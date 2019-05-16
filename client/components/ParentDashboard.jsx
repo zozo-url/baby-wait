@@ -44,16 +44,18 @@ class ParentDashboard extends React.Component {
     console.log(this.state.value);
      console.log('current user: ', this.props.currentUser)
      return (
-      <div>
+      <div className="Dash">
         <div className="padding"/>
         <br />
         <br />
         <br />
+        <h2 className="DashHeader"></h2>
         <div>
-          <h2 className="DashHeader">PARENT DASHBOARD</h2>
+          
         </div>
-        <div>
-          <h2 className="DashHeader">Waitlist</h2>
+        <h2 className="DashHeader">Waitlist</h2>
+        <br/>
+        <div className="DashLayout">
           {!this.state.value[0] ? <p className="DashSubText">You have no children registered.</p> : 
           <div>
             {this.state.value.map((item, index) => (
@@ -61,7 +63,7 @@ class ParentDashboard extends React.Component {
                       <p className="DashText">{item.first_name}</p>
                   {item.waitlists.map((item2, id) => (
                       <div id={id}>
-                          <p className="DashSubText">Day Care Center: {item2.ecc_name}  <button className='' onClick={() => this.deleteThisChild(item2.child_id, item2.ecc_id)}>x</button></p>
+                          <p className="DashSubText">Day Care Center: {item2.ecc_name}  <button className='DashButton' onClick={() => this.deleteThisChild(item2.child_id, item2.ecc_id)}>x</button></p>
                           <p className="DashSubText">Status: {item2.status} </p>
                           {item2.status !== 'pending' ? <p className="DashSubText">Position: {item2.rank_ecc}</p> : ""}
                           <br/>

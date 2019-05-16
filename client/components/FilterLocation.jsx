@@ -42,16 +42,17 @@ class  FilterLocation  extends React.Component{
     <div>
       <br/>
       <br/>
-      <br/>
-      <h1>Location filter</h1>
-      <select name="Locations" onChange={this.handleChange} style ={{
+      <h2 className="DashHeader">Location filter</h2>
+        <br/>
+        <div className="DashForm">
+      <select className="DashButton" name="Locations" onChange={this.handleChange} style ={{
           display: 'block',
       }}>
-        <option value=' '>Select A Suburb</option>
-        {this.state.suburbs.map((suburb, index) => <option key={index} value={suburb}>{suburb}</option>)}
+        <option className="DashButton" value=' '>Select A Suburb</option>
+        {this.state.suburbs.map((suburb, index) => <option className="DashButton" key={index} value={suburb}>{suburb}</option>)}
       </select>
       <Link to='/parent/ecclist'><button className="DashButton" onClick={this.handleSubmit}>go to ecc list</button></Link>
-    
+    </div>
     </div>
     
   )

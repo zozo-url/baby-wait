@@ -1,7 +1,9 @@
 body {
+  background-color: lightblue;
   padding:0;
   margin:0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: lighter;
   background:#ffc6b4,
 }
 
@@ -490,3 +492,61 @@ h2{
   
 }
 
+.Dash {
+  text-align: center;
+}
+
+
+.DashLayout {
+  padding-top: 10px;
+  margin-top: -70px;
+  margin-left: 25%;
+  border: lightcyan 1px solid;
+  width: 50%;
+}
+
+.DashForm {
+  padding-top: 10px;
+  margin-top: -70px;
+  margin-left: 25%;
+  border: lightcyan 1px solid;
+  width: 50%;
+}
+
+.DashHeader {
+  color: lightcyan;
+  text-align: center;
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 50px;
+}
+
+.DashText {
+  font-size: 25px;
+  color:rgb(83, 83, 83);
+  text-align: center;
+  /* margin-left: -80px; */
+  font-weight: lighter;
+}
+
+.DashSubText {
+  margin: -20px;
+  font-size: 20px;
+  color:gray;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.EccSubText {
+  font-size: 20px;
+  color:gray;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.DashButton {
+text-align: center;
+font-weight: lighter;
+font-size: 20px;
+margin: 15px;
+}
