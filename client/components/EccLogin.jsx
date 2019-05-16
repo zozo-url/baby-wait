@@ -26,31 +26,37 @@ class  EccLogin  extends React.Component{
   render (){
     console.log(this.state)
   return(
-    <div>
+    <div> 
+       
   <img src = "./images/s1.jpg" className="firstImage"/>
-<div>
-     <div className='bold-line'></div>
-  <div className="main-container">
-      <div className='window'>
-        <div className='overlay'></div>
-        <div className='content'>
-        <div className='welcome'>Log in</div>
-      <div className='subtitle'></div>
+    <div>
+         <div className='overlay'>
+             <div className='bold-line'></div> 
+             <div className="main-container">
+                 <div className='window'>
+                    <div className='content'>
+                       <div className='welcome'>Log in</div>
+                       <div className='subtitle'></div>
 
-      <div className='input-fields'>
-        <input type='text'  placeholder='Username' name="username" className='input-line full-width' onChange={this.updateState} ></input>
-        <input type='text' placeholder='Password'  name="password" className='input-line full-width' onChange={this.updateState}></input>
+                     <div className='input-fields'>
+                         <input type='text'  placeholder='Username' name="username" className='input-line full-width' onChange={this.updateState} ></input>
+                         <input type='text' placeholder='Password'  name="password" className='input-line full-width' onChange={this.updateState}></input>
 
-        </div>
+                     </div>
 
-        <div className='spacing'>or continue with <span className='highlight'>Facebook</span></div>
-      <div><Link to='/parent/home'><button className='ghost-round full-width' onClick={this.submit}>Sign in</button></Link></div>
-        </div>
-      </div>
-    </div>
+                     <div className='spacing'>or continue with <span className='highlight'>Facebook</span></div>
+                     <div><Link to='/parent/home'><button className='ghost-round full-width' onClick={this.submit}>Sign in</button></Link></div>
+                  </div>
+             </div>
+             </div>
+           </div>
    
 
     </div>
+   
+   
+   
+   
    </div>
   )
 }
