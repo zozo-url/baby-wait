@@ -550,3 +550,11 @@ font-weight: lighter;
 font-size: 20px;
 margin: 15px;
 }
+
+.EccButton {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 20px;
+  margin: 15px;
+  margin-top: -20px;
+  }

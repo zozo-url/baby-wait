@@ -58,17 +58,18 @@ class  WaitlistApplication  extends React.Component{
       <br/>
       <br/>
       <br/>
-      <h1>Apply For This Waitlist</h1>
       <br/>
-      <div className="main-container">
-      <h3>Select child you want to enrol:</h3>
-      <select id="selectChild" onChange={this.handleChange}>
-      <option  value="select">select a child</option>
+      <div className="Dash">
+      <h2 className="DashHeader">Select child you want to enrol:</h2>
+        <br/>
+        <div className="DashLayout">
+      <select className="DashButton" id="selectChild" onChange={this.handleChange}>
+      <option className="DashButton"  value="select">select a child</option>
         {this.props.data.usersChildren.map((child, index) => <option key={index} value={child.id}>{child.first_name}</option>)}
       </select>
       <br/>
       <Link to='/parent/home'><button className="DashButton" onClick={this.handleSubmit}>submit</button></Link> 
-      <button className="DashButton">back</button>
+      <button className="DashButton">back</button></div>
       {/* <h3>or fill out this form:</h3>
       <form>
             <label htmlFor="">
