@@ -48,20 +48,22 @@ class  ChildRegister  extends React.Component{
     <div>
       <Header/>
       <div className="padding"></div>
-      <div className="main-container">
+      <div className="Dash">
       <h1></h1>
       <br/>
       <br/> 
-      <h2 className="formHeader">Register your child</h2>
-           <form>
+      <h2 className="DashHeader">Register your child</h2>
+      <br/>
+           <form className="DashForm">
             <label htmlFor="">
-            First name:
-            <input type="text" name='first_name' onChange={this.handleChange} />
-            Last name:
-            <input type="text" name='last_name' onChange={this.handleChange} />
-            Date of birth:
-            <input type="text" name='date_of_birth' onChange={this.handleChange} />
+            <p className="DashText">First name:</p>
+            <input className="DashText" type="text" name='first_name' onChange={this.handleChange} /> <br/> <br/>
+            <p className="DashText">Last name:</p>
+            <input className="DashText" type="text" name='last_name' onChange={this.handleChange} /><br/> <br/>
+            <p className="DashText">Date of birth:</p>
+            <input className="DashText" type="text" name='date_of_birth' onChange={this.handleChange} /><br/>
             </label>
+            <br/>
             <Link to='/parent/home'><button className="DashButton" onClick={this.handleSubmit}>Add a child</button></Link>
             <Link to='/parent/home'><button className="DashButton">back</button></Link>
             </form>

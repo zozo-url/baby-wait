@@ -24,18 +24,19 @@ class  EccList  extends React.Component{
         <br/>
         <br/>
         <br/>
-        <div>
+        <div className="DashLayout">
 
         {this.props.data.ecc.map((item, index) => 
         <div key={index}>
-          <h4>{item.center_name}</h4>
-          <p>Address: {item.address}, {item.suburb}</p>
-          <p>{item.description}</p>
-          <Link to={'/parent/registerwaitlist/'}><button onClick={() => this.handleClick(item.id)}>I want to register for this ecc</button></Link>
+          <h4 className="DashText">{item.center_name}</h4>
+          <p className="EccSubText">Address: {item.address}, {item.suburb}</p>
+          <p className="EccSubText">{item.description}</p>
+          <br/>
+          <Link to={'/parent/registerwaitlist/'}><button className='DashButton' onClick={() => this.handleClick(item.id)}>Join waitlist</button></Link>
         </div>)}
         </div>
            <br/>
-          <Link to='/parent/home'><button>back to parent dashboard</button></Link>
+          <Link to='/parent/home'><button className='DashButton'>back to parent dashboard</button></Link>
       </div>
     )
   }
