@@ -1,5 +1,6 @@
 import React from 'react';
 import Carrousel from '../Carrousel'
+import { Link }  from 'react-router-dom'
 
 const index = () => {
     return (
@@ -7,12 +8,15 @@ const index = () => {
 <Carrousel/>
             <div className="daycare">
                 <div className = "wrapper">
-                   baby-wait
-                </div>
-
-            </div>
-            
+                   <h2 className = 'DashHeader'>baby-wait</h2>
+                   <Link to='/parent/register'><button className="HomeButton">
+                    Register </button></Link>
+                <Link to='/parent/login'><button className="HomeButton">
+                    Login </button></Link>
+             </div>
         </div>
+            
+    </div>
     );
 };
 

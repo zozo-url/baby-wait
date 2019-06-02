@@ -558,3 +558,19 @@ margin: 15px;
   margin: 15px;
   margin-top: -20px;
   }
+
+  .ParentRegText {
+    text-align: center;
+    font-weight: lighter;
+    font-size: 50px;
+    margin: 15px;
+    margin-top: -20px;
+    }
+
+    .HomeButton {
+      text-align: center;
+      font-weight: lighter;
+      font-size: 20px;
+      margin-top: -20px;
+      margin: 15px;
+      }

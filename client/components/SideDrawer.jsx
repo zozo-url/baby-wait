@@ -27,6 +27,7 @@ const SideDrawer = (props) => {
             open={props.open}
             onClose={()=> props.onClose(false)}
         >
+        <p className="DashText">Parent</p>
             <List component="nav">
                 <Link to ="/" style = {{
                     textDecoration: 'none',
@@ -36,44 +37,53 @@ const SideDrawer = (props) => {
                 </ListItem>
                 </Link>
                     <br/>
+                <Link to = "/parent/register" style = {{
+                                    textDecoration: 'none',
+                                    }}>
+                 <ListItem button onClick={()=> scrollToElement('featured')}>
+                Register
+                 </ListItem>
+                </Link>
+                         <br/>
 
                 <Link to = "/parent/login" style = {{
                     textDecoration: 'none',
                 }}>
                 <ListItem button onClick={()=> scrollToElement('featured')}>
-                   Log In
+                Log In
                 </ListItem>
                </Link>
                     <br/>
                  
-
-                <Link to = "/parent/register" style = {{
+                    <Link to = "#/parent/home" style = {{
                     textDecoration: 'none',
-                    }}>
+                }}>
                 <ListItem button onClick={()=> scrollToElement('featured')}>
-                   Parent Register
+                Dashboard
                 </ListItem>
-                </Link>
-                        <br/>
+               </Link>
+                    <br/>
 
+                
+        <p className="DashText">ECC</p>
                 <Link to = "/ecc/register" style = {{
                     textDecoration: 'none',
                     }}>
                 <ListItem button onClick={()=> scrollToElement('featured')}>
-                   Early Child Care Register
+                   Register
                 </ListItem>
                 </Link>
 
                   <br/>
-
-                <Link to = "#/parent/home" style = {{
+                 <Link to = "/ecc/login" style = {{
                     textDecoration: 'none',
-                }}>
+                    }}>
                 <ListItem button onClick={()=> scrollToElement('featured')}>
-                   Parent Dash Board Log In
+                   Login
                 </ListItem>
-               </Link>
-                    <br/>
+                </Link>
+
+                  <br/>
             </List> 
         </Drawer>
     );
