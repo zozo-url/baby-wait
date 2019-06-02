@@ -1,9 +1,9 @@
 
-## TOT SPOT
+## BABY WAIT
 
 
 #### DESCRIPTION OF APP:
-Tot Spot is a waitlist application that connects parents with Early Childhood Centres. It allows parents to keep track of their children's’ applications and their position within each waitlist. For ECCs, it allows them to manage and update their waitlist in order to keep parents informed. 
+Baby Wait is a waitlist application that connects parents with Early Childhood Centres. It allows parents to keep track of their children's’ applications and their position within each waitlist. For ECCs, it allows them to manage and update their waitlist in order to keep parents informed. 
 
 
 ### -----MVP-----
